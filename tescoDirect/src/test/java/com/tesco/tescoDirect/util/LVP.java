@@ -16,7 +16,7 @@ public class LVP {
 	@Given("^the user defines the required webdriver for the LVP device$")
 	public void the_user_defines_the_required_webdriver_for_the_LLVP_device()
 			throws Throwable {
-		WC.openBrowsers(Browsers.valueOf("Firefox"));
+		WC.openBrowsers(Browsers.valueOf("RemoteFirefox"));
 	}
 
 	@And("^configure the required tests that he wishes to run on LVP$")
