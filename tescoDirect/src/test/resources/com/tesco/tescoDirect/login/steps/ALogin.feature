@@ -1,4 +1,4 @@
-@RegisteredUser @testChrome @testFirefox
+@RegisteredUser @testChrome @testFirefox @MVP
 Feature: Website Login
 
 Scenario: Accessing secured Login page 
