@@ -1,4 +1,4 @@
-@RegisteredUser @testChrome
+@RegisteredUser @testChrome @testFirefox
 Feature: Website Login
 
 Scenario: Accessing secured Login page 

@@ -31,7 +31,7 @@ When I enter my gift card details to pay for the product
 Then user should be displayed the following message
 |Your order has been confirmed|
 
-@NewUser @S4
+@NewUser
 Scenario: An new tesco direct user registers and logs into the website, searches for an item, applies filters(Sorting), adds item to basket and places an order (gift card)
 Given I navigate to TESCO direct "home_page"
 When user types in "hudl" in the search and browse text
@@ -62,7 +62,7 @@ When I enter my gift card details to pay for the product
 Then user should be displayed the following message
 |Your order has been confirmed|
 
-@AnonymousUser @MVP 
+@AnonymousUser
 Scenario: An anonymous user searches for an item,traverses back through the breadcrumbs , adds item to basket and logs into the website at the checkout page and places an order (gift card)
 Given I navigate to TESCO direct "home_page"
 When user types in "hudl" in the search and browse text
