@@ -1,4 +1,4 @@
-@regression @testChrome
+@testFirefox @testChrome @MVP @S4
 Feature: PDP
 
 

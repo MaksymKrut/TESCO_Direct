@@ -1,4 +1,4 @@
-@testChrome
+@testFirefox @testChrome @MVP @S4 @test
 Feature: Placing an order in the website by traversing end-to-end 
 
 @RegisteredUser

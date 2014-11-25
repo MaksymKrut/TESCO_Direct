@@ -1,4 +1,4 @@
-@testChrome
+@testFirefox @testChrome @MVP @S4
 Feature: PLP
 
 
