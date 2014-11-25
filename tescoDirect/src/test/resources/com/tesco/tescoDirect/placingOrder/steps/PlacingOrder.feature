@@ -1,6 +1,6 @@
 Feature: Placing an order in the website by traversing end-to-end 
 
-@RegisteredUser
+@RegisteredUser @testChrome
 Scenario: An exisiting tesco direct user logs into the website, searches for an item, applies filters(price), adds item to basket and places an order (gift card)
 Given I navigate to TESCO direct "home_page"
 When user types in "hudl" in the search and browse text
@@ -31,7 +31,7 @@ When I enter my gift card details to pay for the product
 Then user should be displayed the following message
 |Your order has been confirmed|
 
-@NewUser
+@NewUser @testFirefox
 Scenario: An new tesco direct user registers and logs into the website, searches for an item, applies filters(Sorting), adds item to basket and places an order (gift card)
 Given I navigate to TESCO direct "home_page"
 When user types in "hudl" in the search and browse text
