@@ -231,14 +231,11 @@ public class AboutYouPagePO extends PageObject {
 	}
 
 	public void selectingAddressFromDropDown() {
-		String Currentinstance = WC.getDriver().getClass().getName();
-		System.out.println(Currentinstance);
-		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
+		if (WC.LVP()) {
 			WC.wait(5);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
 			FirstAddress.click();
-		} else if (Currentinstance
-				.equals("io.appium.java_client.android.AndroidDriver")) {
+		} else if (WC.SVP() && WC.MVP()) {
 
 			PostCodeTextBox.sendKeys(Keys.ENTER);
 		}
@@ -247,17 +244,11 @@ public class AboutYouPagePO extends PageObject {
 
 	public void clickOnIDontHaveAclubcardCheckBox() {
 
-		String Currentinstance = WC.getDriver().getClass().getName();
-		System.out.println(Currentinstance);
-		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
+		if (WC.LVP()) {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
-		} else if (Currentinstance
-				.equals("io.appium.java_client.android.AndroidDriver"))
-
-		{
-
+		} else if (WC.SVP() && WC.MVP()) {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
