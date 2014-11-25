@@ -1100,7 +1100,7 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 			WC.waitForElementClickable(By
 					.cssSelector(Constants.CheckOutPage.PayNowButton),
 					50);
-			WC.wait(10);
+			WC.wait(5);
 			WC.click(paynowbutton);
 
 		} else if (WC.SVP()) {
@@ -1123,7 +1123,7 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 			WC.waitForElementClickable(By
 					.cssSelector(Constants.CheckOutPage.PayNowButton),
 					50);
-			WC.wait(10);
+			WC.wait(5);
 			WC.click(paynowbutton);
 		}
 		else if (WC.MVP()) {
@@ -1145,7 +1145,7 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 			WC.waitForElementClickable(By
 					.cssSelector(Constants.CheckOutPage.PayNowButton),
 					50);
-			WC.wait(10);
+			WC.wait(5);
 			WC.click(paynowbutton);
 		}
 		

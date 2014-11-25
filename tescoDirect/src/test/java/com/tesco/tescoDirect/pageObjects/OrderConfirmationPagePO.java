@@ -25,7 +25,6 @@ public class OrderConfirmationPagePO extends PageObject{
 	private WebElement SignInButton;
 	
 	public OrderConfirmationPagePO verifyYourOrderHasBeenConfirmedMessage() {
-		WC.wait(15);
 		WC.verifyText("Your order has been confirmed", YourOrderHasBeenConfirmed);
 		return (OrderConfirmationPagePO) WC.getPageObject(OrderConfirmationPagePO.class);
 	}

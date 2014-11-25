@@ -13,9 +13,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.TakesScreenshot;
 
+import com.tesco.tescoDirect.pageObjects.AboutYouPagePO;
 import com.tesco.tescoDirect.pageObjects.CheckOutPagePO;
 import com.tesco.tescoDirect.pageObjects.GlobalFooterPO;
 import com.tesco.tescoDirect.pageObjects.GlobalHeaderPO;
+import com.tesco.tescoDirect.pageObjects.HomePagePO;
 import com.tesco.tescoDirect.util.WebConnector;
 
 import cucumber.api.DataTable;
@@ -32,12 +34,54 @@ public class CheckOutPage {
 	private GlobalHeaderPO globalHeaderPO;
 	private GlobalFooterPO globalFooterPO;
 	private CheckOutPagePO checkOutPagePO;
+	private HomePagePO homePagePO;
+	private AboutYouPagePO aboutYouPagePO;
+	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a registered user$")
+	public void I_navigate_to_TESCO_directasaregistereduser(String appURL) throws Exception {
+			WC.getDriver().get(WC.getFullUrl(appURL));
+			WC.getDriver().navigate().refresh();
+            WC.suspendCookie();
+            homePagePO = WC.getPageObject(HomePagePO.class);
+    		homePagePO.clickingOnSigninorRegisterLink();
+    		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
+    		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
+    		aboutYouPagePO.enterPassword("Password2");
+    		aboutYouPagePO.clickOnSignInButton();
+	}
 	@Given("^I navigate to TESCO direct \"([^\"]*)\"$")
 	public void I_navigate_to_TESCO_direct(String appURL) throws Exception {
 			WC.getDriver().get(WC.getFullUrl(appURL));
 			WC.getDriver().navigate().refresh();
             WC.suspendCookie();
-           // WC.MVP();
+	}
+	
+	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a new User$")
+	public void I_navigate_to_TESCO_directasanewUser(String appURL) throws Exception {
+			WC.getDriver().get(WC.getFullUrl(appURL));
+			WC.getDriver().navigate().refresh();
+            WC.suspendCookie();
+            homePagePO = WC.getPageObject(HomePagePO.class);
+    		homePagePO.clickingOnSigninorRegisterLink();
+    		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
+    		aboutYouPagePO.clickOnIamAnewCustomerRadioButton();
+    		aboutYouPagePO.selectingTitle();
+    		aboutYouPagePO.typingFirstName();
+    		aboutYouPagePO.typingLastNameTextBox();
+    		aboutYouPagePO.typingEmail();
+    		aboutYouPagePO.typingPostCode();
+    		aboutYouPagePO.checkingDropdownMatchingAllOfthePostCodeAddress();
+    		aboutYouPagePO.selectingAddressFromDropDown();
+    		aboutYouPagePO.clickOnIDontHaveAclubcardCheckBox();
+    		aboutYouPagePO.clickOnRegFirstPageNextButton();
+    		aboutYouPagePO.checkingadditionalregistrationdetails();
+    		aboutYouPagePO.typingPhoneNumber();
+    		aboutYouPagePO.typingPassword();
+    		aboutYouPagePO.typingConfirmPassword();
+    		aboutYouPagePO.ClickingOnAgreeAndTC();
+    		aboutYouPagePO.ClickingRegSecondPageNextButton();
+    		homePagePO = WC.getPageObject(HomePagePO.class);
+    		homePagePO.checkUserisLoggedin();
+    		LOG.debug("Registered");
 	}
 
 	@And("^I check for the following elements in the checkout page Global Header$")

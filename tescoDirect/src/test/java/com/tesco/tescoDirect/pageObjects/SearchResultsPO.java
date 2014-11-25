@@ -171,12 +171,12 @@ public class SearchResultsPO extends PageObject {
 	public SearchResultsPO typetoSearch(String product) {
 		WC.assertingWebElement(SearchBar);
 		SearchBar.sendKeys(product);
+		WC.waitForElementClickable(By.cssSelector(Constants.SearchResultsPage.GoButton), 30);
 		GoButton.click();
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}
 
 	public SearchResultsPO checkingforMatchingProductsinSearchResultPage() {
-		WC.wait(15);
 		WC.assertingWebElement(ResultspageTitle);
 		String Currentinstance = WC.getDriver().getClass().getName();
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")
@@ -361,7 +361,6 @@ public class SearchResultsPO extends PageObject {
 	}
 
 	public SearchResultsPO checkingForProductsWithIntheRange() {
-		WC.wait(15);
 		if (WC.LVP()) {
 			WC.wait(5);
 			checkingprice();
@@ -391,7 +390,6 @@ public class SearchResultsPO extends PageObject {
 	}
 
 	public SearchResultsPO checkingForProductsWithIntheRangeForBest() {
-		WC.wait(15);
 		String Currentinstance = WC.getDriver().getClass().getName();
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.wait(5);
@@ -514,7 +512,6 @@ public class SearchResultsPO extends PageObject {
 	}
 
 	public SearchResultsPO checkingForBreadCrumbNavigatedPage() {
-		WC.wait(10);
 		String BreadCrumbExpectedPage = "http://www.tesco.com/direct/";
 		String BreadCrumbActualPage = WC.getCurrentURL().trim();
 		Assert.assertEquals(BreadCrumbExpectedPage, BreadCrumbActualPage);

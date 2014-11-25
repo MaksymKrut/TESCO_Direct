@@ -1,4 +1,4 @@
-@regression
+@testFirefox @testChrome @MVP @S4
 Feature: Checkout 
 
 

@@ -1,8 +1,9 @@
+@testChrome
 Feature: Placing an order in the website by traversing end-to-end 
 
-@RegisteredUser @testChrome
+@RegisteredUser
 Scenario: An exisiting tesco direct user logs into the website, searches for an item, applies filters(price), adds item to basket and places an order (gift card)
-Given I navigate to TESCO direct "home_page"
+Given I navigate to TESCO direct "home_page" as a registered user
 When user types in "hudl" in the search and browse text
 Then the PLP page should be displayed showing the no of products matching the keyword Hudl
 When user applies the Price filter
@@ -31,9 +32,9 @@ When I enter my gift card details to pay for the product
 Then user should be displayed the following message
 |Your order has been confirmed|
 
-@NewUser @testFirefox
+@NewUser
 Scenario: An new tesco direct user registers and logs into the website, searches for an item, applies filters(Sorting), adds item to basket and places an order (gift card)
-Given I navigate to TESCO direct "home_page"
+Given I navigate to TESCO direct "home_page" as a new User
 When user types in "hudl" in the search and browse text
 Then the PLP page should be displayed showing the no of products matching the keyword Hudl
 When user clicks on sort by Best Sellers

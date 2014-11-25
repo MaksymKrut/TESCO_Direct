@@ -14,7 +14,6 @@ public class StreamlineBasketPO extends PageObject {
 			.getLogger(StreamlineBasketPO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 	@FindBy(css = Constants.StreamlineBasketPage.StreamlinebasketOverlay)
-	@CacheLookup
 	private WebElement StreamlinebasketOverlay;
 	@FindBy(css = Constants.StreamlineBasketPage.OneItemAddedToBasket)
 	@CacheLookup
@@ -93,9 +92,11 @@ public class StreamlineBasketPO extends PageObject {
 	private WebElement AddToBasketButton3;
 
 	public StreamlineBasketPO checkingForStreamLineBasketOverlay() {
-		WC.wait(10);
-		//WC.waitForpresenceofElement(By.cssSelector(Constants.StreamlineBasketPage.StreamlinebasketOverlay),60);
-		//WC.assertingWebElement(StreamlinebasketOverlay);
+		WC.wait(2);
+		WC.waitForpresenceofElement(
+				By.cssSelector(Constants.StreamlineBasketPage.StreamlinebasketOverlay),
+				60);
+		WC.assertingWebElement(StreamlinebasketOverlay);
 		WC.handlePopup();
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
 	}
@@ -178,16 +179,17 @@ public class StreamlineBasketPO extends PageObject {
 	}
 
 	public StreamlineBasketPO clickingOnViewBasketButton() {
-		String Currentinstance = WC.getDriver().getClass().getName();
-		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
+		if (WC.LVP()) {
 			WC.assertingWebElement(ViewBasketButton);
 			WC.click(ViewBasketButton);
 
-		} else if (Currentinstance
-				.equals("io.appium.java_client.android.AndroidDriver")) {
+		} else if (WC.SVP()) {
 			WC.assertingWebElement(ViewBasketButtonMobile);
 			WC.click(ViewBasketButtonMobile);
 
+		} else if (WC.MVP()) {
+			WC.assertingWebElement(ViewBasketButtonHudl);
+			WC.click(ViewBasketButtonHudl);
 		}
 
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
@@ -222,7 +224,6 @@ public class StreamlineBasketPO extends PageObject {
 	}
 
 	public StreamlineBasketPO CheckingForBasketDetailPage() {
-		WC.wait(10);
 		String Currentinstance = WC.getDriver().getClass().getName();
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.presenceOfElementLocated(
@@ -277,16 +278,15 @@ public class StreamlineBasketPO extends PageObject {
 	}
 
 	public StreamlineBasketPO clickingOnCheckoutButtonEE() {
-		String Currentinstance = WC.getDriver().getClass().getName();
-		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
+		WC.wait(10);
+		if (WC.LVP()) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.StreamlineBasketPage.CheckoutButton),
 					50);
 			WC.assertingWebElement(CheckoutButton);
-			CheckoutButton.click();
+			WC.click(CheckoutButton);
 
-		} else if (Currentinstance
-				.equals("io.appium.java_client.android.AndroidDriver")) {
+		} else if (WC.SVP() && WC.MVP()) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.StreamlineBasketPage.CheckoutButtonMobile),
 					50);
@@ -299,7 +299,6 @@ public class StreamlineBasketPO extends PageObject {
 	}
 
 	public StreamlineBasketPO CheckingForSecurecheckoutPage() {
-		WC.wait(15);
 		if (WC.LVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
@@ -320,21 +319,21 @@ public class StreamlineBasketPO extends PageObject {
 	public StreamlineBasketPO clickingOnContinueShoppingLink() {
 		String Currentinstance = WC.getDriver().getClass().getName();
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
-			//WC.getDriver().navigate().back();
-			//WC.click(AddToBasketButton3);
-			//WC.wait(2);
-			//WC.handlePopup();
-			//WC.wait(5);
+			// WC.getDriver().navigate().back();
+			// WC.click(AddToBasketButton3);
+			// WC.wait(2);
+			// WC.handlePopup();
+			WC.wait(5);
 			WC.assertingWebElement(ContinueShoppingLink);
-			WC.click(ContinueShoppingLink);
+			ContinueShoppingLink.click();
 
 		} else if (Currentinstance
 				.equals("io.appium.java_client.android.AndroidDriver")) {
-			//WC.getDriver().navigate().back();
-			//WC.click(AddToBasketButton3);
-			//WC.wait(2);
-			//WC.handlePopup();
-			//WC.wait(5);
+			// WC.getDriver().navigate().back();
+			// WC.click(AddToBasketButton3);
+			// WC.wait(2);
+			// WC.handlePopup();
+			// WC.wait(5);
 			WC.assertingWebElement(ContinueShoppingLink);
 			WC.click(ContinueShoppingLinkMobile);
 
@@ -357,6 +356,7 @@ public class StreamlineBasketPO extends PageObject {
 					By.cssSelector(Constants.StreamlineBasketPage.ContinueShoppingLinkMobile),
 					20);
 			WC.assertingWebElement(ContinueShoppingLinkMobile);
+			WC.wait(5);
 			WC.click(ContinueShoppingLinkMobile);
 
 		} else if (WC.MVP()) {
@@ -364,6 +364,7 @@ public class StreamlineBasketPO extends PageObject {
 					By.cssSelector(Constants.StreamlineBasketPage.ContinueShoppingLinkHudl),
 					20);
 			WC.assertingWebElement(ContinueShoppingLinkHudl);
+			WC.wait(5);
 			WC.click(ContinueShoppingLinkHudl);
 
 		}
@@ -372,7 +373,6 @@ public class StreamlineBasketPO extends PageObject {
 	}
 
 	public StreamlineBasketPO CheckingForResultsPage() {
-		WC.wait(15);
 		if (WC.LVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),

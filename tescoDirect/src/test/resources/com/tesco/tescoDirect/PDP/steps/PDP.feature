@@ -1,4 +1,4 @@
-@regression
+@regression @testChrome
 Feature: PDP
 
 

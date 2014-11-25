@@ -323,7 +323,7 @@ public class PLP {
 	public void user_clicks_on_continue_shopping_link_in_the_stream_line_overlay()
 			throws Throwable {
 		LOG.debug("user clicks on continue shopping link in the stream line overlay");
-		streamlineBasketPO.clickingOnContinueShoppingLink();
+		streamlineBasketPO.clickingOnContinueShoppingLinkEE();
 	}
 
 	@Then("^user should be redirected to the PLP page from where the overlay was launched$")

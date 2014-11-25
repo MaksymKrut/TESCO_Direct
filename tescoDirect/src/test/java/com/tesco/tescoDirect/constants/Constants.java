@@ -625,7 +625,7 @@ public class Constants {
 		public final static String ShowingProductsMobile = "#filter-controls > div > b";
 		}
 	public final class StreamlineBasketPage{
-		public final static String StreamlinebasketOverlay = ".streamline-basket";
+		public final static String StreamlinebasketOverlay = "#lightbox";
 		public final static String OneItemAddedToBasket = ".updated-info>article>p>span";
 		public final static String OneItemAddedToBasketMobile = "#virtual-page > div.current-details > div.section-main > section > div.updated-info > article > p > span";
 		public final static String NumberofItemsinBasket = "div.summary > article > p";
@@ -641,7 +641,7 @@ public class Constants {
 		public final static String ViewBasketButtonHudl = "#lightbox > div.current-details > div.section-nav > nav > ul > li:nth-child(1) > a";
 		public final static String CheckoutButton = "#basket-checkout-mini";
 		public final static String CheckoutButtonMobile = "#basket-checkout-mini";
-		public final static String ContinueShoppingLink = "div.current-details > div.section-nav > nav > p > a";
+		public final static String ContinueShoppingLink = "div[id='lightbox'] > div.current-details > div.section-nav > nav > p > a";
 		public final static String ContinueShoppingLinkMobile = "#virtual-page > div.current-details > div.section-nav > nav > p > a";
 		public final static String ContinueShoppingLinkHudl = "#lightbox > div.current-details > div.section-nav > nav > p > a";
 		public final static String Itemsrelatedtoyourbasketblock = "#rr_placement_0 > div";

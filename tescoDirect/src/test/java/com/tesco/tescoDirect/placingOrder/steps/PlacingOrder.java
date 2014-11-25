@@ -65,7 +65,7 @@ public class PlacingOrder {
 	@And("^I click on View Basket button to empty the basket items$")
 	public void I_click_on_View_Basket_button_to_empty_the_basket_items() throws Throwable {
 		LOG.debug("I click on View Basket button to empty the basket items");
-		WC.wait(5);
+		WC.wait(2);
 		checkOutPage.I_navigate_to_TESCO_direct("home_page");
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickingOnViewBasketButton();
@@ -99,8 +99,7 @@ public class PlacingOrder {
 		LOG.debug("I enter my user details");
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
-		aboutYouPagePO.enterPassword("Password1");
-		WC.wait(10);
+		aboutYouPagePO.enterPassword("Password2");
 		aboutYouPagePO.clickOnSignInButton();
 	}
 	@After

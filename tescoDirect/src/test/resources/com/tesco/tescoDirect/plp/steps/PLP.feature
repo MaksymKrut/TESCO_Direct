@@ -1,3 +1,4 @@
+@testChrome
 Feature: PLP
 
 

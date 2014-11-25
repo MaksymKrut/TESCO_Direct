@@ -44,7 +44,6 @@ public class Login {
 			throws Throwable {
 		LOG.debug("the I'm an existing customer radio button is selected by default");
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
-
 		aboutYouPagePO.checkExistingCustomerRadioButtonIsSelected();
 
 	}
