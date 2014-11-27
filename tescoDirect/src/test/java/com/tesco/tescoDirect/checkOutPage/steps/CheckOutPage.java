@@ -36,52 +36,56 @@ public class CheckOutPage {
 	private CheckOutPagePO checkOutPagePO;
 	private HomePagePO homePagePO;
 	private AboutYouPagePO aboutYouPagePO;
+
 	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a registered user$")
-	public void I_navigate_to_TESCO_directasaregistereduser(String appURL) throws Exception {
-			WC.getDriver().get(WC.getFullUrl(appURL));
-			WC.getDriver().navigate().refresh();
-            WC.suspendCookie();
-            homePagePO = WC.getPageObject(HomePagePO.class);
-    		homePagePO.clickingOnSigninorRegisterLink();
-    		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
-    		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
-    		aboutYouPagePO.enterPassword("Password2");
-    		aboutYouPagePO.clickOnSignInButton();
+	public void I_navigate_to_TESCO_directasaregistereduser(String appURL)
+			throws Exception {
+		WC.getDriver().get(WC.getFullUrl(appURL));
+		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.clickingOnSigninorRegisterLink();
+		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
+		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
+		aboutYouPagePO.enterPassword("Password2");
+		aboutYouPagePO.clickOnSignInButton();
 	}
+
 	@Given("^I navigate to TESCO direct \"([^\"]*)\"$")
 	public void I_navigate_to_TESCO_direct(String appURL) throws Exception {
-			WC.getDriver().get(WC.getFullUrl(appURL));
-			WC.getDriver().navigate().refresh();
-            WC.suspendCookie();
+		WC.getDriver().get(WC.getFullUrl(appURL));
+		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
 	}
-	
+
 	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a new User$")
-	public void I_navigate_to_TESCO_directasanewUser(String appURL) throws Exception {
-			WC.getDriver().get(WC.getFullUrl(appURL));
-			WC.getDriver().navigate().refresh();
-            WC.suspendCookie();
-            homePagePO = WC.getPageObject(HomePagePO.class);
-    		homePagePO.clickingOnSigninorRegisterLink();
-    		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
-    		aboutYouPagePO.clickOnIamAnewCustomerRadioButton();
-    		aboutYouPagePO.selectingTitle();
-    		aboutYouPagePO.typingFirstName();
-    		aboutYouPagePO.typingLastNameTextBox();
-    		aboutYouPagePO.typingEmail();
-    		aboutYouPagePO.typingPostCode();
-    		aboutYouPagePO.checkingDropdownMatchingAllOfthePostCodeAddress();
-    		aboutYouPagePO.selectingAddressFromDropDown();
-    		aboutYouPagePO.clickOnIDontHaveAclubcardCheckBox();
-    		aboutYouPagePO.clickOnRegFirstPageNextButton();
-    		aboutYouPagePO.checkingadditionalregistrationdetails();
-    		aboutYouPagePO.typingPhoneNumber();
-    		aboutYouPagePO.typingPassword();
-    		aboutYouPagePO.typingConfirmPassword();
-    		aboutYouPagePO.ClickingOnAgreeAndTC();
-    		aboutYouPagePO.ClickingRegSecondPageNextButton();
-    		homePagePO = WC.getPageObject(HomePagePO.class);
-    		homePagePO.checkUserisLoggedin();
-    		LOG.debug("Registered");
+	public void I_navigate_to_TESCO_directasanewUser(String appURL)
+			throws Exception {
+		WC.getDriver().get(WC.getFullUrl(appURL));
+		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.clickingOnSigninorRegisterLink();
+		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
+		aboutYouPagePO.clickOnIamAnewCustomerRadioButton();
+		aboutYouPagePO.selectingTitle();
+		aboutYouPagePO.typingFirstName();
+		aboutYouPagePO.typingLastNameTextBox();
+		aboutYouPagePO.typingEmail();
+		aboutYouPagePO.typingPostCode();
+		aboutYouPagePO.checkingDropdownMatchingAllOfthePostCodeAddress();
+		aboutYouPagePO.selectingAddressFromDropDown();
+		aboutYouPagePO.clickOnIDontHaveAclubcardCheckBox();
+		aboutYouPagePO.clickOnRegFirstPageNextButton();
+		aboutYouPagePO.checkingadditionalregistrationdetails();
+		aboutYouPagePO.typingPhoneNumber();
+		aboutYouPagePO.typingPassword();
+		aboutYouPagePO.typingConfirmPassword();
+		aboutYouPagePO.ClickingOnAgreeAndTC();
+		aboutYouPagePO.ClickingRegSecondPageNextButton();
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.checkUserisLoggedin();
+		LOG.debug("Registered");
 	}
 
 	@And("^I check for the following elements in the checkout page Global Header$")
@@ -191,11 +195,8 @@ public class CheckOutPage {
 		for (int i = 0; i < aux.size(); i++) {
 			Map<String, String> dates = aux.get(i);
 			deliverysavermessage = dates.get("Delivery saver message");
-
 		}
-		if (deliverysavermessage != null)
-
-		{
+		if (deliverysavermessage != null) {
 			checkOutPagePO
 					.verifyDeliveryOptionSavermessage(deliverysavermessage);
 		}
@@ -217,11 +218,8 @@ public class CheckOutPage {
 			Map<String, String> dates = aux.get(i);
 			deliverysaverhelpmessage = dates
 					.get(" Delivery saver help message");
-
 		}
-		if (deliverysaverhelpmessage != null)
-
-		{
+		if (deliverysaverhelpmessage != null) {
 			checkOutPagePO
 					.verifyDeliveryOptionHelpmessage(deliverysaverhelpmessage);
 		}
@@ -336,7 +334,6 @@ public class CheckOutPage {
 		LOG.debug("I should see the following elements in Pay with a Gift Card module");
 		checkOutPagePO.verifypaywithagiftcardElements();
 	}
-
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

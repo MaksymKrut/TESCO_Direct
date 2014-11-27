@@ -3,6 +3,7 @@ package com.tesco.tescoDirect.util;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.selendroid.SelendroidCapabilities;
@@ -55,6 +56,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerDriverService;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -476,6 +478,15 @@ public final class WebConnector {
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				desiredCapabilities);
 	}
+	public void openIphone() throws Throwable {
+		 DesiredCapabilities capabilities = new DesiredCapabilities();
+		 capabilities.setCapability("device","DX3LP8T4FML6");
+		 capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
+		 capabilities.setCapability(CapabilityType.VERSION, "6.0");
+		 capabilities.setCapability(CapabilityType.PLATFORM, "ANY");
+		 driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+	}
+
 
 	public void openAndroidBrowserMVP() throws Throwable {
 		if (androidDriver() != null) {
