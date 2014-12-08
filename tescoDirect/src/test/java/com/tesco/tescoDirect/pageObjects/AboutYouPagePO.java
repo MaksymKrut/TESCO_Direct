@@ -317,4 +317,15 @@ public class AboutYouPagePO extends PageObject {
 		WC.assertingWebElement(RegSecondPageNextButton);
 		RegSecondPageNextButton.click();
 	}
+	
+
+	public boolean checkEmailAddressIsUpdated() {
+		String actualPageTitle = WC.getPageTitle();
+		String EmailTextBoxValue = WC.getAttributeValue(SignInEmailInputBox, "value");
+		if(    (actualPageTitle.equalsIgnoreCase("About you - Tesco.com"))   &&   (EmailTextBoxValue.equalsIgnoreCase("tescodirecttestframework1@gmail.com"))  )
+		return true;
+		else
+		return false;
+		
+	}
 }

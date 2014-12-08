@@ -829,6 +829,10 @@ public final class WebConnector {
 		WebElement elementOpen = driver.findElement(By.xpath(LinkingText));
 		elementOpen.click();
 	}
+	
+	public void clearTextBox(WebElement textbox) {
+		textbox.clear();		
+	}
 
 	/*
 	 * this will perform doubleClick
@@ -1813,6 +1817,11 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 
 	public Properties getConfigProperties() {
 		return configProperties;
+	}
+	
+	public void pressTabKey(WebElement textBox) {
+		textBox.sendKeys(Keys.TAB);
+		
 	}
 
 	public void setConfigProperties(Properties configProperties) {

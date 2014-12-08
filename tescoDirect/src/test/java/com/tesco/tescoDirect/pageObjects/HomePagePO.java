@@ -50,6 +50,15 @@ public class HomePagePO extends PageObject {
 	@FindBy(css = Constants.HomePage.SearchButton)
 	@CacheLookup
 	private WebElement SearchButton;
+	@FindBy(linkText = Constants.HomePage.MyAccountLink)
+	@CacheLookup
+	private WebElement MyAccountLink;
+	@FindBy(css = Constants.HomePage.CookiesMsg)
+	@CacheLookup
+	private WebElement CookiesMsg;
+	@FindBy(css = Constants.HomePage.CookiesMsgCloseButton)
+	@CacheLookup
+	private WebElement CookiesMsgCloseButton;
 
 	public AboutYouPagePO clickingOnSigninorRegisterLink() {
 		if (SignInButton.isDisplayed()) {
@@ -164,6 +173,17 @@ public class HomePagePO extends PageObject {
 	public void checkUserisOnHomePage() {
 		Assert.assertTrue(WC.getPageTitle().contains(
 				"Tesco direct: Electricals, Home Furnishing, Toys"));
+	}
+	
+	public void clickOnMyAccountLink() {
+		WC.click(MyAccountLink);
+		
+	}
+	
+	public void closeCookiesMsg() {
+		if((WC.elementIsDisplayedOrNot(CookiesMsg))==true)
+			WC.click(CookiesMsgCloseButton);
+		
 	}
 
 }

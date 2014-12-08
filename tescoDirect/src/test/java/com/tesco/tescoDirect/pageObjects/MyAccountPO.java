@@ -54,6 +54,22 @@ public class MyAccountPO extends PageObject {
 	@CacheLookup
 	private WebElement ViewDirectOrdersbutton;
 	
+	@FindBy(linkText = Constants.MyAccountPage.AddANewAddressLink)
+	@CacheLookup
+	private WebElement AddANewAddressLink;
+	@FindBy(linkText = Constants.MyAccountPage.AddAPaymentCardLink)
+	@CacheLookup
+	private WebElement AddAPaymentCardLink;
+	@FindBy(linkText = Constants.MyAccountPage.ChangeMyEmailAddressLink)
+	@CacheLookup
+	private WebElement ChangeMyEmailAddressLink;
+	@FindBy(linkText = Constants.MyAccountPage.ChangePasswordLink)
+	@CacheLookup
+	private WebElement ChangePasswordLink;
+	@FindBy(linkText = Constants.MyAccountPage.ManageMyPaymentDetailsLink)
+	@CacheLookup
+	private WebElement ManageMyPaymentDetailsLink;
+	
 
 	public MyAccountPO clickingOnSignInbutton() {
 		WC.assertingWebElement(SignInButton);
@@ -122,5 +138,52 @@ public class MyAccountPO extends PageObject {
 		WC.assertingWebElement(ViewDirectOrdersbutton);
 		WC.click(ViewDirectOrdersbutton);
 		return (MyAccountPO) WC.getPageObject(MyAccountPO.class);
+		
 	}
+	
+	public boolean checkAddANewAddressLinkIsPresent() {
+		return(WC.elementIsDisplayedOrNot(AddANewAddressLink));
+	}
+	
+	
+	public void clickOnAddANewAddressLink() {
+		WC.click(AddANewAddressLink);
+		
+	}
+	
+	public boolean checkAddAPaymentCardLinkIsPresent() {
+		return(WC.elementIsDisplayedOrNot(AddAPaymentCardLink));
+	}
+	
+	public void clickOnAddAPaymentCardLink() {
+		WC.click(AddAPaymentCardLink);
+		
+	}
+	
+	public boolean checkChangeMyEmailAddressLinkIsPresent() {
+		return(WC.elementIsDisplayedOrNot(ChangeMyEmailAddressLink));
+	}
+	
+	public void clickOnChangeMyEmailAddressLink() {
+		WC.click(ChangeMyEmailAddressLink);
+		
+	}
+	
+public boolean checkChangePasswordLinkIsPresent() {// TODO Auto-generated method stub
+		
+		return(WC.elementIsDisplayedOrNot(ChangePasswordLink));
+		
+	}
+public void clickOnChangePasswordLink() {
+	WC.click(ChangePasswordLink);
+	
+}
+public boolean checkManageMyPaymentDetailsLinkIsPresent() {
+	return(WC.elementIsDisplayedOrNot(ManageMyPaymentDetailsLink));
+}
+
+public void clickOnManageMyPaymentDetailsLink() {
+	WC.click(ManageMyPaymentDetailsLink);
+	
+}
 }
