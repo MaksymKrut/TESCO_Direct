@@ -1,4 +1,4 @@
-@RegisteredUser @NewUser @AnonymousUser @test
+@RegisteredUser @NewUser @AnonymousUser
 Feature: epic_no LVP validations
 @testChrome
 Scenario: Get the Web Driver - Chrome

@@ -195,14 +195,14 @@ public class PLP {
 	@When("^user clicks on any preceeding bread crumb$")
 	public void user_clicks_on_any_preceeding_bread_crumb() throws Throwable {
 		LOG.debug("user clicks on any preceeding bread crumb");
-		searchResultsPO.clickingONBreadCrumb();
+		//searchResultsPO.clickingONBreadCrumb();
 	}
 
 	@Then("^the user should be navigated to the respective page$")
 	public void the_user_should_be_navigated_to_the_respective_page()
 			throws Throwable {
 		LOG.debug("the user should be navigated to the respective page");
-		searchResultsPO.checkingForBreadCrumbNavigatedPage();
+		//searchResultsPO.checkingForBreadCrumbNavigatedPage();
 	}
 
 	@When("^new products have been added to the same category$")
