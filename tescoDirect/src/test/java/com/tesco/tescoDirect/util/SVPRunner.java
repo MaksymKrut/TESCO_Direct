@@ -16,7 +16,7 @@ import cucumber.api.junit.Cucumber;
 		features = {"src/test/resources/com/tesco/tescoDirect/utility","src/test/resources" }, 
 		strict = true, 
 		format = { "pretty","html:target/cucumber", "json:target/SVP.json" }, 
-		tags = { "@S4" }, 
+		tags = { "@testSVP" }, 
 		monochrome = true, 
 				glue = {"com.tesco.tescoDirect.util",
 				"com.tesco.tescoDirect.checkOutPage.steps",

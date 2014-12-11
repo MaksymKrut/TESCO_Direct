@@ -1,6 +1,6 @@
 @RegisteredUser @NewUser @AnonymousUser
 Feature: epic_no LVP validations
-@testChrome
+@testChrome @testC
 Scenario: Get the Web Driver - Chrome
 
 Given the user defines the required webdriver for the LLVP device
