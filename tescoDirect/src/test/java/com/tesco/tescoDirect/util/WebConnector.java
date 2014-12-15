@@ -475,7 +475,7 @@ public final class WebConnector {
 				MobileCapabilityType.PLATFORM_VERSION, "4.2.3");
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
+		driver = new RemoteWebDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 	}
 	public void openIphone() throws Throwable {
@@ -502,7 +502,7 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
 		desiredCapabilities.setCapability("rotatable", true);
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
+		driver = new RemoteWebDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 		androidDriver = (AndroidDriver) driver;
 		androidDriver.context("NATIVE_APP");
