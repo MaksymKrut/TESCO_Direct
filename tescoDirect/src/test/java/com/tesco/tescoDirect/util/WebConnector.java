@@ -475,6 +475,9 @@ public final class WebConnector {
 				MobileCapabilityType.PLATFORM_VERSION, "4.2.3");
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
+		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
 		driver = new AndroidDriver(new URL("http://172.23.190.64:4723/wd/hub"),
 				desiredCapabilities);
 	}
