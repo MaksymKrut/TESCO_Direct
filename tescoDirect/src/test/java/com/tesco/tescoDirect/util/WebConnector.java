@@ -472,13 +472,13 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,
 				MobilePlatform.ANDROID);
 		desiredCapabilities.setCapability(
-				MobileCapabilityType.PLATFORM_VERSION, "4.2.3");
+				MobileCapabilityType.PLATFORM_VERSION, "4.3");
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
 		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL("http://172.23.190.64:4723/wd/hub"),
+		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 	}
 	public void openIphone() throws Throwable {
@@ -505,7 +505,10 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
 		desiredCapabilities.setCapability("rotatable", true);
-		driver = new AndroidDriver(new URL("http://172.23.190.64:4724/wd/hub"),
+		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
+		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 		androidDriver = (AndroidDriver) driver;
 		androidDriver.context("NATIVE_APP");
