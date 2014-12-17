@@ -335,9 +335,10 @@ public class ChangePasswordPagePO extends PageObject {
 
 	public boolean checkPasswordStrengthIndicatorIsEnabled() {
 
-		String attributeValue = WC.getAttributeValue(PasswordStrengthIndicator, "class");
+		
 		Boolean result = null;
 		while(true){
+			String attributeValue = WC.getAttributeValue(PasswordStrengthIndicator, "class");
 			if(attributeValue.equalsIgnoreCase("state-0")){
 				result = true;;
 				break;}

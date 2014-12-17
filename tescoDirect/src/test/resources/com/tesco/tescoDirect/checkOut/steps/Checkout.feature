@@ -1,4 +1,4 @@
-@testFirefox @testChrome @MVP @S4
+@testFirefox @MVP
 Feature: Checkout 
 
 

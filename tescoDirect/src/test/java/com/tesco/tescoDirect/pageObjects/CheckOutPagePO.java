@@ -449,7 +449,23 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(css = Constants.CheckOutPage.BillingAddress)
 	@CacheLookup
 	private WebElement BillingAddress;
+	
+	@FindBy(css = Constants.CheckOutPage.ClubcardBoostImage)
+	@CacheLookup
+	private WebElement ClubcardBoostImage;
+	@FindBy(xpath = Constants.CheckOutPage.InClubcardBoostMoreInfoLink)
+	@CacheLookup
+	private WebElement InClubcardBoostMoreInfoLink;
 
+	@FindBy(xpath = Constants.CheckOutPage.NewAddressLinkForBillingAddress)
+	@CacheLookup
+	private WebElement NewAddressLinkForBillingAddress;
+	@FindBy(css = Constants.CheckOutPage.BillingAddressNickNameTextBox)
+	@CacheLookup
+	private WebElement BillingAddressNickNameTextBox;
+	@FindBy(css = Constants.CheckOutPage.AddNewBillingAddressButton)
+	@CacheLookup
+	private WebElement AddNewBillingAddressButton;
 	
 public boolean checkOrderTabIsHighlighted() {
 		
@@ -1308,6 +1324,47 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 				namaddressbutton.isDisplayed());
 		namcancelbutton.click();
 		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
+	}
+	
+public Boolean checkClubcardBoostImageIsDisplayed() {
+		
+		
+		return(WC.elementIsDisplayedOrNot(ClubcardBoostImage));
+		
+	}
+	public Boolean checkInClubcardBoostMoreInfoLinkIsDisplayed() {
+		
+		WC.waitForElementTobePresent(InClubcardBoostMoreInfoLink);
+		return(WC.elementIsDisplayedOrNot(InClubcardBoostMoreInfoLink));
+		
+	}
+	
+	public void clickOnNewAddressLinkForBillingAddress() {
+		WC.waitForElementTobePresent(NewAddressLinkForBillingAddress);
+		WC.click(NewAddressLinkForBillingAddress);
+		
+	}
+	public void AddANewBillingAddresss() {
+		WC.waitForElementTobePresent(BillingAddressNickNameTextBox);
+		WC.type(BillingAddressNickNameTextBox, "New Billing Address");
+		typingPostCode();
+		selectingAddressFromDropDown();
+		WC.waitForElementTobePresent(AddNewBillingAddressButton);
+		WC.wait(5);
+		//WC.pressTabKey(AddNewBillingAddressButton);
+		WC.click(AddNewBillingAddressButton);
+		System.out.println("Clicked on AddNewBillingAddressButton");
+		WC.wait(10);
+		
+		
+	}
+	public boolean checkNewBillingAddressIsAdded() {
+		WC.waitForElementTobePresent(billingaddressdropdown);
+		WC.getSelectedOptionFromDropdown(billingaddressdropdown);
+		if(WC.getSelectedOptionFromDropdown(billingaddressdropdown).equalsIgnoreCase("New Billing Address"))
+		return true;
+		else
+		return false;
 	}
 
 }

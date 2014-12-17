@@ -1924,4 +1924,13 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 		return false;
 	}
 
+	
+	public void waitForElementTobePresent(WebElement element) {
+		try{
+		WebDriverWait wait = new WebDriverWait(driver, 120);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		}catch(Throwable t){
+			
+		}
+	}
 }

@@ -70,6 +70,10 @@ public class MyAccountPO extends PageObject {
 	@CacheLookup
 	private WebElement ManageMyPaymentDetailsLink;
 	
+	@FindBy(linkText = Constants.MyAccountPage.ManageMyAddressBookLink)
+	@CacheLookup
+	private WebElement ManageMyAddressBookLink;
+	
 
 	public MyAccountPO clickingOnSignInbutton() {
 		WC.assertingWebElement(SignInButton);
@@ -186,4 +190,15 @@ public void clickOnManageMyPaymentDetailsLink() {
 	WC.click(ManageMyPaymentDetailsLink);
 	
 }
+
+public boolean checkManageMyAddressBookLinkIsPresent() {
+	return(WC.elementIsDisplayedOrNot(ManageMyAddressBookLink));
+	
+}
+
+public void clickOnkManageMyAddressBookLink() {
+	WC.click(ManageMyAddressBookLink);
+	
+}
+
 }
