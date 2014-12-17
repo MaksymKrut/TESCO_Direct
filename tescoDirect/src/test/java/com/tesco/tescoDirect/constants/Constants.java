@@ -553,6 +553,7 @@ public class Constants {
 		public final static String SignInButton = "#signin-button";
 		public final static String IamAnewCustomerRadioButton = "#ir-about-you > ul > li:nth-child(2) > div";
 		public final static String TitleDropDown = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > a > span.icon";
+		//public final static String TitleDropDown = "select[id='reg-title']";
 		public final static String TitleDropDownMR = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > ul > li:nth-child(3) > a";
 		public final static String TitleDropDownMobile = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > label";
 		public final static String TitleDropDownMRMobile = "#reg-title > option:nth-child(2)";
@@ -566,7 +567,7 @@ public class Constants {
 		public final static String BuildingNumber = "#nv-BuildingName";
 		public final static String Street = "#nv-PrimaryStreet";
 		public final static String DropdownMatchingAllofthePostcode = "[id*='ed']> div.pnlResultsSmall";
-		public final static String FirstAddress = "//span[contains(.,'Capita Hartshead Unit 2, Welwyn Garden City')]";
+		public final static String FirstAddress = "div[id*='filterItem'] > span:nth-child(2)";
 		public final static String ClubcardNumberTextBox = "#register-clubcard";
 		public final static String IDontHaveAclubcardCheckBox = "#clubcard-checkbox > div";
 		public final static String RegFirstPageNextButton = "#register-button";

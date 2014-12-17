@@ -478,7 +478,7 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				desiredCapabilities);
 	}
 	public void openIphone() throws Throwable {
@@ -508,7 +508,7 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				desiredCapabilities);
 		androidDriver = (AndroidDriver) driver;
 		androidDriver.context("NATIVE_APP");
@@ -545,11 +545,11 @@ public final class WebConnector {
 
 	public boolean SVP() {
 
-		String ExpectedSVP = "360x559";
+		String ExpectedSVP = "360x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualSVP = width+"x"+height ;
+		String ActualSVP = width+"x";
 		return ExpectedSVP.equals(ActualSVP);
 
 	}
@@ -566,12 +566,11 @@ public final class WebConnector {
 	public boolean MVP() {
 		//Hudl - 600x791
 		//Note2 - 640x279
-		String ExpectedMVP = "600x791";
+		String ExpectedMVP = "600x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualMVP = width+"x"+height ;
-		System.out.println(ActualMVP);
+		String ActualMVP = width+"x";
 		return ExpectedMVP.equals(ActualMVP);
 
 	}

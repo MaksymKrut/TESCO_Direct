@@ -229,6 +229,7 @@ public class Registration {
 		LOG.debug("user should be successfully registered and Home page should be shown");
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.checkUserisLoggedin();
+		homePagePO.clickOnSignOutLink();
 	}
 
 	@After
