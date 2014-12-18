@@ -121,7 +121,7 @@ public class HomePagePO extends PageObject {
 			WC.implicitwait(50);
 			WC.assertingWebElement(WelcomeMsg);
 		} else if (WC.SVP()) {
-			WC.wait(10);
+			WC.wait(5);
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.HomePage.SignInButton), 60);
 			WC.click(SignInButton);

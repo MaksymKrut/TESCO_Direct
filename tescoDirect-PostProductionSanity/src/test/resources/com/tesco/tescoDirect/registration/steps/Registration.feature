@@ -1,5 +1,21 @@
-@NewUser @testFirefox @testChrome @MVP @S4 @testC @testF @testMVP
+@testC
 Feature: Registration
+
+Scenario: Registration
+ Given I navigate to TESCO direct "home_page" 
+ And I click on the Sign in or Register Link
+ And I click on the I am a new customer radio button
+ Then the following fields and values for registration should be displayed
+|Field             |Value|
+|Title*            |Title|
+|First name        |     |
+|Last name         |     |
+|Email             |     |
+|Postcode          |     |
+|Clubcard Number   |     |
+And I don't have a Clubcard checkbox should appear unchecked
+And Edit button should appear disabled
+And Next button should appear enabled
 
 Scenario: Registration Page - user fills in values and clicks on Next button
 Given I navigate to TESCO direct "home_page"

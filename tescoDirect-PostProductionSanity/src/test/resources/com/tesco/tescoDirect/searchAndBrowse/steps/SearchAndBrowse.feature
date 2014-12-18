@@ -1,4 +1,3 @@
-@testFirefox @testChrome @MVP @S4
 Feature: Search and Browse 
 
 

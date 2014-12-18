@@ -1,4 +1,3 @@
-@testFirefox @MVP @S4
 Feature: PDP
 
 

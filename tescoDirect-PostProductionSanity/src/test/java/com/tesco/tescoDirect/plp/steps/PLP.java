@@ -195,14 +195,14 @@ public class PLP {
 	@When("^user clicks on any preceeding bread crumb$")
 	public void user_clicks_on_any_preceeding_bread_crumb() throws Throwable {
 		LOG.debug("user clicks on any preceeding bread crumb");
-		//searchResultsPO.clickingONBreadCrumb();
+		searchResultsPO.clickingONBreadCrumb();
 	}
 
 	@Then("^the user should be navigated to the respective page$")
 	public void the_user_should_be_navigated_to_the_respective_page()
 			throws Throwable {
 		LOG.debug("the user should be navigated to the respective page");
-		//searchResultsPO.checkingForBreadCrumbNavigatedPage();
+		searchResultsPO.checkingForBreadCrumbNavigatedPage();
 	}
 
 	@When("^new products have been added to the same category$")
@@ -323,21 +323,32 @@ public class PLP {
 	public void user_clicks_on_continue_shopping_link_in_the_stream_line_overlay()
 			throws Throwable {
 		LOG.debug("user clicks on continue shopping link in the stream line overlay");
+		streamlineBasketPO.clickingOnContinueShoppingLink();
+		//streamlineBasketPO.clickingOnContinueShoppingLinkEE();
+	}
+	@When("^user clicks on continue shopping link in the stream line overlay page$")
+	public void user_clicks_on_continue_shopping_link_in_the_stream_line_page()
+			throws Throwable {
+		LOG.debug("user clicks on continue shopping link in the stream line overlay page");
 		streamlineBasketPO.clickingOnContinueShoppingLinkEE();
 	}
-
 	@Then("^user should be redirected to the PLP page from where the overlay was launched$")
 	public void user_should_be_redirected_to_the_PLP_page_from_where_the_overlay_was_launched()
 			throws Throwable {
 		LOG.debug("user should be redirected to the PLP page from where the overlay was launched");
 		streamlineBasketPO.CheckingForResultsPage();
+	}
+	@Then("^user should be redirected to the PLP page$")
+	public void user_should_be_redirected_to_the_PLP_page()
+			throws Throwable {
+		LOG.debug("user should be redirected to the PLP page");
+		streamlineBasketPO.CheckingForResultsPageEE();
 		/*homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickingOnViewBasketButton();
 		basketPagePO = WC.getPageObject(BasketPagePO.class);
 		basketPagePO.clickingOnEmptyBasketButton();*/
 
 	}
-
 	@Given("^I place an order as a Registered User$")
 	public void registeredUser() throws Throwable {
 		LOG.debug("I have an item In basket");

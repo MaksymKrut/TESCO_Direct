@@ -478,7 +478,7 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
 		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				desiredCapabilities);
 	}
 	public void openIphone() throws Throwable {
@@ -505,7 +505,10 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
 		desiredCapabilities.setCapability("rotatable", true);
-		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
+		desiredCapabilities.setCapability(MobileCapabilityType.ACCEPT_SSL_CERTS, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
+		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
 				desiredCapabilities);
 		androidDriver = (AndroidDriver) driver;
 		androidDriver.context("NATIVE_APP");
@@ -516,8 +519,9 @@ public final class WebConnector {
 	public void suspendCookie() {
 		//String name =driver.manage().getCookieNamed("fsr.a");
 		//Set<Cookie> cookies = driver.manage().getCookies();
-		//Cookie ck = new Cookie("fsr.a", "suspended");
-		driver.manage().deleteCookieNamed("fsr.a");
+		Cookie ck = new Cookie("fsr.a", "suspend");
+		//driver.manage().deleteCookieNamed("fsr.a");
+		driver.manage().deleteCookie(ck);
 	}
 
 	public void removeCookies() {
@@ -542,33 +546,32 @@ public final class WebConnector {
 
 	public boolean SVP() {
 
-		String ExpectedSVP = "360x559";
+		String ExpectedSVP = "360x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualSVP = width+"x"+height ;
+		String ActualSVP = width+"x";
 		return ExpectedSVP.equals(ActualSVP);
 
 	}
 
 	public boolean LVP() {
-		String ExpectedLVP = "1366x667";
+		String ExpectedLVP = "1366x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualLVP = width+"x"+height ;
+		String ActualLVP = width+"x";
 		return ExpectedLVP.equals(ActualLVP);
 
 	}
 	public boolean MVP() {
 		//Hudl - 600x791
 		//Note2 - 640x279
-		String ExpectedMVP = "600x791";
+		String ExpectedMVP = "600x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualMVP = width+"x"+height ;
-		System.out.println(ActualMVP);
+		String ActualMVP = width+"x";
 		return ExpectedMVP.equals(ActualMVP);
 
 	}
@@ -1643,7 +1646,23 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * If checkbox is not selected then it will return true
+	 * 
+	 * @param element
+	 */
+	public boolean CheckboxStatus(WebElement element) {
+		try {
+			if (element.isSelected()) {
+				LOG.debug("Check Box " + element + " is not selected");
+				return false;
+			}
+		} catch (Exception ex) {
+			LOG.error("Check Box  " + element + " is selected");
+		}
+		return true;
+	}
 	public boolean statusofRadiobutton(WebElement element) {
 		try {
 			if (element.isSelected()) {
@@ -1922,4 +1941,13 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 		return false;
 	}
 
+	
+	public void waitForElementTobePresent(WebElement element) {
+		try{
+		WebDriverWait wait = new WebDriverWait(driver, 120);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		}catch(Throwable t){
+			
+		}
+	}
 }

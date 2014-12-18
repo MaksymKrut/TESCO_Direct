@@ -267,6 +267,13 @@ public class Constants {
 		public final static String ItemCollectionDateAndTimeText = "//p[contains(text(),'You can collect from your chosen store after')]";
 		public final static String ItemCollectionInformationText = "//p[contains(text(),'email you when your collection is ready')]";
 		public final static String BillingAddress = ".address-details";
+		
+		public final static String ClubcardBoostImage = ".bcve_ping";
+        public final static String InClubcardBoostMoreInfoLink = "//a[contains(text(),'More Info')]";
+        
+        public static final String NewAddressLinkForBillingAddress = "//a[contains(text(),'new address')]";
+		public static final String BillingAddressNickNameTextBox = "#add-billadr-nickname";
+		public static final String AddNewBillingAddressButton = ".button.secondary-button.save";
 
 	}
 
@@ -553,6 +560,8 @@ public class Constants {
 		public final static String SignInButton = "#signin-button";
 		public final static String IamAnewCustomerRadioButton = "#ir-about-you > ul > li:nth-child(2) > div";
 		public final static String TitleDropDown = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > a > span.icon";
+		public final static String TitleDropDownInnerText = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > a > span.innerText";
+		//public final static String TitleDropDown = "select[id='reg-title']";
 		public final static String TitleDropDownMR = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > ul > li:nth-child(3) > a";
 		public final static String TitleDropDownMobile = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > label";
 		public final static String TitleDropDownMRMobile = "#reg-title > option:nth-child(2)";
@@ -566,7 +575,7 @@ public class Constants {
 		public final static String BuildingNumber = "#nv-BuildingName";
 		public final static String Street = "#nv-PrimaryStreet";
 		public final static String DropdownMatchingAllofthePostcode = "[id*='ed']> div.pnlResultsSmall";
-		public final static String FirstAddress = "//span[contains(.,'Capita Hartshead Unit 2, Welwyn Garden City')]";
+		public final static String FirstAddress = "div[id*='filterItem'] > span:nth-child(2)";
 		public final static String ClubcardNumberTextBox = "#register-clubcard";
 		public final static String IDontHaveAclubcardCheckBox = "#clubcard-checkbox > div";
 		public final static String RegFirstPageNextButton = "#register-button";
@@ -829,7 +838,8 @@ public final class ChangePasswordPage{
 	public static final String PasswordTipInformationalText = "//div[contains(text(),'Your password must be a minimum')]";
 	public static final String PasswordStrengthLabel = "//span[contains(text(),'Password strength')]";
 	public static final String PasswordStrengthIndicator = "#passStrengthIndicator";
-	public static final String SaveChangesButton = ".button.input-standard";
+	public static final String SaveChangesButton = "#change-password > div.form-group-buttons > input.button.input-standard";
+	//#change-password > div.form-group-buttons > input.button.input-standard
 	public static final String PasswordsDoNotMatchError = "//label[contains(text(),'Sorry, the passwords entered')]";
 	public static final String PasswordUpdatedText = "//strong[contains(text(),'Your password has been updated')]";
 	public static final String SignOutLink = "Sign Out";
@@ -844,6 +854,28 @@ public final class ManageMyAddressBookPage {
 	public static final String YesButton = "#tooltip-btn-del-2 > div > ul > li:nth-child(2) > a";
 	public static final String DeletedAddressConfirmationText = "//h2[contains(text(),'Thanks, we can confirm your address has been deleted')]";
 	public static final String SignOutLink = "Sign Out";
+	public final static String Breadcrumbs = "#breadcrumb";
+	public final static String ManageMyAddressBookHeaderText = "//h1[contains(text(),'Manage my address book')]";
+	public final static String AddressInformationalText = "//p[contains(text(),'Below are the addresses that')]";
+	public final static String RadioButtonForTheFirstAddress = "#addressRadio1";
+	public final static String RadioButtonForTheSecondAddress = "#addressRadio2";
+	public final static String AddressName = "//*[contains(text(),'Home')]";
+	public final static String StreetAddress = "//span[contains(text(),'Capita Hartshead')]";
+	public final static String Locality = "//span[contains(text(),'Welwyn Garden City')]";
+	public final static String PostCode = "//span[contains(text(),'AL7 1TW')]";
+	public final static String Country = "//span[contains(text(),'Gb')]";
+	public final static String DayPhoneLabel = "//span[contains(text(),'Day phone')]";
+	public final static String DayPhoneNumber = "//span[contains(text(),'07438305914')]";
+	public final static String EveningPhoneLabel = "//span[contains(text(),'Evening phone')]";
+	public final static String EveningPhoneNumber = "//span[contains(text(),'07438305914')]";
+	public final static String MobilePhoneLabel = "//span[contains(text(),'Mobile phone')]";
+	public final static String MobilePhoneNumber = "//span[contains(text(),'07438305914')]";
+	public final static String EditButtonInFirstAddress = "#btn-edit-1";
+	public final static String EditButtonInSecondAddress = "#btn-edit-2";
+	public final static String DeleteButtonInSecondAddress = "#btn-del-2";
+	public final static String AddANewAddressButton = ".button.generic-standard";
+	public final static String SaveChangesButton = "#saveAddress";
+	public static final String PaymentCardLinkedToAddressError = "//p[contains(text(),'payment card linked to this address')]";
 	
 }
 

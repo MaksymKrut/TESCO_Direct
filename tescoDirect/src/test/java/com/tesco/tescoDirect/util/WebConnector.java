@@ -519,8 +519,9 @@ public final class WebConnector {
 	public void suspendCookie() {
 		//String name =driver.manage().getCookieNamed("fsr.a");
 		//Set<Cookie> cookies = driver.manage().getCookies();
-		//Cookie ck = new Cookie("fsr.a", "suspended");
-		driver.manage().deleteCookieNamed("fsr.a");
+		Cookie ck = new Cookie("fsr.a", "suspend");
+		//driver.manage().deleteCookieNamed("fsr.a");
+		driver.manage().deleteCookie(ck);
 	}
 
 	public void removeCookies() {
@@ -555,11 +556,11 @@ public final class WebConnector {
 	}
 
 	public boolean LVP() {
-		String ExpectedLVP = "1366x667";
+		String ExpectedLVP = "1366x";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
 		Object height =js.executeScript("return window.innerHeight");
-		String ActualLVP = width+"x"+height ;
+		String ActualLVP = width+"x";
 		return ExpectedLVP.equals(ActualLVP);
 
 	}
@@ -1645,7 +1646,23 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * If checkbox is not selected then it will return true
+	 * 
+	 * @param element
+	 */
+	public boolean CheckboxStatus(WebElement element) {
+		try {
+			if (element.isSelected()) {
+				LOG.debug("Check Box " + element + " is not selected");
+				return false;
+			}
+		} catch (Exception ex) {
+			LOG.error("Check Box  " + element + " is selected");
+		}
+		return true;
+	}
 	public boolean statusofRadiobutton(WebElement element) {
 		try {
 			if (element.isSelected()) {

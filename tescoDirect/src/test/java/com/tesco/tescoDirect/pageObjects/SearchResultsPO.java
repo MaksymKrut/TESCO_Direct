@@ -223,6 +223,7 @@ public class SearchResultsPO extends PageObject {
 	}
 
 	public SearchResultsPO checkingForAddtoBasketButton() {
+		WC.waitForElement(AddToBasketButton, 60);
 		WC.assertingWebElement(AddToBasketButton);
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}
@@ -306,8 +307,9 @@ public class SearchResultsPO extends PageObject {
 	}
 
 	public SearchResultsPO verifyingSelectOptions() {
-		WC.waitForElementClickable(
-				By.cssSelector(Constants.SearchResultsPage.SelectOptions), 50);
+		WC.waitForElement(SelectOptions, 60);
+		((JavascriptExecutor) WC.getDriver()).executeScript(
+				"window.scrollBy(3500,0);", SelectOptions);
 		WC.assertingWebElement(SelectOptions);
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}

@@ -37,6 +37,9 @@ public class AboutYouPagePO extends PageObject {
 	@FindBy(css = Constants.AboutYouPage.TitleDropDown)
 	@CacheLookup
 	private WebElement TitleDropDown;
+	@FindBy(css = Constants.AboutYouPage.TitleDropDownInnerText)
+	@CacheLookup
+	private WebElement TitleDropDownInnerText;
 	@FindBy(css = Constants.AboutYouPage.TitleDropDownMR)
 	@CacheLookup
 	private WebElement TitleDropDownMR;
@@ -120,6 +123,18 @@ public class AboutYouPagePO extends PageObject {
 	@CacheLookup
 	private WebElement MyAccount;
 
+	public void checkIDontHaveAClubcardCheckboxIsUnChecked() {
+          WC.CheckboxStatus(IDontHaveAclubcardCheckBox);
+	}
+
+	public void checkEditButtonIsDisabled() {
+		Assert.assertTrue(EditButton.isEnabled());
+	}
+
+	public void checkNextButtonIsEnabled() {
+		Assert.assertTrue(EditButton.isEnabled());
+	}
+
 	public AboutYouPagePO checkExistingCustomerRadioButtonIsSelected() {
 		Assert.assertTrue(WC
 				.statusofRadiobutton(ImAnExistingCustomerRadioButton));
@@ -147,8 +162,8 @@ public class AboutYouPagePO extends PageObject {
 	}
 
 	public String getActualTitleDropDownValue() {
-
-		String actualTitleDropDownValue = TitleDropDown.getText();
+        WC.waitForElement(TitleDropDownInnerText, 60);
+		String actualTitleDropDownValue = TitleDropDownInnerText.getText();
 		return actualTitleDropDownValue;
 
 	}
@@ -242,7 +257,7 @@ public class AboutYouPagePO extends PageObject {
 			WC.wait(5);
 			PostCodeTextBox.sendKeys(Keys.ENTER);
 			LOG.debug("clicked on first address");
-		}else if (WC.MVP()) {
+		} else if (WC.MVP()) {
 			WC.wait(5);
 			PostCodeTextBox.sendKeys(Keys.ENTER);
 			LOG.debug("clicked on first address");
@@ -260,8 +275,7 @@ public class AboutYouPagePO extends PageObject {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
-		}
-		else if (WC.MVP()) {
+		} else if (WC.MVP()) {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
@@ -330,15 +344,17 @@ public class AboutYouPagePO extends PageObject {
 		WC.assertingWebElement(RegSecondPageNextButton);
 		RegSecondPageNextButton.click();
 	}
-	
 
 	public boolean checkEmailAddressIsUpdated() {
 		String actualPageTitle = WC.getPageTitle();
-		String EmailTextBoxValue = WC.getAttributeValue(SignInEmailInputBox, "value");
-		if(    (actualPageTitle.equalsIgnoreCase("About you - Tesco.com"))   &&   (EmailTextBoxValue.equalsIgnoreCase("tescodirecttestframework1@gmail.com"))  )
-		return true;
+		String EmailTextBoxValue = WC.getAttributeValue(SignInEmailInputBox,
+				"value");
+		if ((actualPageTitle.equalsIgnoreCase("About you - Tesco.com"))
+				&& (EmailTextBoxValue
+						.equalsIgnoreCase("tescodirecttestframework1@gmail.com")))
+			return true;
 		else
-		return false;
-		
+			return false;
+
 	}
 }

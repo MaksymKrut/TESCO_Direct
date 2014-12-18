@@ -560,6 +560,7 @@ public class Constants {
 		public final static String SignInButton = "#signin-button";
 		public final static String IamAnewCustomerRadioButton = "#ir-about-you > ul > li:nth-child(2) > div";
 		public final static String TitleDropDown = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > a > span.icon";
+		public final static String TitleDropDownInnerText = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > a > span.innerText";
 		//public final static String TitleDropDown = "select[id='reg-title']";
 		public final static String TitleDropDownMR = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > div > ul > li:nth-child(3) > a";
 		public final static String TitleDropDownMobile = "#ir-register1 > fieldset > div.salutation-wrapper > div.field-wrapper.reg-title > label";
@@ -837,7 +838,8 @@ public final class ChangePasswordPage{
 	public static final String PasswordTipInformationalText = "//div[contains(text(),'Your password must be a minimum')]";
 	public static final String PasswordStrengthLabel = "//span[contains(text(),'Password strength')]";
 	public static final String PasswordStrengthIndicator = "#passStrengthIndicator";
-	public static final String SaveChangesButton = ".button.input-standard";
+	public static final String SaveChangesButton = "#change-password > div.form-group-buttons > input.button.input-standard";
+	//#change-password > div.form-group-buttons > input.button.input-standard
 	public static final String PasswordsDoNotMatchError = "//label[contains(text(),'Sorry, the passwords entered')]";
 	public static final String PasswordUpdatedText = "//strong[contains(text(),'Your password has been updated')]";
 	public static final String SignOutLink = "Sign Out";

@@ -56,6 +56,7 @@ public class CheckOutPage {
 		WC.getDriver().get(WC.getFullUrl(appURL));
 		WC.getDriver().navigate().refresh();
 		WC.suspendCookie();
+		WC.screensize();
 	}
 
 	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a new User$")

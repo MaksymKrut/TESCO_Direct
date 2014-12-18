@@ -106,23 +106,23 @@ public class Registration {
 				.equals(actualClubcardNumberTextBoxValue));
 	}
 	
-	@And("^the I dont have a Clubcard checkbox is unchecked$")
+	@And("^I don't have a Clubcard checkbox should appear unchecked$")
 	public void the_I_dont_have_a_Clubcard_checkbox_is_unchecked() throws Throwable {
 		LOG.debug("the I dont have a Clubcard checkbox is unchecked");
-		//Assert.assertTrue(aboutYouPagePO.checkIDontHaveAClubcardCheckboxIsUnChecked());
+		aboutYouPagePO.checkIDontHaveAClubcardCheckboxIsUnChecked();
 		
 	}
 
-	@And("^the Edit button is disabled$")
+	@And("^Edit button should appear disabled$")
 	public void the_Edit_button_is_disabled() throws Throwable {
 		LOG.debug("the Edit button is disabled");
-		//Assert.assertTrue(aboutYouPagePO.checkEditButtonIsDisabled());
+		aboutYouPagePO.checkEditButtonIsDisabled();
 	}
 
-	@And("^the Next button is enabled$")
+	@And("^Next button should appear enabled$")
 	public void the_Next_button_is_enabled() throws Throwable {
 		LOG.debug("the Next button is enabled");
-		//Assert.assertTrue(aboutYouPagePO.checkNextButtonIsEnabled());
+		aboutYouPagePO.checkNextButtonIsEnabled();
 	}
 
 	@When("^user fills in the following values in the registration field$")

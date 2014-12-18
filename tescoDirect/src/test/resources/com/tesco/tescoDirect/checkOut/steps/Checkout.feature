@@ -1,4 +1,3 @@
-@testFirefox @MVP
 Feature: Checkout 
 
 
