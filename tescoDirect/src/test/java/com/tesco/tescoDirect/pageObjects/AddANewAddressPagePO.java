@@ -322,7 +322,7 @@ public class AddANewAddressPagePO extends PageObject {
 
 
 	public boolean checkEditButtonIsEnabled() {
-		WC.waitForElementToBePresent(EnabledEditButton);
+		WC.waitForElementToBePresent(EnabledEditButton, 30);
 		return(WC.elementIsDisplayedOrNot(EnabledEditButton));
 	}
 
@@ -338,7 +338,8 @@ public class AddANewAddressPagePO extends PageObject {
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.wait(5);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
-			FirstAddress.click();
+			PostcodeTextbox.sendKeys(Keys.ENTER);
+			//FirstAddress.click();
 		} else if (Currentinstance
 				.equals("io.appium.java_client.android.AndroidDriver")) {
 
@@ -356,7 +357,7 @@ public class AddANewAddressPagePO extends PageObject {
 	public boolean checkSaveAddressButtonIsEnabled() {
 		WC.click(MobilePhoneTextbox);
 		WC.pressTabKey(MobilePhoneTextbox);
-		WC.waitForElementToBePresent(EnabledSaveAddressButton);
+		WC.waitForElementToBePresent(EnabledSaveAddressButton, 30);
 		return(WC.elementIsDisplayedOrNot(EnabledSaveAddressButton));
 	}
 

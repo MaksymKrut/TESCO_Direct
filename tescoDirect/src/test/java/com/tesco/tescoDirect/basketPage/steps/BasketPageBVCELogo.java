@@ -60,6 +60,8 @@ public class BasketPageBVCELogo {
 		System.out.println(js.executeScript("return window.innerHeight"));
 	    
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickOnSearchByProductNameCatalogueNoOrKeywordTextField();
 		homePagePO.typeInSearchByProductNameCatalogueNoOrKeywordTextField("574-7120");
 		homePagePO.clickOnSearchButton();

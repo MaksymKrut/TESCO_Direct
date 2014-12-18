@@ -884,20 +884,20 @@ public final class WebConnector {
 		Assert.assertEquals(elementVal, element.getText());
 	}
 	
-	public void waitForElementToBePresent(WebElement element){
-		Boolean staleElement=true;
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		while(staleElement){
+	public void waitForElementToBePresent(WebElement element, int seconds){
+		//Boolean staleElement=true;
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		//while(staleElement){
 		try{
 		wait.until(ExpectedConditions.visibilityOf(element));
-		break;
-		}catch(StaleElementReferenceException e){
+		//break;
+		}catch(Exception e){
 			
 			
 		    
 		}
 		
-		}
+		//}
 		
 	}
 
@@ -1925,12 +1925,5 @@ public Boolean elementIsDisplayedOrNot(WebElement element) {
 	}
 
 	
-	public void waitForElementTobePresent(WebElement element) {
-		try{
-		WebDriverWait wait = new WebDriverWait(driver, 120);
-		wait.until(ExpectedConditions.visibilityOf(element));
-		}catch(Throwable t){
-			
-		}
-	}
+	
 }

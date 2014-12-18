@@ -37,7 +37,6 @@ Then the following elements are present on the Add a payment card page
 |My billing address radio button label|
 |My billing address radio button not selected by default|
 |Address Name|
-|Address|
 |Add Button|
 
 @AddCard_CleanUp

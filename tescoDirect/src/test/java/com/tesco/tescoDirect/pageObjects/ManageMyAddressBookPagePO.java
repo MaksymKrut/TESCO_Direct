@@ -96,6 +96,9 @@ public class ManageMyAddressBookPagePO extends PageObject {
 	@FindBy(xpath = Constants.ManageMyAddressBookPage.PaymentCardLinkedToAddressError)
 	@CacheLookup
 	private WebElement PaymentCardLinkedToAddressError;
+	@FindBy(css = Constants.ManageMyAddressBookPage.ViewBasketButton)
+	@CacheLookup
+	private WebElement ViewBasketButton;
 
 	public Boolean checkNewAddressIsDisplayed() {
 		
@@ -127,7 +130,7 @@ public class ManageMyAddressBookPagePO extends PageObject {
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		}
-		WC.waitForElementToBePresent(DeletedAddressConfirmationText);
+		WC.waitForElementToBePresent(DeletedAddressConfirmationText, 30);
 		return(WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
 	}
 
@@ -322,7 +325,7 @@ if (WC.LVP()) {
 
 	public boolean paymentCardLinkedToAddressErrorisDisplayed() {
 		
-		WC.waitForElementToBePresent(PaymentCardLinkedToAddressError);
+		WC.waitForElementToBePresent(PaymentCardLinkedToAddressError, 30);
 		return(WC.elementIsDisplayedOrNot(PaymentCardLinkedToAddressError));
 		
 	}
@@ -330,8 +333,42 @@ if (WC.LVP()) {
 
 
 	public boolean checkRespectiveAddressHasBeenDeleted() {
-		WC.waitForElementToBePresent(DeletedAddressConfirmationText);
+		WC.waitForElementToBePresent(DeletedAddressConfirmationText, 30);
 		return(WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
+	}
+
+
+
+	public void clickOnViewBasketButton() {
+		WC.clickOn(ViewBasketButton);
+		
+	}
+
+
+
+	public void deleteAddress() {
+		WC.click(DeleteAddressButton);
+if (WC.LVP()) {
+			
+			WC.handlePopup();
+			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.SVP()) {
+			
+			WC.handlePopup();
+			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		}
+		else if (WC.MVP()) {
+			
+			WC.handlePopup();
+			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		}
+		
 	}
 
 

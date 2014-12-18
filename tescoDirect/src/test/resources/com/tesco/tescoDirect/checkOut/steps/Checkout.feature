@@ -1,4 +1,4 @@
-@testFirefox @MVP
+@testFirefox @MVP 
 Feature: Checkout 
 
 
@@ -27,7 +27,7 @@ Scenario: Any Customer
 Scenario: Logged in Customer 
 	Given I navigate to the checkout page after adding items to the basket as a logged in user 
 		|UserName                   |Password |
-		|testaccount@tescodirect.com|Password1|
+		|ashish.modi@uk.tesco.com|Password1|
 	Then the top navigation Order tab is highlighted 
 	And the Basket tab is enabled and greyed out 
 	And the Thank you tab is disabled and greyed out 
@@ -79,7 +79,7 @@ Scenario: Existing customer logged in at checkout
 	Given I navigate to the checkout page after adding items to the basket 
 	And I login at the checkout page 
 		|UserName                   |Password |
-		|testaccount@tescodirect.com|Password1|
+		|ashish.modi@uk.tesco.com|Password1|
 	Then the top navigation Order tab is highlighted 
 	And the Basket tab is enabled and greyed out 
 	And the Thank you tab is disabled and greyed out 

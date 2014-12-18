@@ -26,6 +26,8 @@ import com.tesco.tescoDirect.pageObjects.Hudl2PinkPLPPagePO;
 import com.tesco.tescoDirect.pageObjects.Hudl2SoftProtectiveShellPinkPDPPagePO;
 import com.tesco.tescoDirect.pageObjects.Hudl2SoftTouchCasePinkPDPPagePO;
 import com.tesco.tescoDirect.pageObjects.IpadPDPPagePO;
+import com.tesco.tescoDirect.pageObjects.ManageMyAddressBookPagePO;
+import com.tesco.tescoDirect.pageObjects.MyAccountPO;
 import com.tesco.tescoDirect.pageObjects.TescoMobileSimPDPPagePO;
 import com.tesco.tescoDirect.util.WebConnector;
 import com.tesco.tescoDirect.util.WebConnector.Browsers;
@@ -47,18 +49,23 @@ public class Checkout {
 	private CheckOutPagePO checkOutPagePO;
 	private AboutYouPagePO aboutYouPagePO;
 	private BasketPagePO basketPagePO;
+	private ManageMyAddressBookPagePO manageMyAddressBookPagePO;
+	private MyAccountPO myAccountPO;
 	
 	@Given("^I navigate to the checkout page after adding items to the basket$")
 	public void I_navigate_to_the_checkout_page_after_adding_items_to_the_basket() throws Throwable {
 		
 		WC.getDriver().get(WC.getFullUrl("home_page"));
 		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
 		WC.removeCookies();
 		JavascriptExecutor js = (JavascriptExecutor) WC.getDriver();
 		System.out.println(js.executeScript("return window.innerWidth"));
 		System.out.println(js.executeScript("return window.innerHeight"));
 	    
+		
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickOnSearchByProductNameCatalogueNoOrKeywordTextField();
 		homePagePO.typeInSearchByProductNameCatalogueNoOrKeywordTextField("574-7120");
 		homePagePO.clickOnSearchButton();
@@ -208,11 +215,14 @@ public class Checkout {
 		
 		WC.getDriver().get(WC.getFullUrl("home_page"));
 		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
 		WC.removeCookies();
 		JavascriptExecutor js = (JavascriptExecutor) WC.getDriver();
 		System.out.println(js.executeScript("return window.innerWidth"));
 		System.out.println(js.executeScript("return window.innerHeight"));
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickingOnSigninorRegisterLink();
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		
@@ -267,11 +277,14 @@ public class Checkout {
 		
 		WC.getDriver().get(WC.getFullUrl("home_page"));
 		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
 		WC.removeCookies();
 		JavascriptExecutor js = (JavascriptExecutor) WC.getDriver();
 		System.out.println(js.executeScript("return window.innerWidth"));
 		System.out.println(js.executeScript("return window.innerHeight"));
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickingOnSigninorRegisterLink();
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		aboutYouPagePO.clickOnIamAnewCustomerRadioButton();
@@ -612,6 +625,7 @@ public class Checkout {
 		System.out.println(js.executeScript("return window.innerHeight"));
 	    
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickOnSearchByProductNameCatalogueNoOrKeywordTextField();
 		homePagePO.typeInSearchByProductNameCatalogueNoOrKeywordTextField("574-7120");
 		homePagePO.clickOnSearchButton();
@@ -655,7 +669,27 @@ public class Checkout {
 		LOG.debug("the following elements are displayed");
 	}
 
-	
+	@After("@AddNewBillingAddress_CleanUp")
+	public void cleanUp(){
+		
+		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
+		checkOutPagePO.clickOnMyAccountLink();
+		myAccountPO = WC.getPageObject(MyAccountPO.class);
+		myAccountPO.clickOnkManageMyAddressBookLink();
+		
+		manageMyAddressBookPagePO = WC.getPageObject(ManageMyAddressBookPagePO.class);
+		//Assert.assertTrue(manageMyAddressBookPagePO.checkAddressHasBeenDeleted());
+		//manageMyAddressBookPagePO.clickOnRadioButtonForTheSecondAddress();
+		//manageMyAddressBookPagePO.clickOnSaveChangesButton();
+		manageMyAddressBookPagePO.deleteAddress();
+		Assert.assertTrue(manageMyAddressBookPagePO.checkRespectiveAddressHasBeenDeleted());
+		manageMyAddressBookPagePO.clickOnViewBasketButton();
+		basketPagePO = WC.getPageObject(BasketPagePO.class);
+		basketPagePO.clickingOnEmptyBasketButton();
+		basketPagePO.clickOnSignOutLink();
+		
+		
+	}
 	
 	
 	@After

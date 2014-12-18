@@ -1,8 +1,8 @@
-@testC
 Feature: Checkout - Add New Blling Address
 
+@AddNewBillingAddress_CleanUp
 Scenario: Add new billing address at checkout 
-	Given I navigate to the checkout page after adding items to the basket 
+	Given I navigate to the checkout page after adding a tesco sim 
 	And I login at the checkout page 
 		|UserName                   |Password |
 		|ashish.modi@uk.tesco.com|Password1|
