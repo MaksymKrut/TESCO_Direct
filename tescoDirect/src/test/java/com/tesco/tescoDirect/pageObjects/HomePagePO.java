@@ -42,9 +42,12 @@ public class HomePagePO extends PageObject {
 	@FindBy(css = Constants.HomePage.SearchOverlayFirstSuggestion)
 	@CacheLookup
 	private WebElement SearchOverlayFirstSuggestion;
-	@FindBy(css = Constants.HomePage.SearchSuggestionAsYouTypeOverLay)
+	@FindBy(css = Constants.HomePage.SearchSuggestionAsYouTypeOverLayType1)
 	@CacheLookup
-	private WebElement SearchSuggestionAsYouTypeOverLay;
+	private WebElement SearchSuggestionAsYouTypeOverLayType1;
+	@FindBy(css = Constants.HomePage.SearchSuggestionAsYouTypeOverLayType2)
+	@CacheLookup
+	private WebElement SearchSuggestionAsYouTypeOverLayType2;
 	@FindBy(css = Constants.HomePage.SearchByProductNameCatalogueNoOrKeywordTextField)
 	private WebElement SearchByProductNameCatalogueNoOrKeywordTextField;
 	@FindBy(css = Constants.HomePage.SearchButton)
@@ -83,10 +86,14 @@ public class HomePagePO extends PageObject {
 
 	public Boolean checkSearchSuggestionAsYouTypeOverLayIsDisplayed()
 			throws Exception {
-		WC.waitForpresenceofElement(
-				By.cssSelector(Constants.HomePage.SearchSuggestionAsYouTypeOverLay),
-				60);
-		return (WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLay));
+		WC.waitForElementToBePresent(SearchSuggestionAsYouTypeOverLayType1, 10);
+		WC.waitForElementToBePresent(SearchSuggestionAsYouTypeOverLayType2, 10);
+		//WC.waitForpresenceofElement(By.cssSelector(Constants.HomePage.SearchSuggestionAsYouTypeOverLay),60);
+		if(WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType1)==true || WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType2)==true)
+			return true;
+		else
+			return false;
+		//return (WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLay));
 
 	}
 

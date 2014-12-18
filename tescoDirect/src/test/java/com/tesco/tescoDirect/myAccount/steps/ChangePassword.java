@@ -61,6 +61,7 @@ public class ChangePassword {
 	   
 		WC.getDriver().get(WC.getFullUrl("home_page"));
 		WC.getDriver().navigate().refresh();
+		WC.suspendCookie();
 		WC.removeCookies();
 		JavascriptExecutor js = (JavascriptExecutor) WC.getDriver();
 		System.out.println(js.executeScript("return window.innerWidth"));

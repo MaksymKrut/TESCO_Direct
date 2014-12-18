@@ -27,7 +27,6 @@ Then the following elements are present on the Manage my address book page
 |Radio Button for the first address selected|
 |Radio Button for the second address not selected|
 |Address Name|
-|Address  |
 |Day phone Label|
 |Day Phone Number|
 |Evening phone Label|

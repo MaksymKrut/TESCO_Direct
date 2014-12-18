@@ -467,6 +467,10 @@ public class CheckOutPagePO extends PageObject {
 	@CacheLookup
 	private WebElement AddNewBillingAddressButton;
 	
+	@FindBy(linkText = Constants.CheckOutPage.MyAccountLink)
+	@CacheLookup
+	private WebElement MyAccountLink;
+	
 public boolean checkOrderTabIsHighlighted() {
 		
 		if(WC.getAttributeValue(OrderTab, "class").equalsIgnoreCase("active"))
@@ -498,7 +502,7 @@ public boolean checkCollectionIsSelected() {
 }
 
 public boolean checkDeliveryCostIsDisplayedAsFree() {
-	WC.waitForElementToBePresent(DeliveryCostFreeText);
+	WC.waitForElementToBePresent(DeliveryCostFreeText, 30);
 	return(WC.elementIsDisplayedOrNot(DeliveryCostFreeText));
 }
 
@@ -514,8 +518,8 @@ public Boolean checkItemImageIsDisplayed() {
 }
 
 public Boolean checkItemQuantityXItemNameIsDisplayed() {
-	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName1);
-	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName2);
+	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName1, 30);
+	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName2, 30);
 	if(WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName1) && WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName2))
 		return true;
 	else
@@ -524,8 +528,8 @@ public Boolean checkItemQuantityXItemNameIsDisplayed() {
 }
 
 public Boolean checkCatalogueNumberIsDisplayed() {
-	WC.waitForElementToBePresent(HarryPotterCatalogueNumber);
-	WC.waitForElementToBePresent(TescoSimCatalogueNumber);
+	WC.waitForElementToBePresent(HarryPotterCatalogueNumber, 30);
+	WC.waitForElementToBePresent(TescoSimCatalogueNumber, 30);
 	if(WC.elementIsDisplayedOrNot(HarryPotterCatalogueNumber) || WC.elementIsDisplayedOrNot(TescoSimCatalogueNumber))
 		return true;
 	else
@@ -627,12 +631,12 @@ public void selectingTitle() {
 	String Currentinstance = WC.getDriver().getClass().getName();
 	System.out.println(Currentinstance);
 	if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
-		WC.waitForElementToBePresent(TitleDropDown);
+		WC.waitForElementToBePresent(TitleDropDown, 30);
 		TitleDropDown.click();
 		WC.wait(3);
 		TitleDropDownMR.click();
 	} else if (Currentinstance.equals("io.appium.java_client.android.AndroidDriver")) {
-		WC.waitForElementToBePresent(TitleDropDownMobile);
+		WC.waitForElementToBePresent(TitleDropDownMobile, 30);
 		TitleDropDownMobile.click();
 		WC.handlePopup();
 		TitleDropDownMRMobile.click();}
@@ -689,7 +693,7 @@ public void selectingTitle() {
 	}
 	
 	public void typingPhoneNumber() {
-		WC.waitForElementToBePresent(ContactPhoneNumber);
+		WC.waitForElementToBePresent(ContactPhoneNumber, 30);
 		ContactPhoneNumber.clear();
 		ContactPhoneNumber.sendKeys("07438305914");
 	}
@@ -722,7 +726,8 @@ public void selectingTitle() {
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.wait(2);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
-			FirstAddress.click();
+			PostCodeTextBox.sendKeys(Keys.ENTER);
+			//FirstAddress.click();
 		} else if (Currentinstance
 				.equals("io.appium.java_client.android.AndroidDriver")) {
 
@@ -733,7 +738,7 @@ public void selectingTitle() {
 	
 public void waitForRegistrationToComplete() throws Exception {
 		
-		WC.waitForElementToBePresent(CustomerName);
+		WC.waitForElementToBePresent(CustomerName, 30);
 	}
 
 
@@ -748,14 +753,14 @@ public void enterPassword(String password) {
 }
 
 public void clickOnSignInButton() {
-	SignInButton.click();
+	WC.clickOn(SignInButton);;
 	LOG.debug("Clicked on sign in button");
 }
 
 
 public void waitForLoginToComplete() throws Exception {
 	
-	WC.waitForElementToBePresent(CustomerName);
+	WC.waitForElementToBePresent(CustomerName, 30);
 }
 
 
@@ -1334,22 +1339,22 @@ public Boolean checkClubcardBoostImageIsDisplayed() {
 	}
 	public Boolean checkInClubcardBoostMoreInfoLinkIsDisplayed() {
 		
-		WC.waitForElementTobePresent(InClubcardBoostMoreInfoLink);
+		WC.waitForElementToBePresent(InClubcardBoostMoreInfoLink,30);
 		return(WC.elementIsDisplayedOrNot(InClubcardBoostMoreInfoLink));
 		
 	}
 	
 	public void clickOnNewAddressLinkForBillingAddress() {
-		WC.waitForElementTobePresent(NewAddressLinkForBillingAddress);
+		WC.waitForElementToBePresent(NewAddressLinkForBillingAddress, 30);
 		WC.click(NewAddressLinkForBillingAddress);
 		
 	}
 	public void AddANewBillingAddresss() {
-		WC.waitForElementTobePresent(BillingAddressNickNameTextBox);
+		WC.waitForElementToBePresent(BillingAddressNickNameTextBox, 30);
 		WC.type(BillingAddressNickNameTextBox, "New Billing Address");
 		typingPostCode();
 		selectingAddressFromDropDown();
-		WC.waitForElementTobePresent(AddNewBillingAddressButton);
+		WC.waitForElementToBePresent(AddNewBillingAddressButton, 30);
 		WC.wait(5);
 		//WC.pressTabKey(AddNewBillingAddressButton);
 		WC.click(AddNewBillingAddressButton);
@@ -1359,12 +1364,16 @@ public Boolean checkClubcardBoostImageIsDisplayed() {
 		
 	}
 	public boolean checkNewBillingAddressIsAdded() {
-		WC.waitForElementTobePresent(billingaddressdropdown);
+		WC.waitForElementToBePresent(billingaddressdropdown, 30);
 		WC.getSelectedOptionFromDropdown(billingaddressdropdown);
 		if(WC.getSelectedOptionFromDropdown(billingaddressdropdown).equalsIgnoreCase("New Billing Address"))
 		return true;
 		else
 		return false;
+	}
+	public void clickOnMyAccountLink() {
+		WC.clickOn(MyAccountLink);
+		
 	}
 
 }

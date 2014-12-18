@@ -44,6 +44,7 @@ public class CheckOutPage {
 		WC.getDriver().navigate().refresh();
 		WC.suspendCookie();
 		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 		homePagePO.clickingOnSigninorRegisterLink();
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
@@ -57,6 +58,8 @@ public class CheckOutPage {
 		WC.getDriver().navigate().refresh();
 		WC.suspendCookie();
 		WC.screensize();
+		homePagePO = WC.getPageObject(HomePagePO.class);
+		homePagePO.closeCookiesMsg();
 	}
 
 	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a new User$")

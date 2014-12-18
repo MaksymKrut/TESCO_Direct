@@ -252,7 +252,8 @@ public class AboutYouPagePO extends PageObject {
 		if (WC.LVP()) {
 			WC.wait(5);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
-			FirstAddress.click();
+			PostCodeTextBox.sendKeys(Keys.ENTER);
+			//FirstAddress.click();
 		} else if (WC.SVP()) {
 			WC.wait(5);
 			PostCodeTextBox.sendKeys(Keys.ENTER);

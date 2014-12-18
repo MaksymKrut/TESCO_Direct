@@ -272,7 +272,7 @@ public class ChangePasswordPagePO extends PageObject {
 
 
 	public void enterNewPassword(String newPassword) {
-		WC.waitForElementToBePresent(NewPasswordTextbox);
+		WC.waitForElementToBePresent(NewPasswordTextbox, 30);
 		WC.type(NewPasswordTextbox, newPassword);
 		
 	}

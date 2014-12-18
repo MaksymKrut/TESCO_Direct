@@ -274,6 +274,7 @@ public class Constants {
         public static final String NewAddressLinkForBillingAddress = "//a[contains(text(),'new address')]";
 		public static final String BillingAddressNickNameTextBox = "#add-billadr-nickname";
 		public static final String AddNewBillingAddressButton = ".button.secondary-button.save";
+		public static final String MyAccountLink = "My account";
 
 	}
 
@@ -542,7 +543,8 @@ public class Constants {
 		public final static String SignOutMobile = "#nav-bar > div.navigation > ul > li.first.sign-in > form > a";
 		public final static String ViewBasketButton = "#go-to-basket > div.basket-icon-wrapper > div.icon.icon-basket";
 		public final static String BasketContainerViewBasketButtonMobile = "#edit-basket-items";
-		public final static String SearchSuggestionAsYouTypeOverLay = "#spf-listContainer";
+		public final static String SearchSuggestionAsYouTypeOverLayType1 = "#spf-listContainer";
+		public final static String SearchSuggestionAsYouTypeOverLayType2 = "body > div.ac_results";
 		public final static String SearchOverlayFirstSuggestion = "#spf-autocompleteItem";
 		public final static String SearchButton= "#search-submit";
 		public final static String SearchByProductNameCatalogueNoOrKeywordTextField = "#search-text-field";
@@ -876,6 +878,7 @@ public final class ManageMyAddressBookPage {
 	public final static String AddANewAddressButton = ".button.generic-standard";
 	public final static String SaveChangesButton = "#saveAddress";
 	public static final String PaymentCardLinkedToAddressError = "//p[contains(text(),'payment card linked to this address')]";
+	public static final String ViewBasketButton = "#go-to-basket > div.label";
 	
 }
 
@@ -905,6 +908,22 @@ public final class ManageMyPaymentCardPage{
 	
 	
 	
+	
+}
+
+public final class Hudl2SoftTouchCasePinkPDPPage{
+	
+	public final static String VariantItemsDropdown = "//*[@id='v1']/article/a";
+	public final static String RecentlyViewedItemsBlock = "#recently-viewed";
+	public final static String WriteAReviewlink = ".bv-write-review.bv-focusable.bv-submission-button";
+	public final static String MyReviewOverlay = "#bv-mbox-lightbox-list";
+	public final static String QuantityBox = "input[id^='quantity']";
+	public final static String AddToBasketButton = ".primary-button.add-to-basket";
+	public final static String FeasibleDeliveryOptions = ".delivery.newDeliveryOptions.tescoBuyBox>ul";
+	public final static String CloseMyReviewOverlayButton = "#bv-mbox-lightbox-list > button > span:nth-child(1)";
+	public final static String VariantItemsDropdownFirstOption = "#colour > li:nth-child(1)";     //"#ring_size>li:nth-child(1)";
+	public final static String VariantItemsDropdownMobile = "#v1 > article > select";
+	public final static String ProductTitle = ".page-title";
 	
 }
 

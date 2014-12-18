@@ -31,7 +31,6 @@ Then the following elements are present
 |Expiry date text|
 |Billing address label|
 |Address Name|
-|Address  |
 |Delete Button |
 
 

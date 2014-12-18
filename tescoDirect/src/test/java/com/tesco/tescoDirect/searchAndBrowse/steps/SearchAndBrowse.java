@@ -58,6 +58,8 @@ public class SearchAndBrowse {
 		
 		Boolean expectedResult = Boolean.valueOf(displayedOrNot);
 		Boolean actualResult = homePagePO.checkSearchSuggestionAsYouTypeOverLayIsDisplayed();
+		System.out.println("Expected Result:"+expectedResult);
+		System.out.println("Actual Result:"+actualResult);
 		
 		Assert.assertEquals(expectedResult, actualResult);
 	    

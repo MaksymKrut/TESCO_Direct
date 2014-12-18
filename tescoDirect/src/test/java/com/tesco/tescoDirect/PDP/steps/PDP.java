@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.tesco.tescoDirect.pageObjects.AquaMarinePDPPagePO;
+import com.tesco.tescoDirect.pageObjects.Hudl2SoftTouchCasePinkPDPPagePO;
 import com.tesco.tescoDirect.pageObjects.IpadPDPPagePO;
 import com.tesco.tescoDirect.pageObjects.HomePagePO;
 import com.tesco.tescoDirect.util.WebConnector;
@@ -25,7 +26,7 @@ public class PDP {
 	private final static Logger LOG = Logger.getLogger(PDP.class);
 	private HomePagePO homePagePO;
 	private IpadPDPPagePO ipadPDPPagePO;
-	private AquaMarinePDPPagePO aquaMarinePDPPagePO;
+	private Hudl2SoftTouchCasePinkPDPPagePO hudl2SoftTouchCasePinkPDPPagePO;
 	
 
 	@And("^I goto the iPad PDP page$")
@@ -42,7 +43,7 @@ public class PDP {
 	@Then("^the following elements are displayed$")
 	public void the_following_elements_are_displayed(DataTable table) throws Throwable {
 		ipadPDPPagePO = WC.getPageObject(IpadPDPPagePO.class);
-		aquaMarinePDPPagePO = WC.getPageObject(AquaMarinePDPPagePO.class);
+		hudl2SoftTouchCasePinkPDPPagePO = WC.getPageObject(Hudl2SoftTouchCasePinkPDPPagePO.class);
 		Boolean result;
 		List<Map<String, String>> mappedTable = table.asMaps();
 		for (Map<String,String> myValue : mappedTable) {
@@ -117,7 +118,7 @@ public class PDP {
 		    	LOG.debug("Add to wishlist Button is displayed");
 		    break;
 		    case "Variant items dropwdown":
-		    	result = aquaMarinePDPPagePO.checkVariantItemsDropwdownIsDisplayed();
+		    	result = hudl2SoftTouchCasePinkPDPPagePO.checkVariantItemsDropwdownIsDisplayed();
 		    	Assert.assertTrue(result);
 		    	LOG.debug("Variant items dropwdown is displayed");
 		    break;
@@ -127,17 +128,17 @@ public class PDP {
 			    	LOG.debug("Special Offers block is displayed");
 		    break;
 		    case "Recently viewed items block":
-		    	result = aquaMarinePDPPagePO.checkRecentlyViewedItemsBlockIsDisplayed();
+		    	result = hudl2SoftTouchCasePinkPDPPagePO.checkRecentlyViewedItemsBlockIsDisplayed();
 		    	Assert.assertTrue(result);
 		    	LOG.debug("Recently viewed items block is displayed");
 		    break;
 		    case "Add to Basket button":
-		    	result = aquaMarinePDPPagePO.checkAddToBasketButtonIsDisplayed();
+		    	result = hudl2SoftTouchCasePinkPDPPagePO.checkAddToBasketButtonIsDisplayed();
 		    	Assert.assertTrue(result);
 		    	LOG.debug("Add to Basket button is displayed");
 		    break;
 		    case "feasible delivery options":
-		    	result = aquaMarinePDPPagePO.checkFeasibleDeliveryOptionsIsDisplayed();
+		    	result = hudl2SoftTouchCasePinkPDPPagePO.checkFeasibleDeliveryOptionsIsDisplayed();
 		    	Assert.assertTrue(result);
 		    	LOG.debug("feasible delivery options is displayed");
 		    break;
@@ -152,26 +153,26 @@ public class PDP {
 		LOG.debug("the following elements are displayed");
 	}
 
-	@When("^I goto the AquaMarine Ring PDP page$")
-	public void when_I_goto_the_iPad_mini_PDP_page() throws Throwable {
+	@When("^I goto the hudl2 Soft Touch Case Pink PDP page$")
+	public void when_I_goto_the_Hudl2SoftTouchCasePink_PDP_Page() throws Throwable {
 		ipadPDPPagePO.clickOnSearchByProductNameCatalogueNoOrKeywordTextField();
-		ipadPDPPagePO.typeInSearchByProductNameCatalogueNoOrKeywordTextField("527-3064");
+		ipadPDPPagePO.typeInSearchByProductNameCatalogueNoOrKeywordTextField("683-7798");
 		ipadPDPPagePO.clickOnSearchButton();
 		LOG.debug("I goto the AquaMarine Ring PDP page");
 	}
 	
 	@When("^I click on the Write a review link$")
 	public void I_click_on_the_Write_a_review_link() throws Throwable {
-		aquaMarinePDPPagePO = WC.getPageObject(AquaMarinePDPPagePO.class);
-		aquaMarinePDPPagePO.clickOnWriteAReviewLink();
+		hudl2SoftTouchCasePinkPDPPagePO = WC.getPageObject(Hudl2SoftTouchCasePinkPDPPagePO.class);
+		hudl2SoftTouchCasePinkPDPPagePO.clickOnWriteAReviewLink();
 		LOG.debug("I click on the Write a review link");
 	}
 
 	@Then("^My review overlay is displayed$")
 	public void My_review_overlay_is_displayed() throws Throwable {
-		Boolean result = aquaMarinePDPPagePO.checkMyReviewOverlayIsDisplayed();
+		Boolean result = hudl2SoftTouchCasePinkPDPPagePO.checkMyReviewOverlayIsDisplayed();
 		Assert.assertTrue(result);
-		aquaMarinePDPPagePO.closeMyReviewOverlay();
+		hudl2SoftTouchCasePinkPDPPagePO.closeMyReviewOverlay();
 		LOG.debug("My review overlay is displayed");
 	}
 	
@@ -183,24 +184,24 @@ public class PDP {
 
 	@Then("^the default quantity of the Product Buy Box is 1$")
 	public void the_default_quantity_of_the_Product_Buy_Box_is_1() throws Throwable {
-		aquaMarinePDPPagePO = WC.getPageObject(AquaMarinePDPPagePO.class);
-		Boolean result = aquaMarinePDPPagePO.checkBuyBoxDefaultQuantityIs1();
+		hudl2SoftTouchCasePinkPDPPagePO = WC.getPageObject(Hudl2SoftTouchCasePinkPDPPagePO.class);
+		Boolean result = hudl2SoftTouchCasePinkPDPPagePO.checkBuyBoxDefaultQuantityIs1();
 		Assert.assertTrue(result);
 		LOG.debug("the default quantity of the Product Buy Box is 1");
 	}
 
 	@When("^I select a variant item$")
 	public void I_select_a_variant_item() throws Throwable {
-		aquaMarinePDPPagePO = WC.getPageObject(AquaMarinePDPPagePO.class);
-		aquaMarinePDPPagePO.selectAVariantItem();
+		hudl2SoftTouchCasePinkPDPPagePO = WC.getPageObject(Hudl2SoftTouchCasePinkPDPPagePO.class);
+		hudl2SoftTouchCasePinkPDPPagePO.selectAVariantItem();
 		LOG.debug("I select a variant item");
 		
 	}
 
 	@Then("^the variant item is selected$")
 	public void the_variant_item_is_selected() throws Throwable {
-		aquaMarinePDPPagePO = WC.getPageObject(AquaMarinePDPPagePO.class);
-		Boolean result = aquaMarinePDPPagePO.checkVariantItemIsSelected();
+		hudl2SoftTouchCasePinkPDPPagePO = WC.getPageObject(Hudl2SoftTouchCasePinkPDPPagePO.class);
+		Boolean result = hudl2SoftTouchCasePinkPDPPagePO.checkVariantItemIsSelected();
 		Assert.assertTrue(result);
 		LOG.debug("the variant item is selected");
 	}
@@ -208,7 +209,7 @@ public class PDP {
 	@Then("^I am taken to the variant item page$")
 	public void I_am_taken_to_the_variant_item_page() throws Throwable {
 	    
-		Boolean result = aquaMarinePDPPagePO.checkVariantItemPageIsDisplayed();
+		Boolean result = hudl2SoftTouchCasePinkPDPPagePO.checkVariantItemPageIsDisplayed();
 		Assert.assertTrue(result);
 		LOG.debug("I am taken to the variant item page");
 	}
