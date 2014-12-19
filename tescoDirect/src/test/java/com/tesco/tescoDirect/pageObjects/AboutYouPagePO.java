@@ -124,7 +124,7 @@ public class AboutYouPagePO extends PageObject {
 	private WebElement MyAccount;
 
 	public void checkIDontHaveAClubcardCheckboxIsUnChecked() {
-          WC.CheckboxStatus(IDontHaveAclubcardCheckBox);
+		WC.CheckboxStatus(IDontHaveAclubcardCheckBox);
 	}
 
 	public void checkEditButtonIsDisabled() {
@@ -162,7 +162,7 @@ public class AboutYouPagePO extends PageObject {
 	}
 
 	public String getActualTitleDropDownValue() {
-        WC.waitForElement(TitleDropDownInnerText, 60);
+		WC.waitForElement(TitleDropDownInnerText, 60);
 		String actualTitleDropDownValue = TitleDropDownInnerText.getText();
 		return actualTitleDropDownValue;
 
@@ -253,7 +253,7 @@ public class AboutYouPagePO extends PageObject {
 			WC.wait(5);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
 			PostCodeTextBox.sendKeys(Keys.ENTER);
-			//FirstAddress.click();
+			// FirstAddress.click();
 		} else if (WC.SVP()) {
 			WC.wait(5);
 			PostCodeTextBox.sendKeys(Keys.ENTER);

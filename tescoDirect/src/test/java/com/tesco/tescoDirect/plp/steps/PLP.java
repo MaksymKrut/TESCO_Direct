@@ -38,9 +38,9 @@ public class PLP {
 	private AboutYouPagePO aboutYouPagePO;
 	private CheckOutPagePO checkOutPagePO;
 	private OrderConfirmationPagePO orderConfirmationPagePO;
-	private  MyAccountPO myAccountPO;
-	private  MyOrdersPO myOrdersPO;
-	
+	private MyAccountPO myAccountPO;
+	private MyOrdersPO myOrdersPO;
+
 	@When("^user types in \"([^\"]*)\" in the search and browse text$")
 	public void user_types_in_in_the_search_and_browse_text(String product)
 			throws Throwable {
@@ -176,7 +176,7 @@ public class PLP {
 			throws Throwable {
 		LOG.debug("products should be displayed based on the selection");
 		searchResultsPO.checkingForProductsWithIntheRangeForBest();
-		//searchResultsPO.clickingOnClearAllButton();
+		// searchResultsPO.clickingOnClearAllButton();
 	}
 
 	@When("^user selects view by category and clicks on a particular category$")
@@ -246,9 +246,9 @@ public class PLP {
 		streamlineBasketPO = WC.getPageObject(StreamlineBasketPO.class);
 		streamlineBasketPO.checkingForStreamLineBasketOverlay();
 	}
-//And I click on Continue to checkout button on the Stream line overlay
-	
-	
+
+	// And I click on Continue to checkout button on the Stream line overlay
+
 	@And("^the item added should be displayed with message 1 item added to Basket$")
 	public void the_item_added_shoudl_be_displayed_with_message()
 			throws Throwable {
@@ -305,14 +305,13 @@ public class PLP {
 		streamlineBasketPO.clickingOnCheckoutButton();
 	}
 
-
 	@When("^I click on Continue to checkout button on the Stream line overlay$")
 	public void IclickonContinuetocheckoutbuttonontheStreamlineoverlay()
 			throws Throwable {
 		LOG.debug("I click on Continue to checkout button on the Stream line overlay");
 		streamlineBasketPO.clickingOnCheckoutButtonEE();
 	}
-	
+
 	@Then("^user should be taken to checkout page$")
 	public void user_should_be_taken_to_checkout_page() throws Throwable {
 		LOG.debug("user should be taken to checkout page");
@@ -324,31 +323,36 @@ public class PLP {
 			throws Throwable {
 		LOG.debug("user clicks on continue shopping link in the stream line overlay");
 		streamlineBasketPO.clickingOnContinueShoppingLink();
-		//streamlineBasketPO.clickingOnContinueShoppingLinkEE();
+		// streamlineBasketPO.clickingOnContinueShoppingLinkEE();
 	}
+
 	@When("^user clicks on continue shopping link in the stream line overlay page$")
 	public void user_clicks_on_continue_shopping_link_in_the_stream_line_page()
 			throws Throwable {
 		LOG.debug("user clicks on continue shopping link in the stream line overlay page");
 		streamlineBasketPO.clickingOnContinueShoppingLinkEE();
 	}
+
 	@Then("^user should be redirected to the PLP page from where the overlay was launched$")
 	public void user_should_be_redirected_to_the_PLP_page_from_where_the_overlay_was_launched()
 			throws Throwable {
 		LOG.debug("user should be redirected to the PLP page from where the overlay was launched");
 		streamlineBasketPO.CheckingForResultsPage();
 	}
+
 	@Then("^user should be redirected to the PLP page$")
-	public void user_should_be_redirected_to_the_PLP_page()
-			throws Throwable {
+	public void user_should_be_redirected_to_the_PLP_page() throws Throwable {
 		LOG.debug("user should be redirected to the PLP page");
 		streamlineBasketPO.CheckingForResultsPageEE();
-		/*homePagePO = WC.getPageObject(HomePagePO.class);
-		homePagePO.clickingOnViewBasketButton();
-		basketPagePO = WC.getPageObject(BasketPagePO.class);
-		basketPagePO.clickingOnEmptyBasketButton();*/
+		/*
+		 * homePagePO = WC.getPageObject(HomePagePO.class);
+		 * homePagePO.clickingOnViewBasketButton(); basketPagePO =
+		 * WC.getPageObject(BasketPagePO.class);
+		 * basketPagePO.clickingOnEmptyBasketButton();
+		 */
 
 	}
+
 	@Given("^I place an order as a Registered User$")
 	public void registeredUser() throws Throwable {
 		LOG.debug("I have an item In basket");
@@ -362,7 +366,7 @@ public class PLP {
 		streamlineBasketPO.clickingOnContinueShoppingLinkEE();
 		streamlineBasketPO.CheckingForResultsPage();
 		searchResultsPO = WC.getPageObject(SearchResultsPO.class);
-		
+
 		searchResultsPO.typetoSearch("207-3764");
 		searchResultsPO.clickOnPDPAddToBasketButton();
 		streamlineBasketPO = WC.getPageObject(StreamlineBasketPO.class);
@@ -386,6 +390,7 @@ public class PLP {
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickOnSignOutLink();
 	}
+
 	@Given("^I place an order as a anonymous User$")
 	public void anonymousUser() throws Throwable {
 		LOG.debug("I have an item In basket");
@@ -417,24 +422,26 @@ public class PLP {
 		homePagePO.clickingOnViewBasketButton();
 		basketPagePO = WC.getPageObject(BasketPagePO.class);
 		basketPagePO.clickingOnEmptyBasketButton();
-		
+
 		searchResultsPO = WC.getPageObject(SearchResultsPO.class);
 		searchResultsPO.typetoSearch("574-7120");
 		searchResultsPO.clickOnPDPAddToBasketButton();
 		streamlineBasketPO = WC.getPageObject(StreamlineBasketPO.class);
 		streamlineBasketPO.clickingOnCheckoutButtonEE();
 		streamlineBasketPO.CheckingForSecurecheckoutPage();
-		
-	/*	aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
-		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
-		aboutYouPagePO.enterPassword("Password1");
-		aboutYouPagePO.clickOnSignInButton();
-		WC.wait(5);*/
-		
+
+		/*
+		 * aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
+		 * aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
+		 * aboutYouPagePO.enterPassword("Password1");
+		 * aboutYouPagePO.clickOnSignInButton(); WC.wait(5);
+		 */
+
 		PayWithGiftCardAndCancelOrder();
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickOnSignOutLink();
 	}
+
 	@Given("^I place an order as a New User$")
 	public void NewUser() throws Throwable {
 		LOG.debug("I have an item In basket");
@@ -470,20 +477,20 @@ public class PLP {
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickOnSignOutLink();
 	}
-	
-	public void PayWithGiftCardAndCancelOrder()
-	{
+
+	public void PayWithGiftCardAndCancelOrder() {
 		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
 		checkOutPagePO.payWithGiftCard();
-		orderConfirmationPagePO = WC.getPageObject(OrderConfirmationPagePO.class);
+		orderConfirmationPagePO = WC
+				.getPageObject(OrderConfirmationPagePO.class);
 		orderConfirmationPagePO.verifyYourOrderHasBeenConfirmedMessage();
 		orderConfirmationPagePO.ClickingOnMyAccount();
-		myAccountPO= WC.getPageObject(MyAccountPO.class);
+		myAccountPO = WC.getPageObject(MyAccountPO.class);
 		myAccountPO.clickingOnViewDirectOrdersbutton();
-		myOrdersPO= WC.getPageObject(MyOrdersPO.class);
+		myOrdersPO = WC.getPageObject(MyOrdersPO.class);
 		myOrdersPO.CancelOrder();
 	}
-	
+
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

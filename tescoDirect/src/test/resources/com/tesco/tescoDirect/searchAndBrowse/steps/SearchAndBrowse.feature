@@ -1,4 +1,4 @@
-@testFirefox @MVP @S4 @testC
+@testC @testF @testMVP @testSVP
 Feature: Search and Browse 
 
 

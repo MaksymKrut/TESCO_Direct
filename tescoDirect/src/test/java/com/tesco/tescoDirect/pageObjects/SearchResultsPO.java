@@ -171,7 +171,8 @@ public class SearchResultsPO extends PageObject {
 	public SearchResultsPO typetoSearch(String product) {
 		WC.assertingWebElement(SearchBar);
 		SearchBar.sendKeys(product);
-		WC.waitForElementClickable(By.cssSelector(Constants.SearchResultsPage.GoButton), 30);
+		WC.waitForElementClickable(
+				By.cssSelector(Constants.SearchResultsPage.GoButton), 30);
 		GoButton.click();
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}

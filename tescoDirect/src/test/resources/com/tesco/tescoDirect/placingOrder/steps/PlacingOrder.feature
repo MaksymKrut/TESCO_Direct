@@ -1,4 +1,4 @@
-@testC
+@testC @testF @testMVP @testSVP
 Feature: Placing an order in the website by traversing end-to-end and Order cancellation 
 
 @RegisteredUser 

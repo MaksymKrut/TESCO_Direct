@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Add Card
 
 As a customer

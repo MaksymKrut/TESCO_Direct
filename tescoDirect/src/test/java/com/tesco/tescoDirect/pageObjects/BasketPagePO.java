@@ -277,69 +277,90 @@ public class BasketPagePO extends PageObject {
 	@FindBy(partialLinkText = Constants.BasketPage.SignOutLink)
 	@CacheLookup
 	private WebElement SignOutLink;
-	
-	
-	
-	
+
 	public BasketPagePO clickingOnEmptyBasketButton() {
 		if (WC.LVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPEmptyBasketButton), 60);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPEmptyBasketButton),
+					60);
 			WC.click(BPEmptyBasketButton);
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButton),
+					50);
 			WC.assertingWebElement(AreYouSureYouWantToEmptyYourBasketYesButton);
 			WC.click(AreYouSureYouWantToEmptyYourBasketYesButton);
 		} else if (WC.SVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPEmptyBasketButton), 60);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPEmptyBasketButton),
+					60);
 			WC.click(BPEmptyBasketButton);
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButtonMobile), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButtonMobile),
+					50);
 			WC.assertingWebElement(AreYouSureYouWantToEmptyYourBasketYesButtonMobile);
 			WC.click(AreYouSureYouWantToEmptyYourBasketYesButtonMobile);
-		}
-		else if (WC.MVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPEmptyBasketButton), 60);
+		} else if (WC.MVP()) {
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPEmptyBasketButton),
+					60);
 			WC.click(BPEmptyBasketButton);
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButtonMobile), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.AreYouSureYouWantToEmptyYourBasketYesButtonMobile),
+					50);
 			WC.assertingWebElement(AreYouSureYouWantToEmptyYourBasketYesButtonMobile);
 			WC.click(AreYouSureYouWantToEmptyYourBasketYesButtonMobile);
 		}
 		return (BasketPagePO) WC.getPageObject(BasketPagePO.class);
 	}
+
 	public BasketPagePO updatingAndContinueTocheckout() {
 		if (WC.LVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.Quantity), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.Quantity), 20);
 			Quantity.clear();
 			Quantity.sendKeys("2");
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
 			WC.assertingWebElement(BPUpdateLink);
 			WC.click(BPUpdateLink);
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPContinuetocheckout), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPContinuetocheckout),
+					20);
 			WC.assertingWebElement(BPContinuetocheckout);
 			WC.click(BPContinuetocheckout);
 		} else if (WC.SVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.QuantityMobile), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.QuantityMobile), 20);
 			WC.click(QuantityMobile);
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
 			WC.assertingWebElement(BPUpdateLink);
 			WC.click(BPUpdateLink);
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPContinuetocheckout), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPContinuetocheckout),
+					20);
 			WC.assertingWebElement(BPContinuetocheckout);
 			WC.click(BPContinuetocheckout);
-		}
-		else if (WC.MVP()) {
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.Quantity), 20);
+		} else if (WC.MVP()) {
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.Quantity), 20);
 			Quantity.clear();
 			Quantity.sendKeys("2");
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPUpdateLink), 20);
 			WC.assertingWebElement(BPUpdateLink);
 			WC.click(BPUpdateLink);
-			WC.waitForElementClickable(By.cssSelector(Constants.BasketPage.BPContinuetocheckout), 20);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.BasketPage.BPContinuetocheckout),
+					20);
 			WC.assertingWebElement(BPContinuetocheckout);
 			WC.click(BPContinuetocheckout);
 		}
 		return (BasketPagePO) WC.getPageObject(BasketPagePO.class);
 	}
+
 	public BasketPagePO checkingTitleinBasketAttachementPage() {
 		WC.verifyText("This item was successfully added to your basket",
 				basketattachmentpagetitle);
@@ -395,10 +416,10 @@ public class BasketPagePO extends PageObject {
 		WC.assertingWebElement(bapagetrendingproductsnextarrow);
 		return (BasketPagePO) WC.getPageObject(BasketPagePO.class);
 	}
-	
+
 	public void clickOnSignOutLink() {
 		WC.click(SignOutLink);
-		
+
 	}
 
 	public BasketPagePO checkingTrendingcarsoulnaviagationarrowsworks() {

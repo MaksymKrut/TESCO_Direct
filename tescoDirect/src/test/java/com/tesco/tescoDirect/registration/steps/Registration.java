@@ -105,12 +105,13 @@ public class Registration {
 		Assert.assertTrue(expectedClubcardNumberTextBoxValue
 				.equals(actualClubcardNumberTextBoxValue));
 	}
-	
+
 	@And("^I don't have a Clubcard checkbox should appear unchecked$")
-	public void the_I_dont_have_a_Clubcard_checkbox_is_unchecked() throws Throwable {
+	public void the_I_dont_have_a_Clubcard_checkbox_is_unchecked()
+			throws Throwable {
 		LOG.debug("the I dont have a Clubcard checkbox is unchecked");
 		aboutYouPagePO.checkIDontHaveAClubcardCheckboxIsUnChecked();
-		
+
 	}
 
 	@And("^Edit button should appear disabled$")

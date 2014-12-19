@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Add address
 
 As a customer

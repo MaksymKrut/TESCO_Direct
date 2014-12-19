@@ -24,8 +24,10 @@ public class EditAddress {
 	private GlobalHeaderPO globalHeaderPO;
 	private GlobalFooterPO globalFooterPO;
 	private MyAccountPO myAccountPO;
-	@And ("^I check for the following header elements in Edit Address page$")
-	public void I_check_for_the_following_header_elements_in_Edit_Address_page(DataTable table)  {
+
+	@And("^I check for the following header elements in Edit Address page$")
+	public void I_check_for_the_following_header_elements_in_Edit_Address_page(
+			DataTable table) {
 		LOG.debug("I check for the following header elements in Edit Address page");
 		globalHeaderPO = WC.getPageObject(GlobalHeaderPO.class);
 		globalHeaderPO.checkingforBasketPageHeaderLinks();
@@ -39,16 +41,19 @@ public class EditAddress {
 	}
 
 	@Then("^I should see the My account menu and the following options$")
-	public void I_should_see_the_My_account_menu_and_the_following_options(DataTable table)  {
+	public void I_should_see_the_My_account_menu_and_the_following_options(
+			DataTable table) {
 		LOG.debug("I should see the My account menu and the following options");
 		myAccountPO.CheckingMyaccountmenuandthefollowingoptions();
 	}
 
 	@Then("^I check for the following elements in the Edit your address module$")
-	public void I_check_for_the_following_elements_in_the_Edit_your_address_module(DataTable table)  {
+	public void I_check_for_the_following_elements_in_the_Edit_your_address_module(
+			DataTable table) {
 		LOG.debug("I check for the following elements in the Edit your address module");
 		myAccountPO = WC.getPageObject(MyAccountPO.class);
 	}
+
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

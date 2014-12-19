@@ -1,4 +1,4 @@
-@testC
+@testC @testF @testMVP @testSVP
 Feature: PLP
 
 

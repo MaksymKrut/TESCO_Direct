@@ -338,6 +338,7 @@ public class CheckOutPage {
 		LOG.debug("I should see the following elements in Pay with a Gift Card module");
 		checkOutPagePO.verifypaywithagiftcardElements();
 	}
+
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

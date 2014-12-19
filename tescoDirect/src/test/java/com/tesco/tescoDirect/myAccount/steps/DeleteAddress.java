@@ -64,74 +64,78 @@ public class DeleteAddress {
 	public void the_Manage_my_address_book_link_is_present() throws Throwable {
 		myAccountPO = WC.getPageObject(MyAccountPO.class);
 		Assert.assertTrue(myAccountPO.checkManageMyAddressBookLinkIsPresent());
-	    
+
 	}
 
 	@When("^I click on the Manage my address book link$")
 	public void I_click_on_the_Manage_my_address_book_link() throws Throwable {
 		myAccountPO.clickOnkManageMyAddressBookLink();
-	    
+
 	}
 
 	@Then("^I am taken to the Manage my address book page$")
-	public void I_am_taken_to_the_Manage_my_address_book_page() throws Throwable {
-		manageMyAddressBookPagePO = WC.getPageObject(ManageMyAddressBookPagePO.class);
-		Assert.assertTrue(manageMyAddressBookPagePO.checkUserIsOnmanageMyAddressBookPage());
-	    
+	public void I_am_taken_to_the_Manage_my_address_book_page()
+			throws Throwable {
+		manageMyAddressBookPagePO = WC
+				.getPageObject(ManageMyAddressBookPagePO.class);
+		Assert.assertTrue(manageMyAddressBookPagePO
+				.checkUserIsOnmanageMyAddressBookPage());
+
 	}
 
 	@Given("^I am on the Manage my address book page$")
 	public void I_am_on_the_Manage_my_address_book_page() throws Throwable {
-		manageMyAddressBookPagePO = WC.getPageObject(ManageMyAddressBookPagePO.class);
-		Assert.assertTrue(manageMyAddressBookPagePO.checkUserIsOnmanageMyAddressBookPage());
-	    
+		manageMyAddressBookPagePO = WC
+				.getPageObject(ManageMyAddressBookPagePO.class);
+		Assert.assertTrue(manageMyAddressBookPagePO
+				.checkUserIsOnmanageMyAddressBookPage());
+
 	}
 
 	@Given("^I try to delete an address linked to my payment card$")
-	public void I_try_to_delete_an_address_linked_to_my_payment_card() throws Throwable {
+	public void I_try_to_delete_an_address_linked_to_my_payment_card()
+			throws Throwable {
 		manageMyAddressBookPagePO.clickOnRadioButtonForTheSecondAddress();
 		manageMyAddressBookPagePO.clickOnSaveChangesButton();
 		manageMyAddressBookPagePO.tryToDeleteAddressLinkedToCard();
-		
-	    
+
 	}
 
 	@Then("^the payment card linked to address error is displayed$")
-	public void the_payment_card_linked_to_address_error_is_displayed() throws Throwable {
-		Assert.assertTrue(manageMyAddressBookPagePO.paymentCardLinkedToAddressErrorisDisplayed());
-	    
+	public void the_payment_card_linked_to_address_error_is_displayed()
+			throws Throwable {
+		Assert.assertTrue(manageMyAddressBookPagePO
+				.paymentCardLinkedToAddressErrorisDisplayed());
+
 	}
 
 	@When("^I try to delete an address not linked to my payment card$")
-	public void I_click_on_the_delete_address_button_for_the_Home_address() throws Throwable {
+	public void I_click_on_the_delete_address_button_for_the_Home_address()
+			throws Throwable {
 		manageMyAddressBookPagePO.clickOnRadioButtonForTheSecondAddress();
 		manageMyAddressBookPagePO.clickOnSaveChangesButton();
 		manageMyAddressBookPagePO.tryToDeleteAddressNotLinkedToCard();
 	}
 
-	
-
 	@Then("^the respective address is deleted$")
 	public void the_respective_address_is_deleted() throws Throwable {
-		Assert.assertTrue(manageMyAddressBookPagePO.checkRespectiveAddressHasBeenDeleted());
-	    
+		Assert.assertTrue(manageMyAddressBookPagePO
+				.checkRespectiveAddressHasBeenDeleted());
+
 	}
 
 	@When("^I click on the delete address button for the Extra address$")
-	public void I_click_on_the_delete_address_button_for_the_Extra_address() throws Throwable {
-	    
-	    
-	}
-	
-	@Then("^the following elements are present on the Manage my address book page$")
-	public void the_following_elements_are_present_on_the_Manage_my_address_book_page(DataTable table) throws Throwable {
-		
-		
-		
-		
+	public void I_click_on_the_delete_address_button_for_the_Extra_address()
+			throws Throwable {
 
-		
-		manageMyAddressBookPagePO = WC.getPageObject(ManageMyAddressBookPagePO.class);
+	}
+
+	@Then("^the following elements are present on the Manage my address book page$")
+	public void the_following_elements_are_present_on_the_Manage_my_address_book_page(
+			DataTable table) throws Throwable {
+
+		manageMyAddressBookPagePO = WC
+				.getPageObject(ManageMyAddressBookPagePO.class);
 
 		{
 
@@ -143,116 +147,130 @@ public class DeleteAddress {
 					switch (value) {
 
 					case "Breadcrumbs of the page":
-						result = manageMyAddressBookPagePO.checkBreadcrumbsIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkBreadcrumbsIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Breadcrumbs of the page is displayed");
 						break;
-						
+
 					case "Manage my address book header text":
-						result = manageMyAddressBookPagePO.checkManageMyAddressBookHeaderTextIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkManageMyAddressBookHeaderTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Manage my address book header text is displayed");
 						break;
-						
+
 					case "Address Informational text":
-						result = manageMyAddressBookPagePO.checkAddressInformationalTextIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkAddressInformationalTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Address Informational text is displayed");
 						break;
-						
+
 					case "Radio Button for the first address selected":
-						result = manageMyAddressBookPagePO.checkRadioButtonForTheFirstAddressIsSelected();
+						result = manageMyAddressBookPagePO
+								.checkRadioButtonForTheFirstAddressIsSelected();
 						Assert.assertTrue(result);
 						LOG.debug("Radio Button for the first address selected is displayed");
 						break;
-						
+
 					case "Radio Button for the second address not selected":
-						result = manageMyAddressBookPagePO.checkRadioButtonForTheSecondAddressIsNotSelected();
+						result = manageMyAddressBookPagePO
+								.checkRadioButtonForTheSecondAddressIsNotSelected();
 						Assert.assertFalse(result);
 						LOG.debug("Radio Button for the second address not selected");
 						break;
-						
+
 					case "Address Name":
-						result = manageMyAddressBookPagePO.checkAddressNameIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkAddressNameIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Address Name is displayed");
 						break;
-						
+
 					case "Address":
-						result = manageMyAddressBookPagePO.checkAddressIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkAddressIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Address is displayed");
 						break;
-						
+
 					case "Day phone Label":
-						result = manageMyAddressBookPagePO.checkDayPhoneLabelIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkDayPhoneLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Day phone Label is displayed");
 						break;
-						
+
 					case "Day Phone Number":
-						result = manageMyAddressBookPagePO.checkDayPhoneNumberIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkDayPhoneNumberIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Day Phone Number is displayed");
 						break;
-						
+
 					case "Evening phone Label":
-						result = manageMyAddressBookPagePO.checkEveningPhoneLabelIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkEveningPhoneLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Evening phone Label is displayed");
 						break;
-						
+
 					case "Evening phone Number":
-						result = manageMyAddressBookPagePO.checkEveningPhoneNumberIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkEveningPhoneNumberIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Evening phone Number is displayed");
 						break;
-						
+
 					case "Mobile phone Label":
-						result = manageMyAddressBookPagePO.checkMobilePhoneLabelIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkMobilePhoneLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Mobile phone Label is displayed");
 						break;
-						
+
 					case "Mobile phone Number":
-						result = manageMyAddressBookPagePO.checkMobilePhoneNumberIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkMobilePhoneNumberIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Mobile phone Number is displayed");
 						break;
-						
+
 					case "Edit Button in First Address":
-						result = manageMyAddressBookPagePO.checkEditButtonInFirstAddressIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkEditButtonInFirstAddressIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Edit Button in First Address is displayed");
 						break;
-						
+
 					case "Edit Button in Second Address":
-						result = manageMyAddressBookPagePO.checkEditButtonInSecondAddressIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkEditButtonInSecondAddressIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Edit Button in Second Address is displayed");
 						break;
-						
+
 					case "Delete Button in Second Address":
-						result = manageMyAddressBookPagePO.checkDeleteButtonInSecondAddressIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkDeleteButtonInSecondAddressIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Delete Button in Second Address is displayed");
 						break;
-						
+
 					case "Add a new address button":
-						result = manageMyAddressBookPagePO.checkAddANewAddressButtonIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkAddANewAddressButtonIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Add a new address button is displayed");
 						break;
-					
+
 					case "Save Changes button":
-						result = manageMyAddressBookPagePO.checkSaveChangesButtonIsDisplayed();
+						result = manageMyAddressBookPagePO
+								.checkSaveChangesButtonIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Save Changes button is displayed");
 						break;
-					
-					
-						
-					
 
 					}
 				}
@@ -262,20 +280,18 @@ public class DeleteAddress {
 			LOG.debug("the following elements are displayed");
 
 		}
-	   
+
 	}
-	
+
 	@After("@DeleteAddress_CleanUp")
-	public void cleanUp(){
-		manageMyAddressBookPagePO = WC.getPageObject(ManageMyAddressBookPagePO.class);
-		//Assert.assertTrue(manageMyAddressBookPagePO.checkAddressHasBeenDeleted());
+	public void cleanUp() {
+		manageMyAddressBookPagePO = WC
+				.getPageObject(ManageMyAddressBookPagePO.class);
+		// Assert.assertTrue(manageMyAddressBookPagePO.checkAddressHasBeenDeleted());
 		manageMyAddressBookPagePO.signOut();
-		
-		
-		
+
 	}
-	
-	
+
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

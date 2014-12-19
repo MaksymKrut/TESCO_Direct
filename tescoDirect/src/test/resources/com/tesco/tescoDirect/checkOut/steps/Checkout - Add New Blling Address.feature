@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Checkout - Add New Blling Address
 
 @AddNewBillingAddress_CleanUp

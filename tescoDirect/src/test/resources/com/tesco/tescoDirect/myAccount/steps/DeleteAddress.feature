@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Delete address
 
 As a customer

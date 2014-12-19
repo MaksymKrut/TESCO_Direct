@@ -19,7 +19,6 @@ public class SVP {
 	public void the_user_defines_the_required_webdriver_for_the_LLVP_device()
 			throws Throwable {
 		WC.openAndroidBrowserSVP();
-		
 
 	}
 

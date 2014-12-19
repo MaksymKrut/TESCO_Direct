@@ -1,7 +1,5 @@
 package com.tesco.tescoDirect.pageObjects;
 
-
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -13,9 +11,10 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class Hudl2SoftTouchCasePinkPDPPagePO extends PageObject {
-	private final static Logger LOG = Logger.getLogger(Hudl2SoftTouchCasePinkPDPPagePO.class);
+	private final static Logger LOG = Logger
+			.getLogger(Hudl2SoftTouchCasePinkPDPPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
-	
+
 	@FindBy(xpath = Constants.Hudl2SoftTouchCasePinkPDPPage.VariantItemsDropdown)
 	private WebElement VariantItemsDropdown;
 	@FindBy(css = Constants.Hudl2SoftTouchCasePinkPDPPage.RecentlyViewedItemsBlock)
@@ -46,18 +45,14 @@ public class Hudl2SoftTouchCasePinkPDPPagePO extends PageObject {
 	@FindBy(css = Constants.Hudl2SoftTouchCasePinkPDPPage.ProductTitle)
 	private WebElement ProductTitle;
 
-	
-	
-
-
 	public boolean checkUserIsOnHudl2SoftTouchCasePinkPDPPage() {
 		String actualPageTitle = WC.getPageTitle();
 		String expectedPageTitle = "Buy hudl2 Soft Touch Case from our Cases & Covers range - Tesco.com";
 		Boolean result = actualPageTitle.equals(expectedPageTitle);
-		System.out.println("The Page Title is "+actualPageTitle);
+		System.out.println("The Page Title is " + actualPageTitle);
 		return result;
 	}
-	
+
 	public Boolean checkVariantItemsDropwdownIsDisplayed() {
 
 		return WC.elementIsDisplayedOrNot(VariantItemsDropdown);
@@ -84,7 +79,7 @@ public class Hudl2SoftTouchCasePinkPDPPagePO extends PageObject {
 
 	public Boolean checkBuyBoxDefaultQuantityIs1() {
 		String quantity = WC.getAttributeValue(QuantityBox, "value");
-		if(quantity.equalsIgnoreCase("1"))
+		if (quantity.equalsIgnoreCase("1"))
 			return true;
 		else
 			return false;
@@ -108,39 +103,43 @@ public class Hudl2SoftTouchCasePinkPDPPagePO extends PageObject {
 	public void selectAVariantItem() {
 
 		String Currentinstance = WC.getDriver().getClass().getName();
-		if(Currentinstance.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")){
+		if (Currentinstance
+				.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.click(VariantItemsDropdown);
 			WC.click(VariantItemsDropdownFirstOption);
-		}else if(Currentinstance.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")){
+		} else if (Currentinstance
+				.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")) {
 			WC.selectfromdropdown(VariantItemsDropdownMobile, "Turquoise");
 
-
 		}
-
-
 
 	}
 
 	public Boolean checkVariantItemIsSelected() {
 		WC.retryingFindClick(VariantItemsDropdown);
 		String Currentinstance = WC.getDriver().getClass().getName();
-		Boolean result=null;
+		Boolean result = null;
 
-		if(Currentinstance.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")){
+		if (Currentinstance
+				.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")) {
 
-			String value = WC.getAttributeValue(VariantItemsDropdownFirstOption, "class");
-			System.out.println("The value of the class is "+value+"**********");
+			String value = WC.getAttributeValue(
+					VariantItemsDropdownFirstOption, "class");
+			System.out.println("The value of the class is " + value
+					+ "**********");
 
-			if(value.contains("selected"))
+			if (value.contains("selected"))
 				result = true;
-			else 
+			else
 				result = false;
 
-		}else if(Currentinstance.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")){
+		} else if (Currentinstance
+				.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")) {
 
-			String selectedOption = WC.getSelectedOptionFromDropdown(VariantItemsDropdownMobile);
+			String selectedOption = WC
+					.getSelectedOptionFromDropdown(VariantItemsDropdownMobile);
 
-			if(selectedOption.equalsIgnoreCase("Turquoise"))
+			if (selectedOption.equalsIgnoreCase("Turquoise"))
 				result = true;
 			else
 				result = false;
@@ -150,28 +149,24 @@ public class Hudl2SoftTouchCasePinkPDPPagePO extends PageObject {
 	}
 
 	public Boolean checkVariantItemPageIsDisplayed() {
-		String value=null;
+		String value = null;
 		Boolean result = false;
-		while(result.equals(false)){
-			try{
+		while (result.equals(false)) {
+			try {
 				value = WC.getText(ProductTitle);
-			}catch(Throwable t){
+			} catch (Throwable t) {
 
 			}
-			if(value.equalsIgnoreCase("hudl2 Soft Touch Case Turquoise"))
-				result=true;
+			if (value.equalsIgnoreCase("hudl2 Soft Touch Case Turquoise"))
+				result = true;
 		}
 
-
-
 		value = WC.getText(ProductTitle);
-		System.out.println("The product title is "+value);
-		if(value.equalsIgnoreCase("hudl2 Soft Touch Case Turquoise"))
+		System.out.println("The product title is " + value);
+		if (value.equalsIgnoreCase("hudl2 Soft Touch Case Turquoise"))
 			return true;
 		else
 			return false;
 	}
 
-
-	
 }

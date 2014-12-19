@@ -89,29 +89,14 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>0.0.6</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>TESCO-Direct</projectName>
-							<outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
-							<jsonLocation>${project.build.directory}Cucumber.json</jsonLocation>
-							<buildNumber></buildNumber>
-							<enableFlashCharts>true</enableFlashCharts>
-							<skippedFails>true</skippedFails>
-							<undefinedFails>true</undefinedFails>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin> -->
+			<!-- <plugin> <groupId>net.masterthought</groupId> <artifactId>maven-cucumber-reporting</artifactId> 
+				<version>0.0.6</version> <executions> <execution> <id>execution</id> <phase>verify</phase> 
+				<goals> <goal>generate</goal> </goals> <configuration> <projectName>TESCO-Direct</projectName> 
+				<outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory> 
+				<jsonLocation>${project.build.directory}Cucumber.json</jsonLocation> <buildNumber></buildNumber> 
+				<enableFlashCharts>true</enableFlashCharts> <skippedFails>true</skippedFails> 
+				<undefinedFails>true</undefinedFails> </configuration> </execution> </executions> 
+				</plugin> -->
 		</plugins>
 	</build>
 	<profiles>

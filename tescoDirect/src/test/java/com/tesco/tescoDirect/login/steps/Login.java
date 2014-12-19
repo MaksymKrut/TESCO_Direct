@@ -85,21 +85,19 @@ public class Login {
 			throws Throwable {
 		LOG.debug("my login is successful and I am redirected to the home page");
 		homePagePO = WC.getPageObject(HomePagePO.class);
-		//homePagePO.checkUserisLoggedin();
+		// homePagePO.checkUserisLoggedin();
 		homePagePO.checkUserisOnHomePage();
 		homePagePO.clickOnSignOutLink();
 
 	}
-	
+
 	@Then("^I Sign Out Completely$")
-	public void SignOutCompletely()
-			throws Throwable {
+	public void SignOutCompletely() throws Throwable {
 		LOG.debug("I Sign Out Completely");
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickOnSignOutLink();
 
 	}
-	
 
 	@After
 	public void tearDown(Scenario scenario) {

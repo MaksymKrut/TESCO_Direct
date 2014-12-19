@@ -88,12 +88,14 @@ public class HomePagePO extends PageObject {
 			throws Exception {
 		WC.waitForElementToBePresent(SearchSuggestionAsYouTypeOverLayType1, 10);
 		WC.waitForElementToBePresent(SearchSuggestionAsYouTypeOverLayType2, 10);
-		//WC.waitForpresenceofElement(By.cssSelector(Constants.HomePage.SearchSuggestionAsYouTypeOverLay),60);
-		if(WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType1)==true || WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType2)==true)
+		// WC.waitForpresenceofElement(By.cssSelector(Constants.HomePage.SearchSuggestionAsYouTypeOverLay),60);
+		if (WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType1) == true
+				|| WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLayType2) == true)
 			return true;
 		else
 			return false;
-		//return (WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLay));
+		// return
+		// (WC.elementIsDisplayedOrNot(SearchSuggestionAsYouTypeOverLay));
 
 	}
 
@@ -181,16 +183,16 @@ public class HomePagePO extends PageObject {
 		Assert.assertTrue(WC.getPageTitle().contains(
 				"Tesco direct: Electricals, Home Furnishing, Toys"));
 	}
-	
+
 	public void clickOnMyAccountLink() {
 		WC.click(MyAccountLink);
-		
+
 	}
-	
+
 	public void closeCookiesMsg() {
-		if((WC.elementIsDisplayedOrNot(CookiesMsg))==true)
+		if ((WC.elementIsDisplayedOrNot(CookiesMsg)) == true)
 			WC.click(CookiesMsgCloseButton);
-		
+
 	}
 
 }
