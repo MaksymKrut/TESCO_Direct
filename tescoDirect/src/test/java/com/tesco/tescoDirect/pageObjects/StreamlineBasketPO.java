@@ -92,12 +92,25 @@ public class StreamlineBasketPO extends PageObject {
 	private WebElement AddToBasketButton3;
 
 	public StreamlineBasketPO checkingForStreamLineBasketOverlay() {
-		WC.wait(2);
-		WC.waitForpresenceofElement(
-				By.cssSelector(Constants.StreamlineBasketPage.StreamlinebasketOverlay),
-				60);
-		WC.assertingWebElement(StreamlinebasketOverlay);
-		WC.handlePopup();
+		if (WC.LVP()) {
+			WC.wait(2);
+			WC.waitForpresenceofElement(
+					By.cssSelector(Constants.StreamlineBasketPage.StreamlinebasketOverlay),
+					60);
+			WC.assertingWebElement(StreamlinebasketOverlay);
+			WC.handlePopup();
+
+		} else if (WC.SVP()) {
+			WC.wait(10);
+			//WC.assertingWebElement(StreamlinebasketOverlay);
+			WC.handlePopup();
+
+		} else if (WC.MVP()) {
+			WC.wait(10);
+			WC.assertingWebElement(StreamlinebasketOverlay);
+			WC.handlePopup();
+		}
+		
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
 	}
 
@@ -288,7 +301,7 @@ public class StreamlineBasketPO extends PageObject {
 			WC.assertingWebElement(CheckoutButton);
 			WC.click(CheckoutButton);
 
-		} else if (WC.SVP() && WC.MVP()) {
+		} else if (WC.SVP() ) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.StreamlineBasketPage.CheckoutButtonMobile),
 					50);
@@ -296,6 +309,15 @@ public class StreamlineBasketPO extends PageObject {
 			WC.click(CheckoutButtonMobile);
 
 		}
+		else if (WC.MVP() ) {
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.StreamlineBasketPage.CheckoutButtonMobile),
+					50);
+			WC.assertingWebElement(CheckoutButtonMobile);
+			WC.click(CheckoutButtonMobile);
+
+		}
+
 
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
 	}
@@ -307,7 +329,14 @@ public class StreamlineBasketPO extends PageObject {
 					60);
 			WC.verifyText("Secure checkout", PageTitle);
 
-		} else if (WC.MVP() && WC.SVP()) {
+		} else if (WC.SVP()) {
+			WC.presenceOfElementLocated(
+					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
+					60);
+			WC.verifyText("Secure checkout", PageTitle);
+
+		}
+		else if (WC.MVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					60);
@@ -384,14 +413,20 @@ public class StreamlineBasketPO extends PageObject {
 					20);
 			WC.verifyText("Results for “ipad”", PageTitle);
 
-		} else if (WC.MVP() && WC.SVP()) {
+		} else if (WC.MVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					20);
 			WC.verifyText("Results for “ipad”", PageTitle);
 
 		}
+		else if (WC.SVP()) {
+			WC.presenceOfElementLocated(
+					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
+					20);
+			WC.verifyText("Results for “ipad”", PageTitle);
 
+		}
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
 	}
 
@@ -402,7 +437,14 @@ public class StreamlineBasketPO extends PageObject {
 					20);
 			WC.verifyText("Results for “hudl”", PageTitle);
 
-		} else if (WC.MVP() && WC.SVP()) {
+		} else if (WC.MVP() ) {
+			WC.presenceOfElementLocated(
+					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
+					20);
+			WC.verifyText("Results for “hudl”", PageTitle);
+
+		}
+		else if ( WC.SVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					20);
