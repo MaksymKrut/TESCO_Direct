@@ -11,8 +11,7 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class ChangeEmailAddressPagePO extends PageObject {
-	private final static Logger LOG = Logger
-			.getLogger(ChangeEmailAddressPagePO.class);
+	private final static Logger LOG = Logger.getLogger(ChangeEmailAddressPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 
 	@FindBy(css = Constants.ChangeEmailAddressPage.Breadcrumbs)
@@ -28,7 +27,7 @@ public class ChangeEmailAddressPagePO extends PageObject {
 	@CacheLookup
 	private WebElement OldEmailAddressLabel;
 	@FindBy(css = Constants.ChangeEmailAddressPage.OldEmailAddressTextbox)
-	private WebElement OldEmailAddressTextbox;
+	private WebElement  OldEmailAddressTextbox;
 	@FindBy(xpath = Constants.ChangeEmailAddressPage.PasswordLabel)
 	@CacheLookup
 	private WebElement PasswordLabel;
@@ -54,118 +53,198 @@ public class ChangeEmailAddressPagePO extends PageObject {
 	@FindBy(xpath = Constants.ChangeEmailAddressPage.EmailMismatchErrorMsg)
 	@CacheLookup
 	private WebElement EmailMismatchErrorMsg;
-
-	public Boolean checkBreadcrumbsIsDisplayed() {
-
-		return (WC.elementIsDisplayedOrNot(Breadcrumbs));
+	
+	
+		
+		
+       public Boolean checkBreadcrumbsIsDisplayed() {
+		
+		return(WC.elementIsDisplayedOrNot(Breadcrumbs));
 	}
+
+
+
 
 	public Boolean checkUserIsOnChangeMyEmailAddressPage() {
-		return (WC.getPageTitle()
-				.contains("Change my email address - Tesco.com"));
-
+		return(WC.getPageTitle().contains(
+				"Change my email address - Tesco.com"));
+		
 	}
+
+
+
 
 	public Boolean checkChangeMyEmailAddressHeaderTextIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(ChangeMyEmailAddressHeaderText));
+		return(WC.elementIsDisplayedOrNot(ChangeMyEmailAddressHeaderText));
 	}
+
+
+
 
 	public Boolean checkNewEmailAddressHeaderTextIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(NewEmailAddressHeaderText));
+		return(WC.elementIsDisplayedOrNot(NewEmailAddressHeaderText));
 	}
+
+
+
 
 	public Boolean checkOldEmailAddressLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(OldEmailAddressLabel));
+		return(WC.elementIsDisplayedOrNot(OldEmailAddressLabel));
 	}
+
+
+
 
 	public Boolean checkOldEmailAddressTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(OldEmailAddressTextbox));
+		return(WC.elementIsDisplayedOrNot(OldEmailAddressTextbox));
 	}
 
+
+
+
 	public Boolean checkCurrentEmailAddressInOldEmailAddressTextboxIsDisplayed() {
-		String textboxValue = WC.getAttributeValue(OldEmailAddressTextbox,
-				"value");
-		if (textboxValue.equalsIgnoreCase("ashish.modi@uk.tesco.com"))
+		String textboxValue = WC.getAttributeValue(OldEmailAddressTextbox, "value");
+		if(textboxValue.equalsIgnoreCase("ashish.modi@uk.tesco.com"))
 			return true;
 		else
 			return false;
-		// return(WC.elementIsDisplayedOrNot(ChangePasswordHeaderText));
+		//return(WC.elementIsDisplayedOrNot(ChangePasswordHeaderText));
 	}
+
+
+
 
 	public Boolean checkPasswordLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(PasswordLabel));
+		return(WC.elementIsDisplayedOrNot(PasswordLabel));
 	}
+
+
+
 
 	public Boolean checkPasswordTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(PasswordTextbox));
+		return(WC.elementIsDisplayedOrNot(PasswordTextbox));
 	}
+
+
+
 
 	public Boolean checkNewEmailAddressLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(NewEmailAddressLabel));
+		return(WC.elementIsDisplayedOrNot(NewEmailAddressLabel));
 	}
+
+
+
 
 	public Boolean checkNewEmailAddressTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(NewEmailAddressTextbox));
+		return(WC.elementIsDisplayedOrNot(NewEmailAddressTextbox));
 	}
+
+
+
 
 	public Boolean checkConfirmNewEmailAddressLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(ConfirmNewEmailAddressLabel));
+		return(WC.elementIsDisplayedOrNot(ConfirmNewEmailAddressLabel));
 	}
+
+
+
 
 	public Boolean checkConfirmNewEmailAddressTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(ConfirmNewEmailAddressTextbox));
+		return(WC.elementIsDisplayedOrNot(ConfirmNewEmailAddressTextbox));
 	}
+
+
+
 
 	public Boolean checkCancelButtonIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CancelButton));
+		return(WC.elementIsDisplayedOrNot(CancelButton));
 	}
 
+
+
+
 	public Boolean checkSaveButtonIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(SaveButton));
+		return(WC.elementIsDisplayedOrNot(SaveButton));
 	}
+
+
+
 
 	public void enterCurrentPasswordInThePasswordTextbox(String currentPassword) {
 		WC.type(PasswordTextbox, currentPassword);
-
+		
 	}
+
+
+
 
 	public void clearPasswordTextbox() {
 		WC.clearTextBox(PasswordTextbox);
-
+		
 	}
+
+
+
 
 	public void clearNewEmailAddressTextbox() {
 		WC.clearTextBox(NewEmailAddressTextbox);
-
+		
 	}
+
+
+
 
 	public void enterNewEmailAddress(String newEmailAddress) {
 		WC.type(NewEmailAddressTextbox, newEmailAddress);
-
+		
 	}
+
+
+
 
 	public void clearConfirmNewEmailAddressTextbox() {
 		WC.clearTextBox(ConfirmNewEmailAddressTextbox);
-
+		
 	}
+
+
+
 
 	public void enterConfirmNewEmailAddress(String confirmNewEmailAddress) {
 		WC.type(ConfirmNewEmailAddressTextbox, confirmNewEmailAddress);
-
+		
 	}
+
+
+
 
 	public void clickOnSaveButton() {
 		WC.click(SaveButton);
-
+		
 	}
+
+
+
 
 	public boolean checkEmailMismatchErrorIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(EmailMismatchErrorMsg));
+		return(WC.elementIsDisplayedOrNot(EmailMismatchErrorMsg));
 	}
+
+
+
 
 	public void pressTabKey() {
 		WC.pressTabKey(ConfirmNewEmailAddressTextbox);
-
+		
 	}
+
+
+
+
+
+
+
+
+	
 
 }

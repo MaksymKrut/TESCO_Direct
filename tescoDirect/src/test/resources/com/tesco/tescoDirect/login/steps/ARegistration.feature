@@ -1,4 +1,4 @@
-@NewUser @testFirefox  @MVP @S4  @testF
+@NewUser @testFirefox @MVP 
 Feature: Registration
 
 Scenario: Registration Page - user fills in values and clicks on Next button

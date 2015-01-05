@@ -1,4 +1,4 @@
-@testC @testF @testMVP @testSVP
+@MVP 
 Feature: Checkout 
 
 
@@ -14,6 +14,7 @@ Scenario: Any Customer
 		|Catalogue Number         |
 		|Sold by                  |
 		|Item price               |
+	And the following items in regards to the BVCE logo is displayed
 	And the delivery method - Collection is selected by default 
 	And the delivery cost is displayed as Free 
 	And the Pay now box should display the following 
@@ -27,7 +28,7 @@ Scenario: Any Customer
 Scenario: Logged in Customer 
 	Given I navigate to the checkout page after adding items to the basket as a logged in user 
 		|UserName                   |Password |
-		|testaccount@tescodirect.com|Password2|
+		|ashish.modi@uk.tesco.com|Password1|
 	Then the top navigation Order tab is highlighted 
 	And the Basket tab is enabled and greyed out 
 	And the Thank you tab is disabled and greyed out 
@@ -79,7 +80,7 @@ Scenario: Existing customer logged in at checkout
 	Given I navigate to the checkout page after adding items to the basket 
 	And I login at the checkout page 
 		|UserName                   |Password |
-		|testaccount@tescodirect.com|Password2|
+		|testaccount@tescodirect.com|Password1|
 	Then the top navigation Order tab is highlighted 
 	And the Basket tab is enabled and greyed out 
 	And the Thank you tab is disabled and greyed out 

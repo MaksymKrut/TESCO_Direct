@@ -1,6 +1,11 @@
 package com.tesco.tescoDirect.util;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import com.tesco.tescoDirect.util.WebConnector.Browsers;
+import com.tesco.tescoDirect.checkOutPage.steps.CheckOutPage;
+import com.tesco.tescoDirect.pageObjects.CheckOutPagePO;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 

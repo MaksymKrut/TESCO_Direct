@@ -1,4 +1,3 @@
-@testC @testF @testMVP @testSVP
 Feature: PDP
 
 

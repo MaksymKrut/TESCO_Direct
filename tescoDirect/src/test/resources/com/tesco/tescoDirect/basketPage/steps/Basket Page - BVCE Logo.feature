@@ -1,4 +1,4 @@
-@testC @testF @testMVP @testSVP
+@MVP @S4 @test 
 Feature: Basket Page - BVCE Logo 
 
 Scenario: New BVCE logo is displayed in the basket page 

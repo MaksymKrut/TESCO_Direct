@@ -27,10 +27,10 @@ public class GeneratePoshReport {
 
 		List<String> jsonReportFiles = new ArrayList<String>();
 		jsonReportFiles.add("target/LLVP.json");
-		// jsonReportFiles.add("target/MVP.json");
-		// jsonReportFiles.add("target/SVP.json");
+		//jsonReportFiles.add("target/MVP.json");
+		//jsonReportFiles.add("target/SVP.json");
 
-		String buildNumber = "Regression Pack";
+		String buildNumber = "LLVP-End to End";
 		String buildProjectName = "";
 		String pluginURLPath = "";
 		Boolean skippedFails = true;

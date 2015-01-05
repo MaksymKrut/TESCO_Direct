@@ -1,4 +1,3 @@
-@testC @testF @testMVP @testSVP
 Feature: Delete address
 
 As a customer
@@ -28,6 +27,7 @@ Then the following elements are present on the Manage my address book page
 |Radio Button for the first address selected|
 |Radio Button for the second address not selected|
 |Address Name|
+|Address  |
 |Day phone Label|
 |Day Phone Number|
 |Evening phone Label|
@@ -46,7 +46,7 @@ Given I am on the Manage my address book page
 And I try to delete an address linked to my payment card
 Then the payment card linked to address error is displayed
 
-@DeleteAddress_CleanUp
+
 Scenario:  Delete address/addresses
 Given I am on the Manage my address book page
 And I try to delete an address not linked to my payment card

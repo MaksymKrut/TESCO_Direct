@@ -16,7 +16,8 @@ import java.util.List;
  * 
  * @phase verify
  */
-public class CucumberReportGeneratorMojo extends AbstractMojo {
+public class CucumberReportGeneratorMojo extends AbstractMojo
+{
 
 	/**
 	 * Name of the project.
@@ -75,8 +76,10 @@ public class CucumberReportGeneratorMojo extends AbstractMojo {
 	 */
 	private String buildNumber;
 
-	public void execute() throws MojoExecutionException {
-		if (!outputDirectory.exists()) {
+	public void execute() throws MojoExecutionException
+	{
+		if (!outputDirectory.exists())
+		{
 			outputDirectory.mkdirs();
 		}
 
@@ -84,7 +87,8 @@ public class CucumberReportGeneratorMojo extends AbstractMojo {
 
 		ReportBuilder reportBuilder;
 
-		try {
+		try
+		{
 			System.out.println("About to generate");
 			reportBuilder = new ReportBuilder(list, outputDirectory, "",
 					buildNumber, projectName, skippedFails, undefinedFails,
@@ -92,25 +96,31 @@ public class CucumberReportGeneratorMojo extends AbstractMojo {
 			reportBuilder.generateReports();
 
 			boolean buildResult = reportBuilder.getBuildStatus();
-			if (!buildResult) {
+			if (!buildResult)
+			{
 				throw new MojoExecutionException(
 						"BUILD FAILED - Check Report For Details");
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			throw new MojoExecutionException("Error Found:", e);
 		}
 	}
-
-	private List<String> buildFileList() throws MojoExecutionException {
+	private List<String> buildFileList() throws MojoExecutionException
+	{
 		List<String> list = new ArrayList<String>();
-		if (!jsonLocation.exists()) {
+		if (!jsonLocation.exists())
+		{
 			throw new MojoExecutionException("The file or directory ["
 					+ jsonLocation + "] does not exist.");
 		}
-		if (jsonLocation.isDirectory()) {
+		if (jsonLocation.isDirectory())
+		{
 			Collection<File> files = FileUtils.listFiles(jsonLocation,
 					new RegexFileFilter("^(.*)?\\.json$"), FileFileFilter.FILE);
-			for (File file : files) {
+			for (File file : files)
+			{
 				list.add(file.getAbsolutePath());
 			}
 			return list;

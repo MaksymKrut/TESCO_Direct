@@ -1,5 +1,7 @@
 package com.tesco.tescoDirect.pageObjects;
 
+
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -9,8 +11,7 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class AquaMarinePDPPagePO extends PageObject {
-	private final static Logger LOG = Logger
-			.getLogger(AquaMarinePDPPagePO.class);
+	private final static Logger LOG = Logger.getLogger(AquaMarinePDPPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 
 	@FindBy(xpath = Constants.AquaMarinePDPPage.VariantItemsDropdown)
@@ -43,6 +44,8 @@ public class AquaMarinePDPPagePO extends PageObject {
 	@FindBy(css = Constants.AquaMarinePDPPage.ProductTitle)
 	private WebElement ProductTitle;
 
+
+
 	public Boolean checkVariantItemsDropwdownIsDisplayed() {
 
 		return WC.elementIsDisplayedOrNot(VariantItemsDropdown);
@@ -69,7 +72,7 @@ public class AquaMarinePDPPagePO extends PageObject {
 
 	public Boolean checkBuyBoxDefaultQuantityIs1() {
 		String quantity = WC.getAttributeValue(QuantityBox, "value");
-		if (quantity.equalsIgnoreCase("1"))
+		if(quantity.equalsIgnoreCase("1"))
 			return true;
 		else
 			return false;
@@ -93,43 +96,39 @@ public class AquaMarinePDPPagePO extends PageObject {
 	public void selectAVariantItem() {
 
 		String Currentinstance = WC.getDriver().getClass().getName();
-		if (Currentinstance
-				.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")) {
+		if(Currentinstance.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")){
 			WC.click(VariantItemsDropdown);
 			WC.click(VariantItemsDropdownFirstOption);
-		} else if (Currentinstance
-				.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")) {
+		}else if(Currentinstance.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")){
 			WC.selectfromdropdown(VariantItemsDropdownMobile, "H");
 
+
 		}
+
+
 
 	}
 
 	public Boolean checkVariantItemIsSelected() {
 		WC.retryingFindClick(VariantItemsDropdown);
 		String Currentinstance = WC.getDriver().getClass().getName();
-		Boolean result = null;
+		Boolean result=null;
 
-		if (Currentinstance
-				.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")) {
+		if(Currentinstance.equalsIgnoreCase("org.openqa.selenium.chrome.ChromeDriver")){
 
-			String value = WC.getAttributeValue(
-					VariantItemsDropdownFirstOption, "class");
-			System.out.println("The value of the class is " + value
-					+ "**********");
+			String value = WC.getAttributeValue(VariantItemsDropdownFirstOption, "class");
+			System.out.println("The value of the class is "+value+"**********");
 
-			if (value.contains("selected"))
+			if(value.contains("selected"))
 				result = true;
-			else
+			else 
 				result = false;
 
-		} else if (Currentinstance
-				.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")) {
+		}else if(Currentinstance.equalsIgnoreCase("io.appium.java_client.android.AndroidDriver")){
 
-			String selectedOption = WC
-					.getSelectedOptionFromDropdown(VariantItemsDropdownMobile);
+			String selectedOption = WC.getSelectedOptionFromDropdown(VariantItemsDropdownMobile);
 
-			if (selectedOption.equalsIgnoreCase("H"))
+			if(selectedOption.equalsIgnoreCase("H"))
 				result = true;
 			else
 				result = false;
@@ -139,26 +138,30 @@ public class AquaMarinePDPPagePO extends PageObject {
 	}
 
 	public Boolean checkVariantItemPageIsDisplayed() {
-		String value = null;
+		String value=null;
 		Boolean result = false;
-		while (result.equals(false)) {
-			try {
+		while(result.equals(false)){
+			try{
 				value = WC.getText(ProductTitle);
-			} catch (Throwable t) {
+			}catch(Throwable t){
 
 			}
-			if (value
-					.equalsIgnoreCase("QP Jewellers Diamond & Aquamarine Top & Tail Ring in 14K White Gold - Size H"))
-				result = true;
+			if(value.equalsIgnoreCase("QP Jewellers Diamond & Aquamarine Top & Tail Ring in 14K White Gold - Size H"))
+				result=true;
 		}
 
+
+
 		value = WC.getText(ProductTitle);
-		System.out.println("The product title is " + value);
-		if (value
-				.equalsIgnoreCase("QP Jewellers Diamond & Aquamarine Top & Tail Ring in 14K White Gold - Size H"))
+		System.out.println("The product title is "+value);
+		if(value.equalsIgnoreCase("QP Jewellers Diamond & Aquamarine Top & Tail Ring in 14K White Gold - Size H"))
 			return true;
 		else
 			return false;
 	}
+
+
+
+
 
 }

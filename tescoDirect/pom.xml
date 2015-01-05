@@ -46,6 +46,7 @@
 			</resource>
 		</resources>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -79,6 +80,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -89,14 +91,29 @@
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
 			</plugin>
-			<!-- <plugin> <groupId>net.masterthought</groupId> <artifactId>maven-cucumber-reporting</artifactId> 
-				<version>0.0.6</version> <executions> <execution> <id>execution</id> <phase>verify</phase> 
-				<goals> <goal>generate</goal> </goals> <configuration> <projectName>TESCO-Direct</projectName> 
-				<outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory> 
-				<jsonLocation>${project.build.directory}Cucumber.json</jsonLocation> <buildNumber></buildNumber> 
-				<enableFlashCharts>true</enableFlashCharts> <skippedFails>true</skippedFails> 
-				<undefinedFails>true</undefinedFails> </configuration> </execution> </executions> 
-				</plugin> -->
+			<!-- <plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>0.0.6</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>TESCO-Direct</projectName>
+							<outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+							<jsonLocation>${project.build.directory}Cucumber.json</jsonLocation>
+							<buildNumber></buildNumber>
+							<enableFlashCharts>true</enableFlashCharts>
+							<skippedFails>true</skippedFails>
+							<undefinedFails>true</undefinedFails>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
 		</plugins>
 	</build>
 	<profiles>
@@ -212,6 +229,7 @@
 			<artifactId>mail</artifactId>
 			<version>1.4</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>

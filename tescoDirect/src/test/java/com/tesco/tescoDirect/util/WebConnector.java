@@ -3,6 +3,7 @@ package com.tesco.tescoDirect.util;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.selendroid.SelendroidCapabilities;
@@ -169,7 +170,8 @@ public final class WebConnector {
 		try {
 			openBrowser(browser);
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 		} catch (Exception ex) {
 			LOG.error("Error while opening the Browser/URL, aborting test: ",
 					ex);
@@ -229,14 +231,12 @@ public final class WebConnector {
 			case RemoteFirefox:
 				LOG.debug("Firefox Remote Browser");
 				if (drivers.get(Browsers.RemoteFirefox) == null) {
-					LOG.debug("--New Remote Firefox Browser");
-					FirefoxProfile fp = new FirefoxProfile();
-					fp.setPreference("network.proxy.type",
-							ProxyType.AUTODETECT.ordinal());
-					DesiredCapabilities capabilities = DesiredCapabilities
-							.firefox();
-					capabilities.setCapability(FirefoxDriver.PROFILE, fp);
-					capabilities.setJavascriptEnabled(true);
+					 LOG.debug("--New Remote Firefox Browser");
+                     FirefoxProfile fp  = new FirefoxProfile();
+                     fp.setPreference("network.proxy.type", ProxyType.AUTODETECT.ordinal());
+                     DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                     capabilities.setCapability(FirefoxDriver.PROFILE, fp);
+                     capabilities.setJavascriptEnabled(true);
 					drivers.put(Browsers.RemoteFirefox, new RemoteWebDriver(
 							new URL(remoteWebDriverLocation), capabilities));
 				}
@@ -476,24 +476,18 @@ public final class WebConnector {
 				MobileCapabilityType.PLATFORM_VERSION, "4.3");
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
-		desiredCapabilities.setCapability(
-				MobileCapabilityType.ACCEPT_SSL_CERTS, true);
-		desiredCapabilities.setCapability(
-				MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
-		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
+		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 	}
-
 	public void openIphone() throws Throwable {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("device", "DX3LP8T4FML6");
-		capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
-		capabilities.setCapability(CapabilityType.VERSION, "6.0");
-		capabilities.setCapability(CapabilityType.PLATFORM, "ANY");
-		driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"),
-				capabilities);
+		 DesiredCapabilities capabilities = new DesiredCapabilities();
+		 capabilities.setCapability("device","DX3LP8T4FML6");
+		 capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
+		 capabilities.setCapability(CapabilityType.VERSION, "6.0");
+		 capabilities.setCapability(CapabilityType.PLATFORM, "ANY");
+		 driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	}
+
 
 	public void openAndroidBrowserMVP() throws Throwable {
 		if (androidDriver() != null) {
@@ -509,12 +503,7 @@ public final class WebConnector {
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,
 				"Chrome");
 		desiredCapabilities.setCapability("rotatable", true);
-		desiredCapabilities.setCapability(
-				MobileCapabilityType.ACCEPT_SSL_CERTS, true);
-		desiredCapabilities.setCapability(
-				MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, true);
-		desiredCapabilities.setCapability(MobileCapabilityType.PROXY, true);
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
+		driver = new AndroidDriver(new URL(remoteWebDriverLocation),
 				desiredCapabilities);
 		androidDriver = (AndroidDriver) driver;
 		androidDriver.context("NATIVE_APP");
@@ -523,11 +512,10 @@ public final class WebConnector {
 	}
 
 	public void suspendCookie() {
-		// String name =driver.manage().getCookieNamed("fsr.a");
-		// Set<Cookie> cookies = driver.manage().getCookies();
-		Cookie ck = new Cookie("fsr.a", "suspend");
-		// driver.manage().deleteCookieNamed("fsr.a");
-		driver.manage().deleteCookie(ck);
+		//String name =driver.manage().getCookieNamed("fsr.a");
+		//Set<Cookie> cookies = driver.manage().getCookies();
+		//Cookie ck = new Cookie("fsr.a", "suspended");
+		driver.manage().deleteCookieNamed("fsr.a");
 	}
 
 	public void removeCookies() {
@@ -552,38 +540,38 @@ public final class WebConnector {
 
 	public boolean SVP() {
 
-		String ExpectedSVP = "360x";
+		String ExpectedSVP = "360x559";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
-		Object height = js.executeScript("return window.innerHeight");
-		String ActualSVP = width + "x";
+		Object height =js.executeScript("return window.innerHeight");
+		String ActualSVP = width+"x"+height ;
 		return ExpectedSVP.equals(ActualSVP);
 
 	}
 
 	public boolean LVP() {
-		String ExpectedLVP = "1366x";
+		String ExpectedLVP = "1366x667";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
-		Object height = js.executeScript("return window.innerHeight");
-		String ActualLVP = width + "x";
+		Object height =js.executeScript("return window.innerHeight");
+		String ActualLVP = width+"x"+height ;
 		return ExpectedLVP.equals(ActualLVP);
 
 	}
-
 	public boolean MVP() {
-		// Hudl - 600x791
-		// Note2 - 640x279
-		String ExpectedMVP = "600x";
+		//Hudl - 600x791
+		//Note2 - 640x279
+		String ExpectedMVP = "600x791";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Object width = js.executeScript("return window.innerWidth");
-		Object height = js.executeScript("return window.innerHeight");
-		String ActualMVP = width + "x";
+		Object height =js.executeScript("return window.innerHeight");
+		String ActualMVP = width+"x"+height ;
+		System.out.println(ActualMVP);
 		return ExpectedMVP.equals(ActualMVP);
 
 	}
-
-	public void screensize() {
+	public void screensize()
+	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		System.out.println(js.executeScript("return window.innerWidth"));
 		System.out.println(js.executeScript("return window.innerHeight"));
@@ -690,7 +678,7 @@ public final class WebConnector {
 	 * @param seconds
 	 *            timeout in seconds
 	 */
-	public WebElement waitForpresenceofElement(final By locator, int timeout) {
+	public WebElement waitForpresenceofElement(final By locator, int timeout) throws Exception {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
@@ -702,10 +690,11 @@ public final class WebConnector {
 	 *            WebElement to be displayed
 	 * @param seconds
 	 *            timeout in seconds
+	 * @throws Exception 
 	 */
 
 	public WebElement getSearchTermSavedMsgElement(String searchTerm,
-			int waitForSecs) {
+			int waitForSecs) throws Exception {
 		return waitForpresenceofElement(By.xpath(searchTerm), waitForSecs);
 	}
 
@@ -842,9 +831,9 @@ public final class WebConnector {
 		WebElement elementOpen = driver.findElement(By.xpath(LinkingText));
 		elementOpen.click();
 	}
-
+	
 	public void clearTextBox(WebElement textbox) {
-		textbox.clear();
+		textbox.clear();		
 	}
 
 	/*
@@ -891,20 +880,22 @@ public final class WebConnector {
 	public void checkElementDisplayed(WebElement element, String elementVal) {
 		Assert.assertEquals(elementVal, element.getText());
 	}
-
-	public void waitForElementToBePresent(WebElement element, int seconds) {
-		// Boolean staleElement=true;
-		WebDriverWait wait = new WebDriverWait(driver, seconds);
-		// while(staleElement){
-		try {
-			wait.until(ExpectedConditions.visibilityOf(element));
-			// break;
-		} catch (Exception e) {
-
+	
+	public void waitForElementToBePresent(WebElement element){
+		Boolean staleElement=true;
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		while(staleElement){
+		try{
+		wait.until(ExpectedConditions.visibilityOf(element));
+		break;
+		}catch(Exception e){
+			
+			
+		    
 		}
-
-		// }
-
+		
+		}
+		
 	}
 
 	/**
@@ -963,21 +954,19 @@ public final class WebConnector {
 		Assert.assertEquals(actualValue, expectedtext);
 		System.out.println(actualValue);
 	}
-
+	
 	public void waitForElementToDisappear(String locator, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
-		// wait.until(ExpectedConditions.invisibilityOfElementLocated((By)
-		// locator));
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By
-				.cssSelector(locator)));
-
+		//wait.until(ExpectedConditions.invisibilityOfElementLocated((By) locator));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(locator)));
+		
 	}
-
-	public void clickOn(WebElement element) {
+	
+	public void clickOn(WebElement element){
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
-
+		
 	}
 
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1062,39 +1051,41 @@ public final class WebConnector {
 		System.out.println("Expected font color after hovering:" + colour);
 		Assert.assertEquals(hex, colour);
 	}
-
-	public String getAttributeValue(WebElement element, String attribute) {
-
+	
+	public String getAttributeValue(WebElement element, String attribute){
+		
 		String attributeValue = element.getAttribute(attribute);
 		return attributeValue;
-
+		
+		
 	}
-
+	
 	public void retryingFindClick(WebElement element) {
-
-		int attempts = 0;
-		while (attempts < 2) {
-			try {
-				element.click();
-
-				break;
-			} catch (Throwable t) {
-			}
-			attempts++;
-		}
-
+	    
+	    int attempts = 0;
+	    while(attempts < 2) {
+	        try {
+	            element.click();
+	            
+	            break;
+	        } catch(Throwable t) {
+	        }
+	        attempts++;
+	    }
+	   
 	}
-
+	
 	public String getSelectedOptionFromDropdown(WebElement dropdown) {
-
+		
 		Select Dropdown = new Select(dropdown);
 		String selectedOption = Dropdown.getFirstSelectedOption().getText();
 		return selectedOption;
-
+		
+		
 	}
-
+	
 	public String getText(WebElement element) {
-
+		
 		String text = element.getText();
 		return text;
 	}
@@ -1145,29 +1136,33 @@ public final class WebConnector {
 		Actions selAction = new Actions(driver);
 		selAction.moveToElement(element).click().perform();
 	}
-
+	
 	public void waitForElementClickable(WebElement element, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
-
+		
+		
+		
 	}
-
-	public Boolean elementIsDisplayedOrNot(WebElement element) {
-
+	
+public Boolean elementIsDisplayedOrNot(WebElement element) {
+		
 		Boolean displayed = true;
-
-		try {
-
-			if (element.isDisplayed())
-				displayed = true;
-
-		} catch (Throwable t) {
-
-			displayed = false;
+		
+		try{
+			
+			if(element.isDisplayed())
+				displayed=true;
+			
+		}catch(Throwable t){
+			
+			displayed=false;
 		}
-
+		
 		return displayed;
 	}
+
+
 
 	/**
 	 * Enters the text string into the specified field (presumably an input
@@ -1650,23 +1645,6 @@ public final class WebConnector {
 		return false;
 	}
 
-	/**
-	 * If checkbox is not selected then it will return true
-	 * 
-	 * @param element
-	 */
-	public boolean CheckboxStatus(WebElement element) {
-		try {
-			if (element.isSelected()) {
-				LOG.debug("Check Box " + element + " is not selected");
-				return false;
-			}
-		} catch (Exception ex) {
-			LOG.error("Check Box  " + element + " is selected");
-		}
-		return true;
-	}
-
 	public boolean statusofRadiobutton(WebElement element) {
 		try {
 			if (element.isSelected()) {
@@ -1805,7 +1783,6 @@ public final class WebConnector {
 		else
 			return false;
 	}
-
 	public boolean islinkPresent(String objectName) {
 
 		if (isElementPresent(objectName))
@@ -1813,7 +1790,6 @@ public final class WebConnector {
 		else
 			return false;
 	}
-
 	private boolean existsElement(String objectName) {
 		try {
 			driver.findElement(By.xpath(objectName));
@@ -1846,10 +1822,10 @@ public final class WebConnector {
 	public Properties getConfigProperties() {
 		return configProperties;
 	}
-
+	
 	public void pressTabKey(WebElement textBox) {
 		textBox.sendKeys(Keys.TAB);
-
+		
 	}
 
 	public void setConfigProperties(Properties configProperties) {
@@ -1945,6 +1921,16 @@ public final class WebConnector {
 			}
 		}
 		return false;
+	}
+
+	public void waitForElementTobePresent(WebElement element) {
+		try{
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		}catch(Throwable t){
+			
+		}
+	
 	}
 
 }

@@ -21,7 +21,6 @@ public class CancelMyOrder {
 	private CancelMyOrderPO cancelMyOrderPO;
 	private GlobalHeaderPO globalHeaderPO;
 	private GlobalFooterPO globalFooterPO;
-
 	@Then("^I check for the following header elements in cancel my order page$")
 	public void I_check_for_the_following_header_elements_in_cancel_my_order_page(
 			DataTable table) throws Throwable {
@@ -45,7 +44,6 @@ public class CancelMyOrder {
 		LOG.debug("I check for the following elements in Refund details panel");
 		cancelMyOrderPO.checkingRefundDetails();
 	}
-
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

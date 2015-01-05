@@ -1,4 +1,4 @@
-@testC @testF @testMVP @testSVP
+@MVP @S4
 Feature: Checkout - BVCE Logo 
 
 Scenario: New BVCE logo is displayed in the checkout page 

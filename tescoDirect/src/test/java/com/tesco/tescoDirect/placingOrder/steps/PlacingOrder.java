@@ -35,12 +35,11 @@ public class PlacingOrder {
 	private AboutYouPagePO aboutYouPagePO;
 	private CheckOutPagePO checkOutPagePO;
 	private OrderConfirmationPagePO orderConfirmationPagePO;
-	private MyAccountPO myAccountPO;
-	private MyOrdersPO myOrdersPO;
+	private  MyAccountPO myAccountPO;
+	private  MyOrdersPO myOrdersPO;
 
 	@Then("^the PDP page should be displayed showing the product matching the keyword$")
-	public void the_PDP_page_should_be_displayed_showing_the_product_matching_the_keyword()
-			throws Throwable {
+	public void the_PDP_page_should_be_displayed_showing_the_product_matching_the_keyword() throws Throwable {
 		LOG.debug("the PDP page should be displayed showing the product matching the keyword");
 	}
 
@@ -64,8 +63,7 @@ public class PlacingOrder {
 	}
 
 	@And("^I click on View Basket button to empty the basket items$")
-	public void I_click_on_View_Basket_button_to_empty_the_basket_items()
-			throws Throwable {
+	public void I_click_on_View_Basket_button_to_empty_the_basket_items() throws Throwable {
 		LOG.debug("I click on View Basket button to empty the basket items");
 		WC.wait(2);
 		checkOutPage.I_navigate_to_TESCO_direct("home_page");
@@ -76,24 +74,21 @@ public class PlacingOrder {
 	}
 
 	@When("^I enter my gift card details to pay for the product$")
-	public void I_enter_my_gift_card_details_to_pay_for_the_product()
-			throws Throwable {
+	public void I_enter_my_gift_card_details_to_pay_for_the_product() throws Throwable {
 		LOG.debug("I enter my gift card details to pay for the product");
 		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
 		checkOutPagePO.payWithGiftCard();
 	}
 
 	@Then("^user should be displayed the following message$")
-	public void user_should_be_displayed_the_following_message(DataTable table)
-			throws Throwable {
+	public void user_should_be_displayed_the_following_message(DataTable table) throws Throwable {
 		LOG.debug("user should be displayed the following message");
-		orderConfirmationPagePO = WC
-				.getPageObject(OrderConfirmationPagePO.class);
+		orderConfirmationPagePO = WC.getPageObject(OrderConfirmationPagePO.class);
 		orderConfirmationPagePO.verifyYourOrderHasBeenConfirmedMessage();
 		orderConfirmationPagePO.ClickingOnMyAccount();
-		myAccountPO = WC.getPageObject(MyAccountPO.class);
+		myAccountPO= WC.getPageObject(MyAccountPO.class);
 		myAccountPO.clickingOnViewDirectOrdersbutton();
-		myOrdersPO = WC.getPageObject(MyOrdersPO.class);
+		myOrdersPO= WC.getPageObject(MyOrdersPO.class);
 		myOrdersPO.CancelOrder();
 		homePagePO = WC.getPageObject(HomePagePO.class);
 		homePagePO.clickOnSignOutLink();
@@ -107,7 +102,6 @@ public class PlacingOrder {
 		aboutYouPagePO.enterPassword("Password2");
 		aboutYouPagePO.clickOnSignInButton();
 	}
-
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

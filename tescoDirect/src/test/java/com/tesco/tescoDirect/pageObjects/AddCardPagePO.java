@@ -80,141 +80,226 @@ public class AddCardPagePO extends PageObject {
 	@FindBy(css = Constants.AddCardPage.AddButton)
 	@CacheLookup
 	private WebElement AddButton;
+	
+	
+	
+	
+	
+	
 
-	public Boolean checkBreadcrumbsIsDisplayed() {
 
-		return (WC.elementIsDisplayedOrNot(Breadcrumbs));
+	
+	
+	
+		
+		
+       public Boolean checkBreadcrumbsIsDisplayed() {
+		
+		return(WC.elementIsDisplayedOrNot(Breadcrumbs));
 	}
+
+
+
 
 	public Boolean checkUserIsOnAddPaymentCardPage() {
-		return (WC.getPageTitle().contains("Add your payment card - Tesco.com"));
-
+		return(WC.getPageTitle().contains("Add your payment card - Tesco.com"));
+		
 	}
+
+
+
 
 	public Boolean checkAddAPaymentCardHeaderTextIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(AddAPaymentCardHeaderText));
+		return(WC.elementIsDisplayedOrNot(AddAPaymentCardHeaderText));
 	}
+
+
+
 
 	public Boolean checkPaymentCardInformationalTextIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(PaymentCardInformationaltext));
+		return(WC.elementIsDisplayedOrNot(PaymentCardInformationaltext));
 	}
+
+
+
 
 	public Boolean checkCardDetailsHeaderIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CardDetailsHeader));
+		return(WC.elementIsDisplayedOrNot(CardDetailsHeader));
 	}
+
+
+
 
 	public Boolean checkCardNumberLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CardNumberLabel));
+		return(WC.elementIsDisplayedOrNot(CardNumberLabel));
 	}
+
+
+
 
 	public Boolean checkCardNumberTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CardNumberTextbox));
+		return(WC.elementIsDisplayedOrNot(CardNumberTextbox));
 	}
+
+
+
 
 	public Boolean checkCardHoldersNameLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CardHoldersNameLabel));
+		return(WC.elementIsDisplayedOrNot(CardHoldersNameLabel));
 	}
+
+
+
 
 	public Boolean checkCardHoldersNameTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(CardHoldersNameTextbox));
+		return(WC.elementIsDisplayedOrNot(CardHoldersNameTextbox));
 	}
+
+
+
 
 	public Boolean checkIssueNumberLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(IssueNumberLabel));
+		return(WC.elementIsDisplayedOrNot(IssueNumberLabel));
 	}
+
+
+
 
 	public Boolean checkIssueNumberTextboxIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(IssueNumberTextbox));
+		return(WC.elementIsDisplayedOrNot(IssueNumberTextbox));
 	}
+
+
+
 
 	public Boolean checkExpiryDateLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(ExpiryDateLabel));
+		return(WC.elementIsDisplayedOrNot(ExpiryDateLabel));
 	}
+
+
+
 
 	public Boolean checkExpiryDateMonthDropdownWithMMasDefaultValueIsDisplayed() {
-		String defaultValue = WC
-				.getSelectedOptionFromDropdown(ExpiryDateMonthDropdown);
-		if ((WC.elementIsDisplayedOrNot(ExpiryDateMonthDropdown))
-				&& (defaultValue.equalsIgnoreCase("MM")))
-			return true;
+		String defaultValue= WC.getSelectedOptionFromDropdown(ExpiryDateMonthDropdown);
+		if(  (WC.elementIsDisplayedOrNot(ExpiryDateMonthDropdown))   &&    (defaultValue.equalsIgnoreCase("MM"))                             )
+		return true;
 		else
-			return false;
+		return false;
 	}
+
+
+
 
 	public Boolean checkExpiryDateYearDropdownWithYYYYasDefaultValueIsDisplayed() {
-		String defaultValue = WC
-				.getSelectedOptionFromDropdown(ExpiryDateYearDropdown);
-		if ((WC.elementIsDisplayedOrNot(ExpiryDateYearDropdown))
-				&& (defaultValue.equalsIgnoreCase("YYYY")))
-			return true;
+		String defaultValue= WC.getSelectedOptionFromDropdown(ExpiryDateYearDropdown);
+		if(  (WC.elementIsDisplayedOrNot(ExpiryDateYearDropdown))   &&    (defaultValue.equalsIgnoreCase("YYYY"))                             )
+		return true;
 		else
-			return false;
+		return false;
 	}
+
+
+
 
 	public Boolean checkBillingAddressHeaderIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(BillingAddressHeader));
+		return(WC.elementIsDisplayedOrNot(BillingAddressHeader));
 	}
+
+
+
 
 	public Boolean checkBillingAddressInformationalTextIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(BillingAddressInformationalText));
+		return(WC.elementIsDisplayedOrNot(BillingAddressInformationalText));
 	}
+
+
+
 
 	public Boolean checkMyBillingAddressRadioButtonLabelIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(MyBillingAddressRadioButtonLabel));
+		return(WC.elementIsDisplayedOrNot(MyBillingAddressRadioButtonLabel));
 	}
+
+
+
 
 	public Boolean checkMyBillingAddressRadioButtonNotSelectedByDefaultIsDisplayed() {
-		Boolean statusOfRadioButton = WC
-				.statusofRadiobutton(MyBillingAddressRadioButton);
-		if ((WC.elementIsDisplayedOrNot(MyBillingAddressRadioButton))
-				&& (statusOfRadioButton == false))
-			return true;
+		Boolean statusOfRadioButton = WC.statusofRadiobutton(MyBillingAddressRadioButton);
+		if( (WC.elementIsDisplayedOrNot(MyBillingAddressRadioButton))    &&   (statusOfRadioButton==false)     )
+		return true;
 		else
-			return false;
+		return false;
 	}
+
+
+
 
 	public Boolean checkAddressNameIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(AddressName));
+		return(WC.elementIsDisplayedOrNot(AddressName));
 	}
+
+
+
 
 	public Boolean checkAddressIsDisplayed() {
-		return ((WC.elementIsDisplayedOrNot(StreetAddress))
-				&& (WC.elementIsDisplayedOrNot(Region)) && (WC
-					.elementIsDisplayedOrNot(PostCode)));
+		return( (WC.elementIsDisplayedOrNot(StreetAddress)) && (WC.elementIsDisplayedOrNot(Region)) && (WC.elementIsDisplayedOrNot(PostCode))   );
 	}
+
+
+
 
 	public Boolean checkAddButtonIsDisplayed() {
-		return (WC.elementIsDisplayedOrNot(AddButton));
+		return(WC.elementIsDisplayedOrNot(AddButton));
 
 	}
+
+
+
 
 	public void enterCardNumber(String value) {
 		WC.type(CardNumberTextbox, value);
-
+		
 	}
+
+
+
 
 	public void enterCardHoldersName(String value) {
 		WC.type(CardHoldersNameTextbox, value);
-
+		
 	}
+
+
+
 
 	public void selectCardExpiryMonth(String value) {
 		WC.selectfromdropdown(ExpiryDateMonthDropdown, value);
-
+		
 	}
+
+
+
 
 	public void selectCardExpiryYear(String value) {
-		WC.selectfromdropdown(ExpiryDateYearDropdown, value);
+		WC.selectfromdropdown(ExpiryDateYearDropdown, value);		
 	}
+
+
+
 
 	public void selectBillingAddressRadioButton() {
 		WC.click(MyBillingAddressRadioButton);
-
+		
 	}
+
+
+
 
 	public void clickOnAddButton() {
 		WC.click(AddButton);
-
+		
 	}
+
+
+	
 
 }

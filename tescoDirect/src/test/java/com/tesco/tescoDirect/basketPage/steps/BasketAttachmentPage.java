@@ -106,7 +106,7 @@ public class BasketAttachmentPage {
 		basketPagePO
 				.checkingRecentlyViewedcarsoulitemsaredisplayedintheSimilarCustomerViewblock();
 	}
-
+	
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

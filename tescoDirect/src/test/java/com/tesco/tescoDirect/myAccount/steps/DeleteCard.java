@@ -55,43 +55,34 @@ public class DeleteCard {
 	private AddCardPagePO addCardPagePO;
 	private Login login;
 	private ManageMyPaymentCardPagePO manageMyPaymentCardPagePO;
+	
 
 	@Then("^the Manage my payment details link is present$")
-	public void the_Manage_my_payment_details_link_is_present()
-			throws Throwable {
+	public void the_Manage_my_payment_details_link_is_present() throws Throwable {
 		myAccountPO = WC.getPageObject(MyAccountPO.class);
-		Assert.assertTrue(myAccountPO
-				.checkManageMyPaymentDetailsLinkIsPresent());
+		Assert.assertTrue(myAccountPO.checkManageMyPaymentDetailsLinkIsPresent());
 	}
 
 	@When("^I click on the Manage my payment details link$")
-	public void I_click_on_the_Manage_my_payment_details_link()
-			throws Throwable {
+	public void I_click_on_the_Manage_my_payment_details_link() throws Throwable {
 		myAccountPO.clickOnManageMyPaymentDetailsLink();
 	}
 
 	@Then("^I am taken to the Manage my payment details page$")
-	public void I_am_taken_to_the_Manage_my_payment_details_page()
-			throws Throwable {
-		manageMyPaymentCardPagePO = WC
-				.getPageObject(ManageMyPaymentCardPagePO.class);
-		Assert.assertTrue(manageMyPaymentCardPagePO
-				.checkUserIsOnmanageMyPaymentCardPage());
+	public void I_am_taken_to_the_Manage_my_payment_details_page() throws Throwable {
+		manageMyPaymentCardPagePO = WC.getPageObject(ManageMyPaymentCardPagePO.class);
+		Assert.assertTrue(manageMyPaymentCardPagePO.checkUserIsOnmanageMyPaymentCardPage());
 	}
 
 	@Given("^I am on the manage my payment details page$")
 	public void I_am_on_the_manage_my_payment_details_page() throws Throwable {
-		manageMyPaymentCardPagePO = WC
-				.getPageObject(ManageMyPaymentCardPagePO.class);
-		Assert.assertTrue(manageMyPaymentCardPagePO
-				.checkUserIsOnmanageMyPaymentCardPage());
+		manageMyPaymentCardPagePO = WC.getPageObject(ManageMyPaymentCardPagePO.class);
+		Assert.assertTrue(manageMyPaymentCardPagePO.checkUserIsOnmanageMyPaymentCardPage());
 	}
 
 	@Then("^the following elements are present$")
-	public void the_following_elements_are_present(DataTable table)
-			throws Throwable {
-		manageMyPaymentCardPagePO = WC
-				.getPageObject(ManageMyPaymentCardPagePO.class);
+	public void the_following_elements_are_present(DataTable table) throws Throwable{
+		manageMyPaymentCardPagePO = WC.getPageObject(ManageMyPaymentCardPagePO.class);
 
 		{
 
@@ -103,102 +94,101 @@ public class DeleteCard {
 					switch (value) {
 
 					case "Breadcrumbs of the page":
-						result = manageMyPaymentCardPagePO
-								.checkBreadcrumbsIsDisplayed();
+						result = manageMyPaymentCardPagePO.checkBreadcrumbsIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Breadcrumbs of the page is displayed");
 						break;
-
+						
 					case "Manage my payment card header text":
 						result = manageMyPaymentCardPagePO
 								.checkManageMyPaymentCardHeaderTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Manage my payment card header text is displayed");
 						break;
-
+						
 					case "Card Informational text":
 						result = manageMyPaymentCardPagePO
 								.checkCardInformationalTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Card Informational text is displayed");
 						break;
-
+						
 					case "Card type label":
 						result = manageMyPaymentCardPagePO
 								.checkCardTypeLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Card type label is displayed");
 						break;
-
+						
 					case "Card type text":
 						result = manageMyPaymentCardPagePO
 								.checkCardTypeTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Card type text is displayed");
 						break;
-
+						
 					case "Card number label":
 						result = manageMyPaymentCardPagePO
 								.checkCardNumberLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Card number label is displayed");
 						break;
-
+						
 					case "Card number text displaying only last 4 digits of the card":
-						result = manageMyPaymentCardPagePO
-								.checkCardNumberTextIsDisplayed();
+						result = manageMyPaymentCardPagePO.checkCardNumberTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Card number text displaying only last 4 digits of the card is displayed");
 						break;
-
+						
 					case "Issue number label":
 						result = manageMyPaymentCardPagePO
 								.checkIssueNumberLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Issue number label is displayed");
 						break;
-
+						
 					case "Expiry date label":
 						result = manageMyPaymentCardPagePO
 								.checkExpiryDateLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Expiry date label is displayed");
 						break;
-
+						
 					case "Expiry date text":
 						result = manageMyPaymentCardPagePO
 								.checkExpiryDateTextIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Expiry date text is displayed");
 						break;
-
+						
 					case "Billing address label":
 						result = manageMyPaymentCardPagePO
 								.checkBillingAddressLabelIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Billing address label is displayed");
 						break;
-
+						
 					case "Address Name":
 						result = manageMyPaymentCardPagePO
 								.checkAddressNameIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Address Name is displayed");
 						break;
-
+						
 					case "Address":
-						result = manageMyPaymentCardPagePO
-								.checkAddressIsDisplayed();
+						result = manageMyPaymentCardPagePO.checkAddressIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Address is displayed");
 						break;
-
+						
 					case "Delete Button":
-						result = manageMyPaymentCardPagePO
-								.checkDeleteButtonIsDisplayed();
+						result = manageMyPaymentCardPagePO.checkDeleteButtonIsDisplayed();
 						Assert.assertTrue(result);
 						LOG.debug("Delete Button is displayed");
 						break;
+						
+								
+					
 
 					}
 				}
@@ -213,8 +203,7 @@ public class DeleteCard {
 
 	@Given("^I click on the delete card button$")
 	public void I_click_on_the_delete_card_button() throws Throwable {
-		manageMyPaymentCardPagePO = WC
-				.getPageObject(ManageMyPaymentCardPagePO.class);
+		manageMyPaymentCardPagePO = WC.getPageObject(ManageMyPaymentCardPagePO.class);
 		manageMyPaymentCardPagePO.clickOnDeleteCardButton();
 	}
 
@@ -227,15 +216,14 @@ public class DeleteCard {
 	public void the_respective_card_is_deleted() throws Throwable {
 		Assert.assertTrue(manageMyPaymentCardPagePO.checkCardIsDeleted());
 	}
-
+	
 	@After("@DeleteCard_CleanUP")
-	public void cleanUp() {
-
-		manageMyPaymentCardPagePO = WC
-				.getPageObject(ManageMyPaymentCardPagePO.class);
-
+    public void cleanUp(){
+    	
+manageMyPaymentCardPagePO = WC.getPageObject(ManageMyPaymentCardPagePO.class);
+		
 		manageMyPaymentCardPagePO.signOut();
-	}
+    }
 
 	@After
 	public void tearDown(Scenario scenario) {

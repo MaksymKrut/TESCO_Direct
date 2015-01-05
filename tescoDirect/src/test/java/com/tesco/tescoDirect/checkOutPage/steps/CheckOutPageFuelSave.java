@@ -35,30 +35,26 @@ public class CheckOutPageFuelSave {
 	}
 
 	@Then("^I Should see the choose your preferred collection date dialog box with the following elements$")
-	public void IShouldseethechooseyourpreferredcollectiondatedialogboxwiththefollowingelements(
-			DataTable table) {
+	public void IShouldseethechooseyourpreferredcollectiondatedialogboxwiththefollowingelements(DataTable table) {
 		LOG.debug("I Should see the choose your preferred collection date dialog box with the following elements");
 		checkOutPagePO.verifychoosedifferentdaybuttonPopupElements();
 	}
 
 	@And("^I check for the following in Total to pay Block for fuel save page$")
-	public void IcheckforthefollowinginTotaltopayBlockforfuelsavepage(
-			DataTable table) {
+	public void IcheckforthefollowinginTotaltopayBlockforfuelsavepage(DataTable table) {
 		LOG.debug("I check for the following in Total to pay Block for fuel save page");
 		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
 		checkOutPagePO.verifyTotalToPayBlockforFuelSave();
 	}
 
 	@Then("^I click on Clubcard Fuel Savings links to verify the following$")
-	public void IclickonClubcardFuelSavingslinkstoverifythefollowing(
-			DataTable table) {
+	public void IclickonClubcardFuelSavingslinkstoverifythefollowing(DataTable table) {
 		LOG.debug("I click on Clubcard Fuel Savings links to verify the following");
 		checkOutPagePO.clickonClubCardFuelSavingsLink();
 	}
-
+	
 	@And("^I check for the following in Total to pay Block for fuel save message page$")
-	public void IcheckforthefollowinginTotaltopayBlockforfuelsavemessagepage(
-			DataTable table) {
+	public void IcheckforthefollowinginTotaltopayBlockforfuelsavemessagepage(DataTable table) {
 		LOG.debug("I check for the following in Total to pay Block for fuel save message pagee");
 		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
 		checkOutPagePO.verifyTotalToPayBlockforFuelSaveMessage();
@@ -74,6 +70,6 @@ public class CheckOutPageFuelSave {
 			}
 		} catch (Exception e) {
 			LOG.error("error in taking screen shot ", e);
-		}
+		} 
 	}
 }

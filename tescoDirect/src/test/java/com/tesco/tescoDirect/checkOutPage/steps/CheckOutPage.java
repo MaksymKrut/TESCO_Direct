@@ -44,7 +44,6 @@ public class CheckOutPage {
 		WC.getDriver().navigate().refresh();
 		WC.suspendCookie();
 		homePagePO = WC.getPageObject(HomePagePO.class);
-		homePagePO.closeCookiesMsg();
 		homePagePO.clickingOnSigninorRegisterLink();
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
@@ -57,9 +56,6 @@ public class CheckOutPage {
 		WC.getDriver().get(WC.getFullUrl(appURL));
 		WC.getDriver().navigate().refresh();
 		WC.suspendCookie();
-		WC.screensize();
-		homePagePO = WC.getPageObject(HomePagePO.class);
-		homePagePO.closeCookiesMsg();
 	}
 
 	@Given("^I navigate to TESCO direct \"([^\"]*)\" as a new User$")
@@ -338,7 +334,6 @@ public class CheckOutPage {
 		LOG.debug("I should see the following elements in Pay with a Gift Card module");
 		checkOutPagePO.verifypaywithagiftcardElements();
 	}
-
 	@After
 	public void tearDown(Scenario scenario) {
 		try {

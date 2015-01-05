@@ -41,7 +41,7 @@ public class CancelMyOrderPO extends PageObject {
 	@FindBy(xpath = Constants.CancelMyOrderPage.PrintThisPagelink)
 	@CacheLookup
 	private WebElement PrintThisPagelink;
-
+	
 	@FindBy(xpath = Constants.CancelMyOrderPage.RefundDetails)
 	@CacheLookup
 	private WebElement RefundDetails;
@@ -72,7 +72,7 @@ public class CancelMyOrderPO extends PageObject {
 	@FindBy(xpath = Constants.CancelMyOrderPage.Thispageissecure)
 	@CacheLookup
 	private WebElement Thispageissecure;
-
+	
 	public CancelMyOrderPO checkingcancelmyorderpage() {
 		WC.verifyText("Cancel my order", CancelMyOrderTitle);
 		WC.assertingWebElement(OrderNumber);
@@ -82,8 +82,8 @@ public class CancelMyOrderPO extends PageObject {
 		WC.checkingColour(HowMuchMoney, "#645945");
 		WC.assertingWebElement(Primaryreasondropdown);
 		WC.checkingBackGroundColour(Primaryreasondropdown, "#fefde8");
-		// WC.assertingWebElement(Secondaryreasondropdown);
-		// WC.checkingBackGroundColour(Secondaryreasondropdown, "#fefde8");
+		//WC.assertingWebElement(Secondaryreasondropdown);
+		//WC.checkingBackGroundColour(Secondaryreasondropdown, "#fefde8");
 		WC.assertingWebElement(YourCommentsTextBox);
 		WC.checkingBackGroundColour(YourCommentsTextBox, "#ffffff");
 		WC.assertingWebElement(Backtoorderdetailsbutton);
@@ -97,7 +97,7 @@ public class CancelMyOrderPO extends PageObject {
 		WC.HoverAndcheckingColour(PrintThisPagelink, "#00a1e0");
 		return (CancelMyOrderPO) WC.getPageObject(CancelMyOrderPO.class);
 	}
-
+	
 	public CancelMyOrderPO checkingRefundDetails() {
 		WC.assertingWebElement(RefundDetails);
 		WC.checkingColour(RefundDetails, "#645945");
@@ -112,5 +112,5 @@ public class CancelMyOrderPO extends PageObject {
 		WC.assertingWebElement(Thispageissecure);
 		return (CancelMyOrderPO) WC.getPageObject(CancelMyOrderPO.class);
 	}
-
+	
 }

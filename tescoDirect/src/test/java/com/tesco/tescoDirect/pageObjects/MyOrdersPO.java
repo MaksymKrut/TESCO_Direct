@@ -9,10 +9,10 @@ import org.openqa.selenium.support.FindBy;
 import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
-public class MyOrdersPO extends PageObject {
+public class MyOrdersPO extends PageObject{
 	private final static Logger LOG = Logger.getLogger(MyOrdersPO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
-
+	
 	@FindBy(css = Constants.MyOrdersPage.ViewOrdersbutton)
 	@CacheLookup
 	private WebElement ViewOrdersbutton;
@@ -40,68 +40,49 @@ public class MyOrdersPO extends PageObject {
 	@FindBy(css = Constants.MyOrdersPage.CancelInfoNotification)
 	@CacheLookup
 	private WebElement CancelInfoNotification;
-
+	
 	public MyOrdersPO CancelOrder() {
 		if (WC.LVP()) {
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
 			WC.assertingWebElement(ViewOrdersbutton);
 			WC.click(ViewOrdersbutton);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton), 50);
 			WC.click(CancelOrdersbutton);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.ReasonDropDown), 50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.ReasonDropDown), 50);
 			WC.click(ReasonDropDown);
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.MyOrdersPage.CheapElseWhere_Option),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.CheapElseWhere_Option), 50);
 			WC.click(CheapElseWhere_Option);
 			CommentsTextBox.sendKeys("Automation Testing");
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton), 50);
 			WC.wait(5);
 			WC.click(SubmitRequestButton);
 			WC.assertingWebElement(CancelInfoNotification);
 		} else if (WC.SVP()) {
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
 			WC.assertingWebElement(ViewOrdersbutton);
 			WC.click(ViewOrdersbutton);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.IWantToDropDown), 50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.IWantToDropDown), 50);
 			WC.click(IWantToDropDown);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton), 50);
 			WC.click(CancelOrdersbutton);
 			WC.selectfromdropdown(ReasonDropDownMob, "Cheaper elsewhere");
 			CommentsTextBox.sendKeys("Automation Testing");
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton), 50);
 			WC.wait(5);
 			WC.click(SubmitRequestButton);
 			WC.assertingWebElement(CancelInfoNotification);
-		} else if (WC.MVP()) {
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
+		}
+		else if (WC.MVP()) {
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.ViewOrdersbutton), 50);
 			WC.assertingWebElement(ViewOrdersbutton);
 			WC.click(ViewOrdersbutton);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.IWantToDropDown), 50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.IWantToDropDown), 50);
 			WC.click(IWantToDropDown);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.CancelOrdersbutton), 50);
 			WC.click(CancelOrdersbutton);
 			WC.selectfromdropdown(ReasonDropDownMob, "Cheaper elsewhere");
 			CommentsTextBox.sendKeys("Automation Testing");
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton),
-					50);
+			WC.waitForElementClickable(By.cssSelector(Constants.MyOrdersPage.SubmitRequestButton), 50);
 			WC.wait(5);
 			WC.click(SubmitRequestButton);
 			WC.assertingWebElement(CancelInfoNotification);

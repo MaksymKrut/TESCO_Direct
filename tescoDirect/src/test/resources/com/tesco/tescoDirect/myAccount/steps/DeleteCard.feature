@@ -1,4 +1,3 @@
-@testC @testF @testMVP @testSVP
 Feature: Delete Card
 
 As a customer
@@ -32,6 +31,7 @@ Then the following elements are present
 |Expiry date text|
 |Billing address label|
 |Address Name|
+|Address  |
 |Delete Button |
 
 
