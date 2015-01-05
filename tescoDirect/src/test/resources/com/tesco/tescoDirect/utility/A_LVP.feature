@@ -1,6 +1,7 @@
+@testF
 Feature: epic_no LVP validations
 
-@RegisteredUser @NewUser @AnonymousUser @testFirefox
+
 Scenario: Get the Web Driver - Firefox
 
 Given the user defines the required webdriver for the LVP device

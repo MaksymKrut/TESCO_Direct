@@ -11,7 +11,8 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class ManageMyAddressBookPagePO extends PageObject {
-	private final static Logger LOG = Logger.getLogger(ManageMyAddressBookPagePO.class);
+	private final static Logger LOG = Logger
+			.getLogger(ManageMyAddressBookPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 
 	@FindBy(css = Constants.ManageMyAddressBookPage.NewAddressCard)
@@ -29,8 +30,7 @@ public class ManageMyAddressBookPagePO extends PageObject {
 	@FindBy(partialLinkText = Constants.ManageMyAddressBookPage.SignOutLink)
 	@CacheLookup
 	private WebElement SignOutLink;
-	
-	
+
 	@FindBy(css = Constants.ManageMyAddressBookPage.Breadcrumbs)
 	@CacheLookup
 	private WebElement Breadcrumbs;
@@ -97,259 +97,247 @@ public class ManageMyAddressBookPagePO extends PageObject {
 	@FindBy(xpath = Constants.ManageMyAddressBookPage.PaymentCardLinkedToAddressError)
 	@CacheLookup
 	private WebElement PaymentCardLinkedToAddressError;
-	
+	@FindBy(css = Constants.ManageMyAddressBookPage.ViewBasketButton)
+	@CacheLookup
+	private WebElement ViewBasketButton;
 
 	public Boolean checkNewAddressIsDisplayed() {
-		
-		return(WC.elementIsDisplayedOrNot(NewAddressCard));
+
+		return (WC.elementIsDisplayedOrNot(NewAddressCard));
 	}
 
-	
-
 	public Boolean checkAddressHasBeenDeleted() {
-		
+
 		WC.click(DeleteAddressButton);
 		if (WC.LVP()) {
-			
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		} else if (WC.SVP()) {
-			
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.MVP()) {
+
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		}
-		else if (WC.MVP()) {
-			
-			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
-			WC.assertingWebElement(YesButton);
-			WC.clickOn(YesButton);
-		}
-		WC.waitForElementToBePresent(DeletedAddressConfirmationText);
-		return(WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
+		WC.waitForElementToBePresent(DeletedAddressConfirmationText, 30);
+		return (WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
 	}
-
-
 
 	public void signOut() {
 		WC.click(SignOutLink);
-		
-		
+
 	}
-
-
 
 	public boolean checkUserIsOnmanageMyAddressBookPage() {
-		return(WC.getPageTitle().contains("Manage my address book - Tesco.com"));
+		return (WC.getPageTitle()
+				.contains("Manage my address book - Tesco.com"));
 	}
-
-
 
 	public Boolean checkBreadcrumbsIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(Breadcrumbs));
+		return (WC.elementIsDisplayedOrNot(Breadcrumbs));
 	}
-
-
 
 	public Boolean checkManageMyAddressBookHeaderTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ManageMyAddressBookHeaderText));
+		return (WC.elementIsDisplayedOrNot(ManageMyAddressBookHeaderText));
 	}
-
-
 
 	public Boolean checkAddressInformationalTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(AddressInformationalText));
+		return (WC.elementIsDisplayedOrNot(AddressInformationalText));
 	}
-
-
 
 	public Boolean checkRadioButtonForTheFirstAddressIsSelected() {
-		
-		return(WC.statusofRadiobutton(RadioButtonForTheFirstAddress));
+
+		return (WC.statusofRadiobutton(RadioButtonForTheFirstAddress));
 	}
-
-
 
 	public Boolean checkRadioButtonForTheSecondAddressIsNotSelected() {
-		return(WC.statusofRadiobutton(RadioButtonForTheSecondAddress));
+		return (WC.statusofRadiobutton(RadioButtonForTheSecondAddress));
 	}
-
-
 
 	public Boolean checkAddressNameIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(AddressName));
+		return (WC.elementIsDisplayedOrNot(AddressName));
 	}
-
-
 
 	public Boolean checkAddressIsDisplayed() {
-		return( (WC.elementIsDisplayedOrNot(StreetAddress)) && (WC.elementIsDisplayedOrNot(Locality)) && (WC.elementIsDisplayedOrNot(PostCode))   );
+		return ((WC.elementIsDisplayedOrNot(StreetAddress))
+				&& (WC.elementIsDisplayedOrNot(Locality)) && (WC
+					.elementIsDisplayedOrNot(PostCode)));
 	}
-
-
 
 	public Boolean checkDayPhoneLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(DayPhoneLabel));
+		return (WC.elementIsDisplayedOrNot(DayPhoneLabel));
 	}
-
-
 
 	public Boolean checkDayPhoneNumberIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(DayPhoneNumber));
+		return (WC.elementIsDisplayedOrNot(DayPhoneNumber));
 	}
-
-
 
 	public Boolean checkEveningPhoneLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(EveningPhoneLabel));
+		return (WC.elementIsDisplayedOrNot(EveningPhoneLabel));
 	}
-
-
 
 	public Boolean checkEveningPhoneNumberIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(EveningPhoneNumber));
+		return (WC.elementIsDisplayedOrNot(EveningPhoneNumber));
 	}
-
-
 
 	public Boolean checkMobilePhoneLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(MobilePhoneLabel));
+		return (WC.elementIsDisplayedOrNot(MobilePhoneLabel));
 	}
-
-
 
 	public Boolean checkMobilePhoneNumberIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(MobilePhoneNumber));
+		return (WC.elementIsDisplayedOrNot(MobilePhoneNumber));
 	}
-
-
 
 	public Boolean checkEditButtonInFirstAddressIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(EditButtonInFirstAddress));
+		return (WC.elementIsDisplayedOrNot(EditButtonInFirstAddress));
 	}
-
-
 
 	public Boolean checkEditButtonInSecondAddressIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(EditButtonInSecondAddress));
+		return (WC.elementIsDisplayedOrNot(EditButtonInSecondAddress));
 	}
-
-
 
 	public Boolean checkDeleteButtonInSecondAddressIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(DeleteButtonInSecondAddress));
+		return (WC.elementIsDisplayedOrNot(DeleteButtonInSecondAddress));
 	}
-
-
 
 	public Boolean checkAddANewAddressButtonIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(AddANewAddressButton));
+		return (WC.elementIsDisplayedOrNot(AddANewAddressButton));
 	}
-
-
 
 	public Boolean checkSaveChangesButtonIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(SaveChangesButton));
+		return (WC.elementIsDisplayedOrNot(SaveChangesButton));
 	}
-
-
 
 	public void clickOnRadioButtonForTheSecondAddress() {
 		WC.click(RadioButtonForTheSecondAddress);
-		
+
 	}
-
-
 
 	public void clickOnSaveChangesButton() {
 		WC.click(SaveChangesButton);
-		
+
 	}
-
-
 
 	public void tryToDeleteAddressLinkedToCard() {
 		WC.click(DeleteAddressButton);
-if (WC.LVP()) {
-			
+		if (WC.LVP()) {
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		} else if (WC.SVP()) {
-			
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.MVP()) {
+
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		}
-		else if (WC.MVP()) {
-			
-			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
-			WC.assertingWebElement(YesButton);
-			WC.clickOn(YesButton);
-		}
-		
+
 	}
-	
+
 	public void tryToDeleteAddressNotLinkedToCard() {
 		WC.click(DeleteAddressButton);
-if (WC.LVP()) {
-			
+		if (WC.LVP()) {
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		} else if (WC.SVP()) {
-			
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.MVP()) {
+
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
 			WC.assertingWebElement(YesButton);
 			WC.clickOn(YesButton);
 		}
-		else if (WC.MVP()) {
-			
-			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyAddressBookPage.YesButton), 50);
-			WC.assertingWebElement(YesButton);
-			WC.clickOn(YesButton);
-		}
-		
+
 	}
-
-
 
 	public boolean paymentCardLinkedToAddressErrorisDisplayed() {
-		
-		WC.waitForElementToBePresent(PaymentCardLinkedToAddressError);
-		return(WC.elementIsDisplayedOrNot(PaymentCardLinkedToAddressError));
-		
+
+		WC.waitForElementToBePresent(PaymentCardLinkedToAddressError, 30);
+		return (WC.elementIsDisplayedOrNot(PaymentCardLinkedToAddressError));
+
 	}
-
-
 
 	public boolean checkRespectiveAddressHasBeenDeleted() {
-		WC.waitForElementToBePresent(DeletedAddressConfirmationText);
-		return(WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
+		WC.waitForElementToBePresent(DeletedAddressConfirmationText, 30);
+		return (WC.elementIsDisplayedOrNot(DeletedAddressConfirmationText));
 	}
 
+	public void clickOnViewBasketButton() {
+		WC.clickOn(ViewBasketButton);
 
+	}
 
-	
+	public void deleteAddress() {
+		WC.click(DeleteAddressButton);
+		if (WC.LVP()) {
 
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.SVP()) {
 
-	
-	
-	
-	
-	
-	
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		} else if (WC.MVP()) {
 
-	
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyAddressBookPage.YesButton),
+					50);
+			WC.assertingWebElement(YesButton);
+			WC.clickOn(YesButton);
+		}
+
+	}
 
 }

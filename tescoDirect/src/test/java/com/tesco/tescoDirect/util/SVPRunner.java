@@ -7,33 +7,30 @@ import cucumber.api.junit.Cucumber;
 
 /**
  * 
- * @author MMahadevan 
- * Runner class 
+ * @author MMahadevan Runner class
  *
  */
 @RunWith(Cucumber.class)
-@Cucumber.Options(
-		features = {"src/test/resources/com/tesco/tescoDirect/utility","src/test/resources" }, 
-		strict = true, 
-		format = { "pretty","html:target/cucumber", "json:target/SVP.json" }, 
-		tags = { "@S4" }, 
-		monochrome = true, 
-				glue = {"com.tesco.tescoDirect.util",
-				"com.tesco.tescoDirect.checkOutPage.steps",
-				"com.tesco.tescoDirect.basketPage.steps" ,
-				"com.tesco.tescoDirect.cancelMyOrder.steps",
-				"com.tesco.tescoDirect.myAccount.steps",
-				"com.tesco.tescoDirect.login.steps",
-				"com.tesco.tescoDirect.registration.steps",
-				"com.tesco.tescoDirect.plp.steps",
-				"com.tesco.tescoDirect.searchAndBrowse.steps",
-				"com.tesco.tescoDirect.PDP.steps",
-				"com.tesco.tescoDirect.checkOut.steps",
-				"com.tesco.tescoDirect.placingOrder.steps"})
+@Cucumber.Options(features = {
+		"src/test/resources/com/tesco/tescoDirect/utility",
+		"src/test/resources" }, strict = true, format = { "pretty",
+		"html:target/cucumber", "json:target/SVP.json" }, tags = { "@testSVP" }, monochrome = true, glue = {
+		"com.tesco.tescoDirect.util",
+		"com.tesco.tescoDirect.checkOutPage.steps",
+		"com.tesco.tescoDirect.basketPage.steps",
+		"com.tesco.tescoDirect.cancelMyOrder.steps",
+		"com.tesco.tescoDirect.myAccount.steps",
+		"com.tesco.tescoDirect.login.steps",
+		"com.tesco.tescoDirect.registration.steps",
+		"com.tesco.tescoDirect.plp.steps",
+		"com.tesco.tescoDirect.searchAndBrowse.steps",
+		"com.tesco.tescoDirect.PDP.steps",
+		"com.tesco.tescoDirect.checkOut.steps",
+		"com.tesco.tescoDirect.placingOrder.steps" })
 public class SVPRunner {
 
 	@AfterClass
-	public static void close(){
+	public static void close() {
 
 		WebConnector.getInstance().quitbrowser();
 	}
@@ -42,5 +39,5 @@ public class SVPRunner {
 /*
  * Tags In Use:
  * 
- * @RegisteredUser @NewUser @AnonymousUser @MVP @S4  @testChrome
+ * @RegisteredUser @NewUser @AnonymousUser @MVP @S4 @testChrome
  */

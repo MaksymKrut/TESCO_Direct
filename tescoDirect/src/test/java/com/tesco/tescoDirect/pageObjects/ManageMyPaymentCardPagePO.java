@@ -11,7 +11,8 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class ManageMyPaymentCardPagePO extends PageObject {
-	private final static Logger LOG = Logger.getLogger(ManageMyPaymentCardPagePO.class);
+	private final static Logger LOG = Logger
+			.getLogger(ManageMyPaymentCardPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 
 	@FindBy(xpath = Constants.ManageMyPaymentCardPage.NewCardAddedConfirmationText)
@@ -74,119 +75,120 @@ public class ManageMyPaymentCardPagePO extends PageObject {
 	@FindBy(partialLinkText = Constants.ManageMyPaymentCardPage.SignOutLink)
 	@CacheLookup
 	private WebElement SignOutLink;
-	
-	
-	
 
 	public Boolean checkNewCardAddedConfirmationTextIsDisplayed() {
-	
-		return(WC.elementIsDisplayedOrNot(NewCardAddedConfirmationText));
+
+		return (WC.elementIsDisplayedOrNot(NewCardAddedConfirmationText));
 	}
 
 	public boolean checkUserIsOnmanageMyPaymentCardPage() {
-		return(WC.getPageTitle().contains("Manage my payment card - Tesco.com"));
+		return (WC.getPageTitle()
+				.contains("Manage my payment card - Tesco.com"));
 	}
 
 	public Boolean checkBreadcrumbsIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(Breadcrumbs));
+		return (WC.elementIsDisplayedOrNot(Breadcrumbs));
 	}
 
 	public Boolean checkManageMyPaymentCardHeaderTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ManageMyPaymentCardHeaderText));
+		return (WC.elementIsDisplayedOrNot(ManageMyPaymentCardHeaderText));
 	}
 
 	public Boolean checkCardInformationalTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(CardInformationalText));
+		return (WC.elementIsDisplayedOrNot(CardInformationalText));
 	}
 
 	public Boolean checkCardTypeLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(CardTypeLabel));
+		return (WC.elementIsDisplayedOrNot(CardTypeLabel));
 
 	}
 
 	public Boolean checkCardTypeTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(CardTypeText));
+		return (WC.elementIsDisplayedOrNot(CardTypeText));
 
 	}
 
 	public Boolean checkCardNumberLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(CardNumberLabel));
+		return (WC.elementIsDisplayedOrNot(CardNumberLabel));
 	}
 
 	public Boolean checkCardNumberTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(CardNumberText));
+		return (WC.elementIsDisplayedOrNot(CardNumberText));
 	}
 
 	public Boolean checkIssueNumberLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(IssueNumberLabel));
+		return (WC.elementIsDisplayedOrNot(IssueNumberLabel));
 	}
 
 	public Boolean checkExpiryDateLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ExpiryDateLabel));
+		return (WC.elementIsDisplayedOrNot(ExpiryDateLabel));
 	}
 
 	public Boolean checkExpiryDateTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ExpiryDateText));
+		return (WC.elementIsDisplayedOrNot(ExpiryDateText));
 	}
 
 	public Boolean checkBillingAddressLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(BillingAddressLabel));
+		return (WC.elementIsDisplayedOrNot(BillingAddressLabel));
 	}
 
 	public Boolean checkAddressNameIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(AddressName));
+		return (WC.elementIsDisplayedOrNot(AddressName));
 	}
 
 	public Boolean checkAddressIsDisplayed() {
-		return( (WC.elementIsDisplayedOrNot(StreetAddress)) && (WC.elementIsDisplayedOrNot(Locality)) && (WC.elementIsDisplayedOrNot(PostCode))   );
+		return ((WC.elementIsDisplayedOrNot(StreetAddress))
+				&& (WC.elementIsDisplayedOrNot(Locality)) && (WC
+					.elementIsDisplayedOrNot(PostCode)));
 	}
 
 	public Boolean checkDeleteButtonIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(DeleteButton));
+		return (WC.elementIsDisplayedOrNot(DeleteButton));
 	}
 
 	public void clickOnDeleteCardButton() {
 		WC.click(DeleteButton);
-		
+
 	}
 
 	public void clickConfirmOnDialogueBox() {
-		//WC.click(ConfirmButton);
-		
-		
+		// WC.click(ConfirmButton);
+
 		if (WC.LVP()) {
-		
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton),
+					50);
 			WC.assertingWebElement(ConfirmButton);
 			WC.clickOn(ConfirmButton);
 		} else if (WC.SVP()) {
-			
+
 			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton), 50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton),
+					50);
+			WC.assertingWebElement(ConfirmButton);
+			WC.clickOn(ConfirmButton);
+		} else if (WC.MVP()) {
+
+			WC.handlePopup();
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton),
+					50);
 			WC.assertingWebElement(ConfirmButton);
 			WC.clickOn(ConfirmButton);
 		}
-		else if (WC.MVP()) {
-			
-			WC.handlePopup();
-			WC.waitForElementClickable(By.cssSelector(Constants.ManageMyPaymentCardPage.ConfirmButton), 50);
-			WC.assertingWebElement(ConfirmButton);
-			WC.clickOn(ConfirmButton);
-		}
-		
+
 	}
 
 	public boolean checkCardIsDeleted() {
-		return(WC.elementIsDisplayedOrNot(CardDeletedConfirmationText));
+		return (WC.elementIsDisplayedOrNot(CardDeletedConfirmationText));
 	}
 
 	public void signOut() {
 		WC.click(SignOutLink);
-		
-	}
-	
 
-	
+	}
 
 }

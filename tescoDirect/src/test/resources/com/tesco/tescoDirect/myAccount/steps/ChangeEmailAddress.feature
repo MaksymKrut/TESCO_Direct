@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Change Email Address
 
 As a user

@@ -165,17 +165,19 @@ public class GlobalFooterPO extends PageObject {
 
 	public GlobalFooterPO checkingGlobalFooter() {
 		LOG.debug("Checking global footer links");
-		/*((JavascriptExecutor) WC.getDriver()).executeScript(
-				"window.scrollBy(0,1200);", CustomerService);
-		WC.assertingWebElement(FooterStoreLocator);
-		WC.checkingBackGroundColour(FooterStoreLocator, "#ffffff");
-		WC.HoverAndcheckingBackGroundColour(FooterStoreLocator, "#00a1e0");
-		WC.assertingWebElement(FooterNeedHelp);
-		//WC.checkingBackGroundColour(FooterNeedHelp, "#ffffff");
-		WC.HoverAndcheckingBackGroundColour(FooterNeedHelp, "#00a1e0");
-		
-		WC.assertingWebElement(FooterTescoDirectLogo);*/
-		
+		/*
+		 * ((JavascriptExecutor) WC.getDriver()).executeScript(
+		 * "window.scrollBy(0,1200);", CustomerService);
+		 * WC.assertingWebElement(FooterStoreLocator);
+		 * WC.checkingBackGroundColour(FooterStoreLocator, "#ffffff");
+		 * WC.HoverAndcheckingBackGroundColour(FooterStoreLocator, "#00a1e0");
+		 * WC.assertingWebElement(FooterNeedHelp);
+		 * //WC.checkingBackGroundColour(FooterNeedHelp, "#ffffff");
+		 * WC.HoverAndcheckingBackGroundColour(FooterNeedHelp, "#00a1e0");
+		 * 
+		 * WC.assertingWebElement(FooterTescoDirectLogo);
+		 */
+
 		WC.assertingWebElement(CustomerService);
 		WC.assertingWebElement(Help);
 		WC.checkingColour(Help, "#645945");
@@ -198,7 +200,7 @@ public class GlobalFooterPO extends PageObject {
 		WC.assertingWebElement(BuyingGuides);
 		WC.checkingColour(BuyingGuides, "#645945");
 		WC.HoverAndcheckingBackGroundColour(BuyingGuides, "#00a1e0");
-		
+
 		WC.assertingWebElement(OurWebsite);
 		WC.assertingWebElement(Sitemap);
 		WC.checkingColour(Sitemap, "#645945");
@@ -218,7 +220,7 @@ public class GlobalFooterPO extends PageObject {
 		WC.assertingWebElement(SellersAtTesco);
 		WC.checkingColour(SellersAtTesco, "#645945");
 		WC.HoverAndcheckingBackGroundColour(SellersAtTesco, "#00a1e0");
-		
+
 		WC.assertingWebElement(ExploreTesco);
 		WC.assertingWebElement(TescoPLC);
 		WC.checkingColour(TescoPLC, "#645945");
@@ -253,7 +255,7 @@ public class GlobalFooterPO extends PageObject {
 		WC.assertingWebElement(Opticians);
 		WC.checkingColour(Opticians, "#645945");
 		WC.HoverAndcheckingBackGroundColour(Opticians, "#00a1e0");
-	
+
 		WC.assertingWebElement(EveryLittleHelps);
 		WC.assertingWebElement(AllRightsReserved);
 		return (GlobalFooterPO) WC.getPageObject(GlobalFooterPO.class);

@@ -11,7 +11,8 @@ import com.tesco.tescoDirect.constants.Constants;
 import com.tesco.tescoDirect.util.WebConnector;
 
 public class ChangePasswordPagePO extends PageObject {
-	private final static Logger LOG = Logger.getLogger(ChangePasswordPagePO.class);
+	private final static Logger LOG = Logger
+			.getLogger(ChangePasswordPagePO.class);
 	private static final WebConnector WC = WebConnector.getInstance();
 
 	@FindBy(css = Constants.ChangePasswordPage.Breadcrumbs)
@@ -27,7 +28,7 @@ public class ChangePasswordPagePO extends PageObject {
 	@CacheLookup
 	private WebElement OldPasswordLabel;
 	@FindBy(css = Constants.ChangePasswordPage.OldPasswordTextbox)
-	private WebElement  OldPasswordTextbox;
+	private WebElement OldPasswordTextbox;
 	@FindBy(xpath = Constants.ChangePasswordPage.NewPasswordLabel)
 	@CacheLookup
 	private WebElement NewPasswordLabel;
@@ -59,356 +60,150 @@ public class ChangePasswordPagePO extends PageObject {
 	@FindBy(partialLinkText = Constants.ChangePasswordPage.SignOutLink)
 	@CacheLookup
 	private WebElement SignOutLink;
-	
-	
-	
-	
-
-	
-
-	
 
 	public void checkUserIsOnChangePasswordPage() {
 		Assert.assertTrue(WC.getPageTitle().contains(
 				"Change password - Tesco.com"));
 	}
 
-
-
-
-
-
-
-
 	public Boolean checkBreadcrumbsIsDisplayed() {
-		
-		return(WC.elementIsDisplayedOrNot(Breadcrumbs));
+
+		return (WC.elementIsDisplayedOrNot(Breadcrumbs));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkChangePasswordHeaderTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ChangePasswordHeaderText));
+		return (WC.elementIsDisplayedOrNot(ChangePasswordHeaderText));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkChangePasswordDirectionsTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ChangePasswordDirectionsText));
+		return (WC.elementIsDisplayedOrNot(ChangePasswordDirectionsText));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkOldPasswordLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(OldPasswordLabel));
+		return (WC.elementIsDisplayedOrNot(OldPasswordLabel));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkOldPasswordTextboxIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(OldPasswordTextbox));
+		return (WC.elementIsDisplayedOrNot(OldPasswordTextbox));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkNewPasswordLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(NewPasswordLabel));
+		return (WC.elementIsDisplayedOrNot(NewPasswordLabel));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkNewPasswordTextboxIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(NewPasswordTextbox));
+		return (WC.elementIsDisplayedOrNot(NewPasswordTextbox));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkConfirmPasswordLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ConfirmPasswordLabel));
+		return (WC.elementIsDisplayedOrNot(ConfirmPasswordLabel));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkConfirmPasswordTextboxIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(ConfirmPasswordTextbox));
+		return (WC.elementIsDisplayedOrNot(ConfirmPasswordTextbox));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkPasswordTipInformationalTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(PasswordTipInformationalText));
+		return (WC.elementIsDisplayedOrNot(PasswordTipInformationalText));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkPasswordStrengthLabelIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(PasswordStrengthLabel));
+		return (WC.elementIsDisplayedOrNot(PasswordStrengthLabel));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkPasswordStrengthIndicatorIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(PasswordStrengthIndicator));
+		return (WC.elementIsDisplayedOrNot(PasswordStrengthIndicator));
 	}
-
-
-
-
-
-
-
 
 	public Boolean checkSaveChangesButtonIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(SaveChangesButton));
+		return (WC.elementIsDisplayedOrNot(SaveChangesButton));
 	}
 
+	public void enterCurrentPasswordInTheOldPasswordTextbox(
+			String currentPassword) {
 
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-	public void enterCurrentPasswordInTheOldPasswordTextbox(String currentPassword) {
-		
 		WC.type(OldPasswordTextbox, currentPassword);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void clickOnSaveChangesButton() {
-		
+
 		WC.click(SaveChangesButton);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public boolean checkPasswordsDoNotMatchErrorIsDisplayed() {
-		
-		return(WC.elementIsDisplayedOrNot(PasswordsDoNotMatchError));
-		
+
+		return (WC.elementIsDisplayedOrNot(PasswordsDoNotMatchError));
+
 	}
-
-
-
-
-
-
-
 
 	public void enterNewPassword(String newPassword) {
-		WC.waitForElementToBePresent(NewPasswordTextbox);
+		WC.waitForElementToBePresent(NewPasswordTextbox, 30);
 		WC.type(NewPasswordTextbox, newPassword);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void enterConfirmPassword(String confirmPassword) {
 		WC.type(ConfirmPasswordTextbox, confirmPassword);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void clearOldPasswordTextbox() {
-		
+
 		WC.clearTextBox(OldPasswordTextbox);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void clearNewPasswordTextbox() {
 		WC.clearTextBox(NewPasswordTextbox);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void clearConfirmPasswordTextbox() {
 		WC.clearTextBox(ConfirmPasswordTextbox);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public boolean checkPasswordStrengthIndicatorIsEnabled() {
 
-		
 		Boolean result = null;
-		while(true){
-			if((WC.getAttributeValue(PasswordStrengthIndicator, "class")).equalsIgnoreCase("state-0")){
-				result = true;;
-				break;}
-			
-			
+		while (true) {
+			String attributeValue = WC.getAttributeValue(
+					PasswordStrengthIndicator, "class");
+			if (attributeValue.equalsIgnoreCase("state-0")) {
+				result = true;
+				;
+				break;
+			}
+
 		}
 		return result;
 	}
 
-
-
-
-
-
-
-
 	public boolean checkPasswordStrengthIsDisplayed() {
-		
+
 		String text = WC.getText(PasswordStrengthIndicator);
-		if(text.equalsIgnoreCase("Very Weak"))
+		if (text.equalsIgnoreCase("Very Weak"))
 			return true;
 		else
 			return false;
-		
+
 	}
-
-
-
-
-
-
-
 
 	public boolean checkPasswordUpdatedTextIsDisplayed() {
-		return(WC.elementIsDisplayedOrNot(PasswordUpdatedText));
+		return (WC.elementIsDisplayedOrNot(PasswordUpdatedText));
 	}
-
-
-
-
-
-
-
 
 	public void pressTabKey() {
-		
+
 		WC.pressTabKey(ConfirmPasswordTextbox);
-		
+
 	}
-
-
-
-
-
-
-
 
 	public void signOut() {
 		WC.click(SignOutLink);
-		
+
 	}
-
-
-
-
-
-
-
-
-	
-
-	
 
 }

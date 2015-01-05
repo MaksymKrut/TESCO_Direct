@@ -323,8 +323,8 @@ public class CheckOutPagePO extends PageObject {
 	private WebElement DeliveryMethodCollectionRadioButton;
 	@FindBy(css = Constants.CheckOutPage.DeliveryMethodHomeDeliveryRadioButton)
 	private WebElement DeliveryMethodHomeDeliveryRadioButton;
-	@FindBy(xpath = Constants.CheckOutPage. DeliveryCostFreeText )
-	private WebElement  DeliveryCostFreeText;
+	@FindBy(xpath = Constants.CheckOutPage.DeliveryCostFreeText)
+	private WebElement DeliveryCostFreeText;
 	@FindBy(xpath = Constants.CheckOutPage.SubtotalText)
 	private WebElement SubtotalText;
 	@FindBy(xpath = Constants.CheckOutPage.SubtotalAmountText)
@@ -349,9 +349,7 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(xpath = Constants.CheckOutPage.CustomerName)
 	@CacheLookup
 	private WebElement CustomerName;
-	
-	
-	
+
 	@FindBy(css = Constants.AboutYouPage.IamAnewCustomerRadioButton)
 	@CacheLookup
 	private WebElement IamAnewCustomerRadioButton;
@@ -405,8 +403,7 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(xpath = Constants.CheckOutPage.FirstAddress)
 	@CacheLookup
 	private WebElement FirstAddress;
-	
-		
+
 	@FindBy(xpath = Constants.CheckOutPage.Stores)
 	@CacheLookup
 	private WebElement Stores;
@@ -449,9 +446,14 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(css = Constants.CheckOutPage.BillingAddress)
 	@CacheLookup
 	private WebElement BillingAddress;
-	
-	
-	
+
+	@FindBy(css = Constants.CheckOutPage.ClubcardBoostImage)
+	@CacheLookup
+	private WebElement ClubcardBoostImage;
+	@FindBy(xpath = Constants.CheckOutPage.InClubcardBoostMoreInfoLink)
+	@CacheLookup
+	private WebElement InClubcardBoostMoreInfoLink;
+
 	@FindBy(xpath = Constants.CheckOutPage.NewAddressLinkForBillingAddress)
 	@CacheLookup
 	private WebElement NewAddressLinkForBillingAddress;
@@ -461,187 +463,195 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(css = Constants.CheckOutPage.AddNewBillingAddressButton)
 	@CacheLookup
 	private WebElement AddNewBillingAddressButton;
-	
-	@FindBy(css = Constants.CheckOutPage.ClubcardBoostImage)
+
+	@FindBy(linkText = Constants.CheckOutPage.MyAccountLink)
 	@CacheLookup
-	private WebElement ClubcardBoostImage;
-	@FindBy(xpath = Constants.CheckOutPage.InClubcardBoostMoreInfoLink)
-	@CacheLookup
-	private WebElement InClubcardBoostMoreInfoLink;
-	
+	private WebElement MyAccountLink;
 
-	
-public boolean checkOrderTabIsHighlighted() {
-		
-		if(WC.getAttributeValue(OrderTab, "class").equalsIgnoreCase("active"))
-		return true;
+	public boolean checkOrderTabIsHighlighted() {
+
+		if (WC.getAttributeValue(OrderTab, "class").equalsIgnoreCase("active"))
+			return true;
 		else
 			return false;
-		
+
 	}
-public boolean checkBasketTabIsEnabledAndGreyedOut() {
-	
-	if(WC.getAttributeValue(BasketTab, "class").equalsIgnoreCase("done"))
-		return true;
+
+	public boolean checkBasketTabIsEnabledAndGreyedOut() {
+
+		if (WC.getAttributeValue(BasketTab, "class").equalsIgnoreCase("done"))
+			return true;
 		else
 			return false;
-}
-
-public boolean checkThankYouTabIsDisabledAndGreyedOut() {
-	if(WC.getAttributeValue(ThankYouTab, "class").equalsIgnoreCase("disabled"))
-		return true;
-		else
-			return false;
-}
-
-public boolean checkCollectionIsSelected() {
-	
-	return(WC.statusofRadiobutton(DeliveryMethodCollectionRadioButton));
-	
-	
-}
-
-public boolean checkDeliveryCostIsDisplayedAsFree() {
-	WC.waitForElementToBePresent(DeliveryCostFreeText);
-	return(WC.elementIsDisplayedOrNot(DeliveryCostFreeText));
-}
-
-public Boolean checkItemImageIsDisplayed() {
-	System.out.println("CheckOutItemImageTescoSim is displayed" +CheckOutItemImageTescoSim);
-	System.out.println("CheckOutItemImageHarryPotter is displayed" +CheckOutItemImageHarryPotter);
-	if(WC.elementIsDisplayedOrNot(CheckOutItemImageTescoSim) && WC.elementIsDisplayedOrNot(CheckOutItemImageHarryPotter))
-		return true;
-	else
-		return false;
-	
-		
-}
-
-public Boolean checkItemQuantityXItemNameIsDisplayed() {
-	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName1);
-	WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName2);
-	if(WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName1) && WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName2))
-		return true;
-	else
-		return false;
-	
-}
-
-public Boolean checkCatalogueNumberIsDisplayed() {
-	WC.waitForElementToBePresent(HarryPotterCatalogueNumber);
-	WC.waitForElementToBePresent(TescoSimCatalogueNumber);
-	if(WC.elementIsDisplayedOrNot(HarryPotterCatalogueNumber) || WC.elementIsDisplayedOrNot(TescoSimCatalogueNumber))
-		return true;
-	else
-		return false;
-	
-}
-
-public Boolean checkSoldbyIsDisplayed() {
-	if(WC.elementIsDisplayedOrNot(HarryPotterSoldBYText1) && WC.elementIsDisplayedOrNot(HarryPotterSoldBYText2))
-		return true;
-	else
-		return false;
-	
-}
-
-public Boolean checkItemPriceIsDisplayed() {
-	if(WC.elementIsDisplayedOrNot(HarryPotterItemPrice))
-		return true;
-	else
-		return false;
-	
-}
-
-public Boolean checkSubTotalIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(SubtotalText) && WC.elementIsDisplayedOrNot(SubtotalAmountText));
-}
-
-public Boolean checkTotalToPayIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(TotalToPayText) && WC.elementIsDisplayedOrNot(TotalToPayAmountText));
-}
-
-public Boolean checkClubcardPointsIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(ClubCardPointsText) && WC.elementIsDisplayedOrNot(ClubCardPointsEarnedText));
-}
-
-public Boolean checkNameIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(CustomerName));
-}
-
-public Boolean checkPhoneNumberIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(TelephoneNumber));
-}
-
-public Boolean checkSelectedStoreNameIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(SelectedStoreNameForCollection));
-}
-
-public Boolean checkItemCollectionDateAndTimeIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(ItemCollectionDateAndTimeText));
-}
-
-public Boolean checkItemCollectionInformationIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(ItemCollectionInformationText));
-}
-
-public Boolean checkNameOnCardTextBoxIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(nameoncard));
-}
-
-public Boolean checkCardNumberTextBoxIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(cardnumber));
-}
-
-public Boolean checkExpiryDateDropDownIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(expirydatemonth) && WC.elementIsDisplayedOrNot(expirydateyear));
-}
-
-public Boolean checkSecurityCodeTextBoxIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(securitycode));
-}
-
-public Boolean checkBillingAddressIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(BillingAddress));
-}
-
-public Boolean checkAddClubcardVouchersIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(addclubcardvoucher));
-}
-
-public Boolean checkAddEcouponsIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(addecoupons));
-}
-
-public Boolean checkPayWithAGiftCardIsDisplayed() {
-	return(WC.elementIsDisplayedOrNot(paywithagiftcard));
-}
-public void clickOnBasketTab() {
-	WC.clickOn(BasketTab);
-	
-}
-
-public void clickOnIamAnewCustomerRadioButton() {
-	IamAnewCustomerRadioButton.click();
-
-}
-
-public void selectingTitle() {
-	WC.wait(2);
-	String Currentinstance = WC.getDriver().getClass().getName();
-	System.out.println(Currentinstance);
-	if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
-		WC.waitForElementToBePresent(TitleDropDown);
-		TitleDropDown.click();
-		WC.wait(3);
-		TitleDropDownMR.click();
-	} else if (Currentinstance.equals("io.appium.java_client.android.AndroidDriver")) {
-		WC.waitForElementToBePresent(TitleDropDownMobile);
-		TitleDropDownMobile.click();
-		WC.handlePopup();
-		TitleDropDownMRMobile.click();}
 	}
-	
+
+	public boolean checkThankYouTabIsDisabledAndGreyedOut() {
+		if (WC.getAttributeValue(ThankYouTab, "class").equalsIgnoreCase(
+				"disabled"))
+			return true;
+		else
+			return false;
+	}
+
+	public boolean checkCollectionIsSelected() {
+
+		return (WC.statusofRadiobutton(DeliveryMethodCollectionRadioButton));
+
+	}
+
+	public boolean checkDeliveryCostIsDisplayedAsFree() {
+		WC.waitForElementToBePresent(DeliveryCostFreeText, 30);
+		return (WC.elementIsDisplayedOrNot(DeliveryCostFreeText));
+	}
+
+	public Boolean checkItemImageIsDisplayed() {
+		System.out.println("CheckOutItemImageTescoSim is displayed"
+				+ CheckOutItemImageTescoSim);
+		System.out.println("CheckOutItemImageHarryPotter is displayed"
+				+ CheckOutItemImageHarryPotter);
+		if (WC.elementIsDisplayedOrNot(CheckOutItemImageTescoSim)
+				&& WC.elementIsDisplayedOrNot(CheckOutItemImageHarryPotter))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Boolean checkItemQuantityXItemNameIsDisplayed() {
+		WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName1, 30);
+		WC.waitForElementToBePresent(HarryPotterItemQuantityXItemName2, 30);
+		if (WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName1)
+				&& WC.elementIsDisplayedOrNot(HarryPotterItemQuantityXItemName2))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Boolean checkCatalogueNumberIsDisplayed() {
+		WC.waitForElementToBePresent(HarryPotterCatalogueNumber, 30);
+		WC.waitForElementToBePresent(TescoSimCatalogueNumber, 30);
+		if (WC.elementIsDisplayedOrNot(HarryPotterCatalogueNumber)
+				|| WC.elementIsDisplayedOrNot(TescoSimCatalogueNumber))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Boolean checkSoldbyIsDisplayed() {
+		if (WC.elementIsDisplayedOrNot(HarryPotterSoldBYText1)
+				&& WC.elementIsDisplayedOrNot(HarryPotterSoldBYText2))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Boolean checkItemPriceIsDisplayed() {
+		if (WC.elementIsDisplayedOrNot(HarryPotterItemPrice))
+			return true;
+		else
+			return false;
+
+	}
+
+	public Boolean checkSubTotalIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(SubtotalText) && WC
+				.elementIsDisplayedOrNot(SubtotalAmountText));
+	}
+
+	public Boolean checkTotalToPayIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(TotalToPayText) && WC
+				.elementIsDisplayedOrNot(TotalToPayAmountText));
+	}
+
+	public Boolean checkClubcardPointsIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(ClubCardPointsText) && WC
+				.elementIsDisplayedOrNot(ClubCardPointsEarnedText));
+	}
+
+	public Boolean checkNameIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(CustomerName));
+	}
+
+	public Boolean checkPhoneNumberIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(TelephoneNumber));
+	}
+
+	public Boolean checkSelectedStoreNameIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(SelectedStoreNameForCollection));
+	}
+
+	public Boolean checkItemCollectionDateAndTimeIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(ItemCollectionDateAndTimeText));
+	}
+
+	public Boolean checkItemCollectionInformationIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(ItemCollectionInformationText));
+	}
+
+	public Boolean checkNameOnCardTextBoxIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(nameoncard));
+	}
+
+	public Boolean checkCardNumberTextBoxIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(cardnumber));
+	}
+
+	public Boolean checkExpiryDateDropDownIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(expirydatemonth) && WC
+				.elementIsDisplayedOrNot(expirydateyear));
+	}
+
+	public Boolean checkSecurityCodeTextBoxIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(securitycode));
+	}
+
+	public Boolean checkBillingAddressIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(BillingAddress));
+	}
+
+	public Boolean checkAddClubcardVouchersIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(addclubcardvoucher));
+	}
+
+	public Boolean checkAddEcouponsIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(addecoupons));
+	}
+
+	public Boolean checkPayWithAGiftCardIsDisplayed() {
+		return (WC.elementIsDisplayedOrNot(paywithagiftcard));
+	}
+
+	public void clickOnBasketTab() {
+		WC.clickOn(BasketTab);
+
+	}
+
+	public void clickOnIamAnewCustomerRadioButton() {
+		IamAnewCustomerRadioButton.click();
+
+	}
+
+	public void selectingTitle() {
+		WC.wait(2);
+		String Currentinstance = WC.getDriver().getClass().getName();
+		System.out.println(Currentinstance);
+		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
+			WC.waitForElementToBePresent(TitleDropDown, 30);
+			TitleDropDown.click();
+			WC.wait(3);
+			TitleDropDownMR.click();
+		} else if (Currentinstance
+				.equals("io.appium.java_client.android.AndroidDriver")) {
+			WC.waitForElementToBePresent(TitleDropDownMobile, 30);
+			TitleDropDownMobile.click();
+			WC.handlePopup();
+			TitleDropDownMRMobile.click();
+		}
+	}
+
 	public void typingFirstName() {
 		WC.assertingWebElement(FirstNameTextBox);
 		FirstNameTextBox.clear();
@@ -666,7 +676,7 @@ public void selectingTitle() {
 		PostCodeTextBox.sendKeys("AL7 1TW");
 
 	}
-	
+
 	public void clickOnIDontHaveAclubcardCheckBox() {
 
 		String Currentinstance = WC.getDriver().getClass().getName();
@@ -691,9 +701,9 @@ public void selectingTitle() {
 		WC.wait(3);
 		RegFirstPageNextButton.click();
 	}
-	
+
 	public void typingPhoneNumber() {
-		WC.waitForElementToBePresent(ContactPhoneNumber);
+		WC.waitForElementToBePresent(ContactPhoneNumber, 30);
 		ContactPhoneNumber.clear();
 		ContactPhoneNumber.sendKeys("07438305914");
 	}
@@ -719,14 +729,15 @@ public void selectingTitle() {
 		WC.assertingWebElement(RegSecondPageNextButton);
 		RegSecondPageNextButton.click();
 	}
-	
+
 	public void selectingAddressFromDropDown() {
 		String Currentinstance = WC.getDriver().getClass().getName();
 		System.out.println(Currentinstance);
 		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")) {
 			WC.wait(2);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
-			FirstAddress.click();
+			PostCodeTextBox.sendKeys(Keys.ENTER);
+			// FirstAddress.click();
 		} else if (Currentinstance
 				.equals("io.appium.java_client.android.AndroidDriver")) {
 
@@ -734,59 +745,60 @@ public void selectingTitle() {
 		}
 
 	}
-	
-public void waitForRegistrationToComplete() throws Exception {
-		
-		WC.waitForElementToBePresent(CustomerName);
+
+	public void waitForRegistrationToComplete() throws Exception {
+
+		WC.waitForElementToBePresent(CustomerName, 30);
 	}
 
+	public void enterUserName(String userName) {
+		SignInEmailInputBox.clear();
+		SignInEmailInputBox.sendKeys(userName);
+	}
 
-public void enterUserName(String userName) {
-	SignInEmailInputBox.clear();
-	SignInEmailInputBox.sendKeys(userName);
-}
+	public void enterPassword(String password) {
+		SignInPasswordInputBox.clear();
+		SignInPasswordInputBox.sendKeys(password);
+	}
 
-public void enterPassword(String password) {
-	SignInPasswordInputBox.clear();
-	SignInPasswordInputBox.sendKeys(password);
-}
+	public void clickOnSignInButton() {
+		WC.clickOn(SignInButton);
+		;
+		LOG.debug("Clicked on sign in button");
+	}
 
-public void clickOnSignInButton() {
-	SignInButton.click();
-	LOG.debug("Clicked on sign in button");
-}
+	public void waitForLoginToComplete() throws Exception {
 
+		WC.waitForElementToBePresent(CustomerName, 30);
+	}
 
-public void waitForLoginToComplete() throws Exception {
-	
-	WC.waitForElementToBePresent(CustomerName);
-}
+	public Boolean checkStoresIsDisplayed() {
 
+		return (WC.elementIsDisplayedOrNot(Stores));
+	}
 
+	public Boolean checkThreeClosestStoresAreDisplayed() {
 
-public Boolean checkStoresIsDisplayed() {
-	
-	return(WC.elementIsDisplayedOrNot(Stores));
-}
+		return (WC.elementIsDisplayedOrNot(FirstStore)
+				&& WC.elementIsDisplayedOrNot(SecondStore) && WC
+					.elementIsDisplayedOrNot(ThirdStore));
 
-public Boolean checkThreeClosestStoresAreDisplayed() {
-	
-	return(WC.elementIsDisplayedOrNot(FirstStore) && WC.elementIsDisplayedOrNot(SecondStore) && WC.elementIsDisplayedOrNot(ThirdStore));
-	
-}
+	}
 
-public Boolean checkViewMoreCollectionPointsIsDisplayed() {
-	
-	return(WC.elementIsDisplayedOrNot(ViewMoreCollectionPoints1) && WC.elementIsDisplayedOrNot(ViewMoreCollectionPoints2));
-}
+	public Boolean checkViewMoreCollectionPointsIsDisplayed() {
 
-public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
-	
-	return((WC.statusofRadiobutton(FirstStoreRadioButton)) && !(WC.statusofRadiobutton(SecondStoreRadioButton)) && !(WC.statusofRadiobutton(ThirdStoreRadioButton)));
-	
-}
-	
-	
+		return (WC.elementIsDisplayedOrNot(ViewMoreCollectionPoints1) && WC
+				.elementIsDisplayedOrNot(ViewMoreCollectionPoints2));
+	}
+
+	public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
+
+		return ((WC.statusofRadiobutton(FirstStoreRadioButton))
+				&& !(WC.statusofRadiobutton(SecondStoreRadioButton)) && !(WC
+					.statusofRadiobutton(ThirdStoreRadioButton)));
+
+	}
+
 	public CheckOutPagePO checkingtheStatusOfProgressBar() {
 		LOG.debug("Checking theStatus Of Progress Bar");
 		Assert.assertTrue("Is " + basket + " displayed ========>",
@@ -1113,13 +1125,12 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardPINTextfield),
 					50);
 			paywithagiftcardpintextfield.sendKeys("0959");
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButton),
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButton),
 					50);
 			WC.click(paywithagiftcardaddbutton);
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PayNowButton),
-					50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PayNowButton), 50);
 			WC.wait(5);
 			WC.click(paynowbutton);
 
@@ -1136,17 +1147,15 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardPINTextfieldMob),
 					50);
 			paywithagiftcardpintextfieldMob.sendKeys("0959");
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButtonMob),
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButtonMob),
 					50);
 			WC.click(paywithagiftcardaddbuttonMob);
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PayNowButton),
-					50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PayNowButton), 50);
 			WC.wait(5);
 			WC.click(paynowbutton);
-		}
-		else if (WC.MVP()) {
+		} else if (WC.MVP()) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCard), 50);
 			WC.click(paywithagiftcard);
@@ -1158,17 +1167,16 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardPINTextfield),
 					50);
 			paywithagiftcardpintextfield.sendKeys("0959");
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButton),
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PaywithaGiftCardAddButton),
 					50);
 			WC.click(paywithagiftcardaddbutton);
-			WC.waitForElementClickable(By
-					.cssSelector(Constants.CheckOutPage.PayNowButton),
-					50);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.CheckOutPage.PayNowButton), 50);
 			WC.wait(5);
 			WC.click(paynowbutton);
 		}
-		
+
 		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
 	}
 
@@ -1329,44 +1337,53 @@ public boolean checkOnlyFirstStoreRadioButtonIsSelected() {
 		namcancelbutton.click();
 		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
 	}
-	public void clickOnNewAddressLinkForBillingAddress() {
-		WC.waitForElementTobePresent(NewAddressLinkForBillingAddress);
-		WC.click(NewAddressLinkForBillingAddress);
-		
+
+	public Boolean checkClubcardBoostImageIsDisplayed() {
+
+		return (WC.elementIsDisplayedOrNot(ClubcardBoostImage));
+
 	}
+
+	public Boolean checkInClubcardBoostMoreInfoLinkIsDisplayed() {
+
+		WC.waitForElementToBePresent(InClubcardBoostMoreInfoLink, 30);
+		return (WC.elementIsDisplayedOrNot(InClubcardBoostMoreInfoLink));
+
+	}
+
+	public void clickOnNewAddressLinkForBillingAddress() {
+		WC.waitForElementToBePresent(NewAddressLinkForBillingAddress, 30);
+		WC.click(NewAddressLinkForBillingAddress);
+
+	}
+
 	public void AddANewBillingAddresss() {
-		WC.waitForElementTobePresent(BillingAddressNickNameTextBox);
+		WC.waitForElementToBePresent(BillingAddressNickNameTextBox, 30);
 		WC.type(BillingAddressNickNameTextBox, "New Billing Address");
 		typingPostCode();
 		selectingAddressFromDropDown();
-		WC.waitForElementTobePresent(AddNewBillingAddressButton);
+		WC.waitForElementToBePresent(AddNewBillingAddressButton, 30);
 		WC.wait(5);
-		//WC.pressTabKey(AddNewBillingAddressButton);
+		// WC.pressTabKey(AddNewBillingAddressButton);
 		WC.click(AddNewBillingAddressButton);
 		System.out.println("Clicked on AddNewBillingAddressButton");
 		WC.wait(10);
-		
-		
+
 	}
+
 	public boolean checkNewBillingAddressIsAdded() {
-		WC.waitForElementTobePresent(billingaddressdropdown);
+		WC.waitForElementToBePresent(billingaddressdropdown, 30);
 		WC.getSelectedOptionFromDropdown(billingaddressdropdown);
-		if(WC.getSelectedOptionFromDropdown(billingaddressdropdown).equalsIgnoreCase("New Billing Address"))
-		return true;
+		if (WC.getSelectedOptionFromDropdown(billingaddressdropdown)
+				.equalsIgnoreCase("New Billing Address"))
+			return true;
 		else
-		return false;
+			return false;
 	}
-	public Boolean checkClubcardBoostImageIsDisplayed() {
-		
-		
-		return(WC.elementIsDisplayedOrNot(ClubcardBoostImage));
-		
-	}
-	public Boolean checkInClubcardBoostMoreInfoLinkIsDisplayed() {
-		
-		WC.waitForElementTobePresent(InClubcardBoostMoreInfoLink);
-		return(WC.elementIsDisplayedOrNot(InClubcardBoostMoreInfoLink));
-		
+
+	public void clickOnMyAccountLink() {
+		WC.clickOn(MyAccountLink);
+
 	}
 
 }

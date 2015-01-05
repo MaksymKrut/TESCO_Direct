@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Search and Browse 
 
 
@@ -10,7 +11,7 @@ Scenario Outline: Verify Search as you type is working as expected
     Examples:
     |characters|displayed or not|
     |a         |true            |
-	|advert    |false           |
+	|ipad      |true           |
 	|apple     |true            |
 	|Hudl 2    |true            |
 

@@ -1,14 +1,5 @@
 package com.tesco.tescoDirect.util;
 
-import io.selendroid.SelendroidCapabilities;
-import io.selendroid.SelendroidConfiguration;
-import io.selendroid.SelendroidLauncher;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import com.tesco.tescoDirect.util.WebConnector.Browsers;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 
@@ -19,7 +10,6 @@ public class SVP {
 	public void the_user_defines_the_required_webdriver_for_the_LLVP_device()
 			throws Throwable {
 		WC.openAndroidBrowserSVP();
-		
 
 	}
 

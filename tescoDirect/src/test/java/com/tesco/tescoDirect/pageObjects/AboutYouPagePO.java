@@ -37,6 +37,9 @@ public class AboutYouPagePO extends PageObject {
 	@FindBy(css = Constants.AboutYouPage.TitleDropDown)
 	@CacheLookup
 	private WebElement TitleDropDown;
+	@FindBy(css = Constants.AboutYouPage.TitleDropDownInnerText)
+	@CacheLookup
+	private WebElement TitleDropDownInnerText;
 	@FindBy(css = Constants.AboutYouPage.TitleDropDownMR)
 	@CacheLookup
 	private WebElement TitleDropDownMR;
@@ -78,7 +81,7 @@ public class AboutYouPagePO extends PageObject {
 	@FindBy(css = Constants.AboutYouPage.DropdownMatchingAllofthePostcode)
 	@CacheLookup
 	private WebElement DropdownMatchingAllofthePostcode;
-	@FindBy(xpath = Constants.AboutYouPage.FirstAddress)
+	@FindBy(css = Constants.AboutYouPage.FirstAddress)
 	@CacheLookup
 	private WebElement FirstAddress;
 
@@ -120,6 +123,18 @@ public class AboutYouPagePO extends PageObject {
 	@CacheLookup
 	private WebElement MyAccount;
 
+	public void checkIDontHaveAClubcardCheckboxIsUnChecked() {
+		WC.CheckboxStatus(IDontHaveAclubcardCheckBox);
+	}
+
+	public void checkEditButtonIsDisabled() {
+		Assert.assertTrue(EditButton.isEnabled());
+	}
+
+	public void checkNextButtonIsEnabled() {
+		Assert.assertTrue(EditButton.isEnabled());
+	}
+
 	public AboutYouPagePO checkExistingCustomerRadioButtonIsSelected() {
 		Assert.assertTrue(WC
 				.statusofRadiobutton(ImAnExistingCustomerRadioButton));
@@ -147,8 +162,8 @@ public class AboutYouPagePO extends PageObject {
 	}
 
 	public String getActualTitleDropDownValue() {
-
-		String actualTitleDropDownValue = TitleDropDown.getText();
+		WC.waitForElement(TitleDropDownInnerText, 60);
+		String actualTitleDropDownValue = TitleDropDownInnerText.getText();
 		return actualTitleDropDownValue;
 
 	}
@@ -180,22 +195,25 @@ public class AboutYouPagePO extends PageObject {
 	}
 
 	public void selectingTitle() {
-		WC.wait(2);
+		WC.wait(10);
 		if (WC.LVP()) {
+			WC.waitForElement(TitleDropDown, 50);
 			WC.assertingWebElement(TitleDropDown);
 			TitleDropDown.click();
 			WC.wait(3);
 			TitleDropDownMR.click();
 		} else if (WC.SVP()) {
+			WC.waitForElement(TitleDropDownMobile, 50);
 			WC.assertingWebElement(TitleDropDownMobile);
 			TitleDropDownMobile.click();
 			WC.handlePopup();
 			TitleDropDownMRMobile.click();
 		} else if (WC.MVP()) {
+			WC.waitForElement(TitleDropDown, 50);
 			WC.assertingWebElement(TitleDropDown);
-			TitleDropDown.click();
-			WC.wait(3);
-			TitleDropDownMR.click();
+			WC.click(TitleDropDown);
+			WC.handlePopup();
+			WC.implicitwait(50);
 			TitleDropDownMRMobile.click();
 		}
 
@@ -234,10 +252,16 @@ public class AboutYouPagePO extends PageObject {
 		if (WC.LVP()) {
 			WC.wait(5);
 			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
-			FirstAddress.click();
-		} else if (WC.SVP() && WC.MVP()) {
-
 			PostCodeTextBox.sendKeys(Keys.ENTER);
+			// FirstAddress.click();
+		} else if (WC.SVP()) {
+			WC.wait(5);
+			PostCodeTextBox.sendKeys(Keys.ENTER);
+			LOG.debug("clicked on first address");
+		} else if (WC.MVP()) {
+			WC.wait(5);
+			PostCodeTextBox.sendKeys(Keys.ENTER);
+			LOG.debug("clicked on first address");
 		}
 
 	}
@@ -248,7 +272,11 @@ public class AboutYouPagePO extends PageObject {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
-		} else if (WC.SVP() && WC.MVP()) {
+		} else if (WC.SVP()) {
+			WC.wait(3);
+			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
+			IDontHaveAclubcardCheckBox.click();
+		} else if (WC.MVP()) {
 			WC.wait(3);
 			WC.assertingWebElement(IDontHaveAclubcardCheckBox);
 			IDontHaveAclubcardCheckBox.click();
@@ -317,15 +345,17 @@ public class AboutYouPagePO extends PageObject {
 		WC.assertingWebElement(RegSecondPageNextButton);
 		RegSecondPageNextButton.click();
 	}
-	
 
 	public boolean checkEmailAddressIsUpdated() {
 		String actualPageTitle = WC.getPageTitle();
-		String EmailTextBoxValue = WC.getAttributeValue(SignInEmailInputBox, "value");
-		if(    (actualPageTitle.equalsIgnoreCase("About you - Tesco.com"))   &&   (EmailTextBoxValue.equalsIgnoreCase("tescodirecttestframework1@gmail.com"))  )
-		return true;
+		String EmailTextBoxValue = WC.getAttributeValue(SignInEmailInputBox,
+				"value");
+		if ((actualPageTitle.equalsIgnoreCase("About you - Tesco.com"))
+				&& (EmailTextBoxValue
+						.equalsIgnoreCase("tescodirecttestframework1@gmail.com")))
+			return true;
 		else
-		return false;
-		
+			return false;
+
 	}
 }

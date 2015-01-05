@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Add address
 
 As a customer
@@ -46,7 +47,7 @@ And I enter the following details for the Add a new address form
 |Daytime phone textbox|07438305914|
 |Evening phone textbox|07438305914|
 |Mobile phone textbox|07438305914|
-|Postcode textbox|AL71TW|
+|Postcode textbox|AL7 1TW|
 Then the Edit Button is enabled
 When I select the first address from the address dropdown
 Then the Save address Button is enabled

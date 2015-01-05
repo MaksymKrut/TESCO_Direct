@@ -1,3 +1,4 @@
+@testC @testF @testMVP @testSVP
 Feature: Change Password
 
 As a user

@@ -1,4 +1,4 @@
-@testFirefox @MVP 
+@testC @testF @testMVP @testSVP
 Feature: PLP
 
 
@@ -18,14 +18,13 @@ Then more products should be loaded on the same page
 
 Scenario: Product BLock
 Given I navigate to TESCO direct "home_page"
-When user types in "rings" in the search and browse text
+When user types in "jeans" in the search and browse text
 Then every product should display the product image
 And display the product title
 And display the rating star with number of ratings
 And display seller information
 And should either display Add to Basket or Request Stock Alert or Pre-order or Select options
 And on LLVP and LVP should display Add to Compare check box
-
 
 Scenario: Applying filters
 Given I navigate to TESCO direct "home_page"
