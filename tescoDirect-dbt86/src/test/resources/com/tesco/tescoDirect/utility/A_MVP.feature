@@ -1,4 +1,4 @@
-@testMVP
+@testMVP @test
 Feature: epic_no MVP validations
 
 Scenario: Get the Web Driver

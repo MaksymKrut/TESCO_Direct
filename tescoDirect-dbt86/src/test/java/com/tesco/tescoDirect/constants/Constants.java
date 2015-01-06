@@ -531,12 +531,15 @@ public class Constants {
 	}
 
 	public final class HomePage {
-		public final static String SignInButton = "#user";
+		public final static String SignInButton = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.sign-in-out > a";
+		public final static String SignInButtonSVP = "#wrapper > div.uiOverlay > div > div > div > ul > li.sign-in-out > a";
 		public final static String SignInOrRegisterLink = "Sign in";
+		public final static String YourAccountButton = "#ssb_block_2 > div > div > a.mastheadButton.accountMenu";
 		public final static String WelcomeMsg = "//*[@id='nav-bar']/div[2]/ul/li[1][contains(text(),'Hello')]";
 		public final static String WelcomeMsgMVP = "//div[@id='nav-bar']/div[1][contains(text(),'Hello')]";
 		public final static String WelcomeMsgMobile = "#nav-bar > div.navigation > ul > li.first.sign-in";
-		public final static String SignOutLink = "Sign Out";
+		public final static String SignOutLink = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.sign-in-out > form > a";
+		public final static String SignOutLinkSVP = "#wrapper > div.uiOverlay > div > div > div > ul > li.sign-in-out > form > a";
 		public final static String SignOutMobile = "#nav-bar > div.navigation > ul > li.first.sign-in > form > a";
 		public final static String ViewBasketButton = "#go-to-basket > div.basket-icon-wrapper > div.icon.icon-basket";
 		public final static String BasketContainerViewBasketButtonMobile = "#edit-basket-items";
@@ -545,7 +548,6 @@ public class Constants {
 		public final static String SearchOverlayFirstSuggestion = "#spf-autocompleteItem";
 		public final static String SearchButton = "#search-submit";
 		public final static String SearchByProductNameCatalogueNoOrKeywordTextField = "#search-text-field";
-		//
 		public static final String MyAccountLink = "My Account";
 		public static final String CookiesMsg = ".tesco-cookie";
 		public static final String CookiesMsgCloseButton = ".tesco-cookie-accept>div>img";

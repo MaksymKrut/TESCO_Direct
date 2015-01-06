@@ -29,9 +29,18 @@ public class HomePagePO extends PageObject {
 	@FindBy(css = Constants.HomePage.SignInButton)
 	@CacheLookup
 	private WebElement SignInButton;
-	@FindBy(partialLinkText = Constants.HomePage.SignOutLink)
+	@FindBy(css = Constants.HomePage.SignInButtonSVP)
+	@CacheLookup
+	private WebElement SignInButtonSVP;
+	@FindBy(css = Constants.HomePage.YourAccountButton)
+	@CacheLookup
+	private WebElement YourAccountButton;
+	@FindBy(css = Constants.HomePage.SignOutLink)
 	@CacheLookup
 	private WebElement SignOutLink;
+	@FindBy(css = Constants.HomePage.SignOutLinkSVP)
+	@CacheLookup
+	private WebElement SignOutLinkSVP;
 	@FindBy(css = Constants.HomePage.ViewBasketButton)
 	@CacheLookup
 	private WebElement ViewBasketButton;
@@ -64,15 +73,24 @@ public class HomePagePO extends PageObject {
 	private WebElement CookiesMsgCloseButton;
 
 	public AboutYouPagePO clickingOnSigninorRegisterLink() {
-		if (SignInButton.isDisplayed()) {
+		if (WC.LVP()) {
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
+			WC.implicitwait(50);
 			SignInButton.click();
+		} else if (WC.SVP()) {
 			WC.implicitwait(50);
-			WC.assertingWebElement(SignInOrRegisterLink);
-			SignInOrRegisterLink.click();
-		} else {
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.implicitwait(50);
-			WC.assertingWebElement(SignInOrRegisterLink);
-			SignInOrRegisterLink.click();
+			SignInButtonSVP.click();
+		} else if (WC.MVP()) {
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
+			WC.implicitwait(50);
+			SignInButton.click();
 		}
 		return (AboutYouPagePO) WC.getPageObject(AboutYouPagePO.class);
 	}
@@ -144,9 +162,6 @@ public class HomePagePO extends PageObject {
 	}
 
 	public void clickOnSearchByProductNameCatalogueNoOrKeywordTextField() {
-
-		// WC.webdriverWait(SearchByProductNameCatalogueNoOrKeywordTextField,
-		// 30);
 		WC.click(SearchByProductNameCatalogueNoOrKeywordTextField);
 
 	}
@@ -166,13 +181,21 @@ public class HomePagePO extends PageObject {
 
 	public void clickOnSignOutLink() {
 		if (WC.LVP()) {
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.implicitwait(60);
 			SignOutLink.click();
 		} else if (WC.SVP()) {
-			SignInButton.click();
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.implicitwait(60);
-			SignOutLink.click();
+			SignOutLinkSVP.click();
 		} else if (WC.MVP()) {
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.implicitwait(60);
 			SignOutLink.click();
 		}

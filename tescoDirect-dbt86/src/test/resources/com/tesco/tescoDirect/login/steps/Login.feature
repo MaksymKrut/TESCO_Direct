@@ -1,4 +1,4 @@
-@testC @testF @testMVP @testSVP
+@testC @testF @testMVP @testSVP @test
 Feature: Website Login
 
 Scenario: Accessing secured Login page 
@@ -7,5 +7,5 @@ Scenario: Accessing secured Login page
 	Then the I'm an existing customer radio button is selected by default 
 	When I login with the following valid credentials
 	| UserName              | Password  |
-	|testaccount@tescodirect.com|Password2|
+	|testaccount@tescodirect.com|Password1|
 	Then my login is successful and I am redirected to the home page

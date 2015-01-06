@@ -85,7 +85,6 @@ public class Login {
 			throws Throwable {
 		LOG.debug("my login is successful and I am redirected to the home page");
 		homePagePO = WC.getPageObject(HomePagePO.class);
-		// homePagePO.checkUserisLoggedin();
 		homePagePO.checkUserisOnHomePage();
 		homePagePO.clickOnSignOutLink();
 
