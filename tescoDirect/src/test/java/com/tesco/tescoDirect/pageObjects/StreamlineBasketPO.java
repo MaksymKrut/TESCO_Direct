@@ -107,7 +107,7 @@ public class StreamlineBasketPO extends PageObject {
 
 		} else if (WC.MVP()) {
 			WC.wait(10);
-			WC.assertingWebElement(StreamlinebasketOverlay);
+			//WC.assertingWebElement(StreamlinebasketOverlay);
 			WC.handlePopup();
 		}
 		
