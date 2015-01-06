@@ -535,9 +535,9 @@ public class Constants {
 		public final static String SignInButtonSVP = "#wrapper > div.uiOverlay > div > div > div > ul > li.sign-in-out > a";
 		public final static String SignInOrRegisterLink = "Sign in";
 		public final static String YourAccountButton = "#ssb_block_2 > div > div > a.mastheadButton.accountMenu";
-		public final static String WelcomeMsg = "//*[@id='nav-bar']/div[2]/ul/li[1][contains(text(),'Hello')]";
-		public final static String WelcomeMsgMVP = "//div[@id='nav-bar']/div[1][contains(text(),'Hello')]";
-		public final static String WelcomeMsgMobile = "#nav-bar > div.navigation > ul > li.first.sign-in";
+		public final static String WelcomeMsg = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.hello-user";
+		public final static String WelcomeMsgMVP = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.hello-user";
+		public final static String WelcomeMsgMobile = "#wrapper > div.uiOverlay > div > div > div > ul > li.hello-user";
 		public final static String SignOutLink = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.sign-in-out > form > a";
 		public final static String SignOutLinkSVP = "#wrapper > div.uiOverlay > div > div > div > ul > li.sign-in-out > form > a";
 		public final static String SignOutMobile = "#nav-bar > div.navigation > ul > li.first.sign-in > form > a";

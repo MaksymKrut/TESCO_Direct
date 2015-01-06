@@ -17,10 +17,10 @@ public class HomePagePO extends PageObject {
 	@FindBy(partialLinkText = Constants.HomePage.SignInOrRegisterLink)
 	@CacheLookup
 	private WebElement SignInOrRegisterLink;
-	@FindBy(xpath = Constants.HomePage.WelcomeMsg)
+	@FindBy(css = Constants.HomePage.WelcomeMsg)
 	@CacheLookup
 	private WebElement WelcomeMsg;
-	@FindBy(xpath = Constants.HomePage.WelcomeMsgMVP)
+	@FindBy(css = Constants.HomePage.WelcomeMsgMVP)
 	@CacheLookup
 	private WebElement WelcomeMsgMVP;
 	@FindBy(css = Constants.HomePage.WelcomeMsgMobile)
@@ -146,15 +146,19 @@ public class HomePagePO extends PageObject {
 	public void checkUserisLoggedin() {
 		if (WC.LVP()) {
 			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
+			WC.implicitwait(50);
 			WC.assertingWebElement(WelcomeMsg);
 		} else if (WC.SVP()) {
-			WC.wait(5);
-			WC.waitForElementClickable(
-					By.cssSelector(Constants.HomePage.SignInButton), 60);
-			WC.click(SignInButton);
-			WC.wait(3);
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.assertingWebElement(WelcomeMsgMobile);
 		} else if (WC.MVP()) {
+			WC.implicitwait(50);
+			WC.assertingWebElement(YourAccountButton);
+			YourAccountButton.click();
 			WC.implicitwait(60);
 			WC.assertingWebElement(WelcomeMsgMVP);
 		}
@@ -196,6 +200,19 @@ public class HomePagePO extends PageObject {
 			WC.implicitwait(50);
 			WC.assertingWebElement(YourAccountButton);
 			YourAccountButton.click();
+			WC.implicitwait(60);
+			SignOutLink.click();
+		}
+
+	}
+	public void clickOnSignOutLinkReg() {
+		if (WC.LVP()) {
+			WC.implicitwait(60);
+			SignOutLink.click();
+		} else if (WC.SVP()) {
+			WC.implicitwait(60);
+			SignOutLinkSVP.click();
+		} else if (WC.MVP()) {
 			WC.implicitwait(60);
 			SignOutLink.click();
 		}

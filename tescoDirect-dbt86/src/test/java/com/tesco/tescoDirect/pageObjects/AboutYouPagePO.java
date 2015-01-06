@@ -250,10 +250,8 @@ public class AboutYouPagePO extends PageObject {
 
 	public void selectingAddressFromDropDown() {
 		if (WC.LVP()) {
-			WC.wait(5);
-			WC.assertingWebElement(DropdownMatchingAllofthePostcode);
+			WC.wait(1);
 			PostCodeTextBox.sendKeys(Keys.ENTER);
-			// FirstAddress.click();
 		} else if (WC.SVP()) {
 			WC.wait(5);
 			PostCodeTextBox.sendKeys(Keys.ENTER);

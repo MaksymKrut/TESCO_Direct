@@ -1,4 +1,4 @@
-@testC @testF @testMVP @testSVP @test
+@testC @testF @testMVP @testSVP
 Feature: Website Login
 
 Scenario: Accessing secured Login page 
