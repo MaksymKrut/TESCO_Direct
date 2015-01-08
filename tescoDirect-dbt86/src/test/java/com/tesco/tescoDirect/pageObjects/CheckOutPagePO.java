@@ -117,19 +117,25 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(xpath = Constants.CheckOutPage.DeliveryDetailsCourierInstructionsEditLink)
 	@CacheLookup
 	private WebElement deliverydetailscourierinstructionseditlink;
-	@FindBy(id = Constants.CheckOutPage.NameOnCard)
+	@FindBy(css = Constants.CheckOutPage.NameOnCard)
 	@CacheLookup
 	private WebElement nameoncard;
-	@FindBy(id = Constants.CheckOutPage.CardNumber)
+	@FindBy(css = Constants.CheckOutPage.CardNumber)
 	@CacheLookup
 	private WebElement cardnumber;
-	@FindBy(id = Constants.CheckOutPage.ExpiryDateMonth)
+	@FindBy(css = Constants.CheckOutPage.ExpiryDateMonth)
 	@CacheLookup
 	private WebElement expirydatemonth;
-	@FindBy(id = Constants.CheckOutPage.ExpiryDateYear)
+	@FindBy(css = Constants.CheckOutPage.ExpiryMonth)
+	@CacheLookup
+	private WebElement expirymonth;
+	@FindBy(css = Constants.CheckOutPage.ExpiryDateYear)
 	@CacheLookup
 	private WebElement expirydateyear;
-	@FindBy(id = Constants.CheckOutPage.SecurityCode)
+	@FindBy(css = Constants.CheckOutPage.ExpiryYear)
+	@CacheLookup
+	private WebElement expiryyear;
+	@FindBy(css = Constants.CheckOutPage.SecurityCode)
 	@CacheLookup
 	private WebElement securitycode;
 	@FindBy(id = Constants.CheckOutPage.BillingAddressDropDown)
@@ -1179,7 +1185,59 @@ public class CheckOutPagePO extends PageObject {
 
 		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
 	}
+	public CheckOutPagePO payWithBankCard() {
+		if (WC.LVP()) {
+			WC.waitForElement(nameoncard, 50);
+			nameoncard.sendKeys("Automation Tester");
+			WC.waitForElement(cardnumber, 50);
+			cardnumber.sendKeys("5434601534888458");
+			WC.wait(1);
+			expirydatemonth.click();
+			WC.wait(1);
+			expirymonth.click();
+			WC.wait(1);
+			expirydateyear.click();
+			WC.wait(1);
+			expiryyear.click();
+			WC.waitForElement(securitycode, 50);
+			securitycode.sendKeys("508");
+			WC.waitForElement(nameoncard, 50);
+			WC.wait(5);
+			WC.click(paynowbutton);
 
+		} else if (WC.SVP()) {
+			WC.waitForElement(nameoncard, 50);
+			nameoncard.sendKeys("Automation Tester");
+			WC.waitForElement(cardnumber, 50);
+			cardnumber.sendKeys("5434601534888458");
+			WC.waitForElement(expirydatemonth, 50);
+			WC.selectfromdropdown(expirydatemonth, "12");
+			WC.waitForElement(expirydateyear, 50);
+			WC.selectfromdropdown(expirydateyear, "2018");
+			WC.waitForElement(securitycode, 50);
+			securitycode.sendKeys("508");
+			WC.waitForElement(nameoncard, 50);
+			WC.wait(5);
+			WC.click(paynowbutton);
+
+		} else if (WC.MVP()) {
+			WC.waitForElement(nameoncard, 50);
+			nameoncard.sendKeys("Automation Tester");
+			WC.waitForElement(cardnumber, 50);
+			cardnumber.sendKeys("5434601534888458");
+			WC.waitForElement(expirydatemonth, 50);
+			WC.selectfromdropdown(expirydatemonth, "12");
+			WC.waitForElement(expirydateyear, 50);
+			WC.selectfromdropdown(expirydateyear, "2018");
+			WC.waitForElement(securitycode, 50);
+			securitycode.sendKeys("508");
+			WC.waitForElement(nameoncard, 50);
+			WC.wait(5);
+			WC.click(paynowbutton);
+		}
+
+		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
+	}
 	public CheckOutPagePO verifypaywithagiftcardElements() {
 		WC.wait(5);
 		WC.verifyText("Enter your Gift Card code and PIN",

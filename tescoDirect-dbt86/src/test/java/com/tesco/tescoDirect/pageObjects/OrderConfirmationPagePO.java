@@ -18,7 +18,7 @@ public class OrderConfirmationPagePO extends PageObject {
 	@FindBy(css = Constants.OrderConfirmationPage.YourOrderHasBeenConfirmed)
 	@CacheLookup
 	private WebElement YourOrderHasBeenConfirmed;
-	@FindBy(partialLinkText = Constants.OrderConfirmationPage.MyAccount)
+	@FindBy(css = Constants.OrderConfirmationPage.MyAccount)
 	@CacheLookup
 	private WebElement MyAccount;
 	@FindBy(css = Constants.HomePage.SignInButton)
@@ -26,6 +26,7 @@ public class OrderConfirmationPagePO extends PageObject {
 	private WebElement SignInButton;
 
 	public OrderConfirmationPagePO verifyYourOrderHasBeenConfirmedMessage() {
+		WC.wait(10);
 		WC.verifyText("Your order has been confirmed",
 				YourOrderHasBeenConfirmed);
 		return (OrderConfirmationPagePO) WC
@@ -36,7 +37,6 @@ public class OrderConfirmationPagePO extends PageObject {
 		if (WC.LVP()) {
 			WC.assertingWebElement(MyAccount);
 			WC.click(MyAccount);
-
 		} else if (WC.SVP()) {
 			SignInButton.click();
 			WC.implicitwait(60);

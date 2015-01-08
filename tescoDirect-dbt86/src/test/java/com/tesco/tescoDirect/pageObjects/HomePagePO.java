@@ -121,6 +121,11 @@ public class HomePagePO extends PageObject {
 		if (WC.LVP()) {
 			WC.assertingWebElement(ViewBasketButton);
 			WC.click(ViewBasketButton);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.HomePage.BasketContainerViewBasketButtonMobile),
+					20);
+			WC.assertingWebElement(BasketContainerViewBasketButtonMobile);
+			WC.click(BasketContainerViewBasketButtonMobile);
 		} else if (WC.SVP()) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.HomePage.ViewBasketButton), 20);

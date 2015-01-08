@@ -1,7 +1,6 @@
 @testC @testF @testMVP @testSVP
 Feature: PLP
 
-
 Scenario: PLP initail Page load 
 Given I navigate to TESCO direct "home_page"
 When user types in "hudl" in the search and browse text

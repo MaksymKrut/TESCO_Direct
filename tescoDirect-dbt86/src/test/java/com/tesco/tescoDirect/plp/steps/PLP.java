@@ -55,7 +55,12 @@ public class PLP {
 		LOG.debug("the PLP page should be displayed showing the no of products matching the keyword Hudl");
 		searchResultsPO.checkingforMatchingProductsinSearchResultPage();
 	}
-
+	@Then("^the PLP page should be displayed showing the no of products matching the keyword ipad$")
+	public void the_PLP_page_should_be_displayed_showing_the_no_of_products_matching_the_keyword_ipad()
+			throws Throwable {
+		LOG.debug("the PLP page should be displayed showing the no of products matching the keyword ipad");
+		searchResultsPO.checkingforMatchingProductsinSearchResultPageIPAD();
+	}
 	@And("^View by category filter should be displayed with different categories and number of products available per category$")
 	public void View_by_category_filter_should_be_displayed_with_different_categories_and_number_of_products_available_per_category()
 			throws Throwable {

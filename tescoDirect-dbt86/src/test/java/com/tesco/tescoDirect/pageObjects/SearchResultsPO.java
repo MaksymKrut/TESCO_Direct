@@ -192,6 +192,20 @@ public class SearchResultsPO extends PageObject {
 		WC.assertingWebElement(HudlText);
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}
+	
+	public SearchResultsPO checkingforMatchingProductsinSearchResultPageIPAD() {
+		WC.assertingWebElement(ResultspageTitle);
+		String Currentinstance = WC.getDriver().getClass().getName();
+		if (Currentinstance.equals("org.openqa.selenium.chrome.ChromeDriver")
+				&& RefineByClearAllButtonLVP.isDisplayed()) {
+			WC.assertingWebElement(NoOfProducts);
+		} else if (Currentinstance
+				.equals("io.appium.java_client.android.AndroidDriver")
+				&& RefineByClearAllButtonMobile.isDisplayed()) {
+			WC.assertingWebElement(NoOfProductsMobile);
+		}
+		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
+	}
 
 	public SearchResultsPO checkingforViewByCategory() {
 		WC.assertingWebElement(ViewByCategory);
@@ -333,7 +347,7 @@ public class SearchResultsPO extends PageObject {
 					By.cssSelector(Constants.SearchResultsPage.PriceFilterCheckBox),
 					50);
 			WC.assertingWebElement(PriceFilterCheckBox);
-			PriceFilterCheckBox.click();
+			WC.click(PriceFilterCheckBox);
 		} else if (WC.SVP()) {
 			WC.waitForElementClickable(
 					By.cssSelector(Constants.SearchResultsPage.RefineByClearAllButtonMobile),

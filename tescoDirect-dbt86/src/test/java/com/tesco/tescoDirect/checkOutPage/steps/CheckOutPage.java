@@ -48,7 +48,7 @@ public class CheckOutPage {
 		homePagePO.clickingOnSigninorRegisterLink();
 		aboutYouPagePO = WC.getPageObject(AboutYouPagePO.class);
 		aboutYouPagePO.enterUserName("testaccount@tescodirect.com");
-		aboutYouPagePO.enterPassword("Password2");
+		aboutYouPagePO.enterPassword("Password1");
 		aboutYouPagePO.clickOnSignInButton();
 	}
 

@@ -1,4 +1,4 @@
-@testSVP @test
+@testSVP
 Feature: epic_no SVP validations
 
 Scenario: Get the Web Driver

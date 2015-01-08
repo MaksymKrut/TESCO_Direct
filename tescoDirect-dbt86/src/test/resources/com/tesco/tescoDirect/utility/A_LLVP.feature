@@ -1,5 +1,5 @@
 Feature: epic_no LVP validations
-@testC
+@testC @test
 Scenario: Get the Web Driver - Chrome
 
 Given the user defines the required webdriver for the LLVP device

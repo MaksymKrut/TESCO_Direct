@@ -129,11 +129,13 @@ public class Constants {
 		public final static String DeliveryDetailsContactPersonEditLink = "//div[@class='delivery-contact-snippet']//span[@class='name']/following-sibling::a";
 		public final static String DeliveryDetailsNewAddressLink = "//div[@class='address']//span[@class='line-1']/preceding-sibling::a";
 		public final static String DeliveryDetailsCourierInstructionsEditLink = "//div[@class='courier-instructions']//p[contains(text(),'No courier instructions')]//preceding-sibling::a";
-		public final static String NameOnCard = "nameoncard";
-		public final static String CardNumber = "numberoncard";
-		public final static String ExpiryDateMonth = "expiry-month";
-		public final static String ExpiryDateYear = "expiry-year";
-		public final static String SecurityCode = "security-code";
+		public final static String NameOnCard = "#nameoncard";
+		public final static String CardNumber = "#numberoncard";
+		public final static String ExpiryDateMonth = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div:nth-child(3) > a";
+		public final static String ExpiryMonth = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div.customDropdown.open > ul > li:nth-child(4) > a";
+		public final static String ExpiryDateYear = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div:nth-child(8) > a";
+		public final static String ExpiryYear = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div.customDropdown.open > ul > li:nth-child(6) > a";
+		public final static String SecurityCode = "#security-code";
 		public final static String BillingAddressDropDown = "billing-address";
 		public final static String PaymentCardNewAddressLink = "//div[@id='payment-card']//div[@class='address-update']//preceding-sibling::a";
 		public final static String SaveThisCard = "//div[@id='payment-card']//div[@class='checkbox eventBound']";
@@ -541,7 +543,7 @@ public class Constants {
 		public final static String SignOutLink = "#ssb_block_2 > div > div > div.myAccountDropdown.navigation.uiDropdown > div > div > ul > li.sign-in-out > form > a";
 		public final static String SignOutLinkSVP = "#wrapper > div.uiOverlay > div > div > div > ul > li.sign-in-out > form > a";
 		public final static String SignOutMobile = "#nav-bar > div.navigation > ul > li.first.sign-in > form > a";
-		public final static String ViewBasketButton = "#go-to-basket > div.basket-icon-wrapper > div.icon.icon-basket";
+		public final static String ViewBasketButton = "#ssb_block_2 > div > div > a.mastheadButton.basketMenu.fnBasketPreview";
 		public final static String BasketContainerViewBasketButtonMobile = "#edit-basket-items";
 		public final static String SearchSuggestionAsYouTypeOverLayType1 = "#spf-listContainer";
 		public final static String SearchSuggestionAsYouTypeOverLayType2 = "body > div.ac_results";
@@ -593,11 +595,11 @@ public class Constants {
 
 	public final class SearchResultsPage {
 		public final static String SearchBar = "#search-text-field";
-		public final static String GoButton = "#search-submit";
+		public final static String GoButton = "#search > form > div.searchContainer.search-field-wrapper > label";
 		public final static String ResultspageTitle = "#breadcrumb > ul > li.last";
 		public final static String NoOfProducts = "//form[@id='frmTest']//div[@class='filter-productCount']";
 		public final static String NoOfProductsMobile = "#filter-controls > div";
-		public final static String HudlImage = "img[alt*='hudl']";
+		public final static String HudlImage = "img[alt*='Hudl']";
 		public final static String HudlText = "li[id*='pt']> div > div.title-author-format > h3 > div > a[href*='hudl']";
 		public final static String ViewByCategory = "#product-categories > h3[class='filter-categoryLabel']";
 		public final static String DifferentCategory = "#product-categories > div.filter-categoryOptionList > a:nth-child(1)";
@@ -678,7 +680,7 @@ public class Constants {
 
 	public final class OrderConfirmationPage {
 		public final static String YourOrderHasBeenConfirmed = "#ssb_block_3 > h1";
-		public final static String MyAccount = "My account";
+		public final static String MyAccount = "#order-confirmation-header > p:nth-child(3) > a";
 
 	}
 

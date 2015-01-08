@@ -82,6 +82,14 @@ public class PlacingOrder {
 		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
 		checkOutPagePO.payWithGiftCard();
 	}
+	
+	@When("^I enter my bank card details to pay for the product$")
+	public void I_enter_my_bank_card_details_to_pay_for_the_product()
+			throws Throwable {
+		LOG.debug("I enter my gift card details to pay for the product");
+		checkOutPagePO = WC.getPageObject(CheckOutPagePO.class);
+		checkOutPagePO.payWithBankCard();
+	}
 
 	@Then("^user should be displayed the following message$")
 	public void user_should_be_displayed_the_following_message(DataTable table)

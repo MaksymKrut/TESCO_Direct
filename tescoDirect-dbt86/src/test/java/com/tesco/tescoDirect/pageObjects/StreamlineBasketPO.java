@@ -93,7 +93,7 @@ public class StreamlineBasketPO extends PageObject {
 
 	public StreamlineBasketPO checkingForStreamLineBasketOverlay() {
 		if (WC.LVP()) {
-			WC.wait(2);
+			WC.wait(5);
 			WC.waitForpresenceofElement(
 					By.cssSelector(Constants.StreamlineBasketPage.StreamlinebasketOverlay),
 					60);
@@ -101,12 +101,12 @@ public class StreamlineBasketPO extends PageObject {
 			WC.handlePopup();
 
 		} else if (WC.SVP()) {
-			WC.wait(10);
+			WC.wait(5);
 			//WC.assertingWebElement(StreamlinebasketOverlay);
 			WC.handlePopup();
 
 		} else if (WC.MVP()) {
-			WC.wait(10);
+			WC.wait(5);
 			//WC.assertingWebElement(StreamlinebasketOverlay);
 			WC.handlePopup();
 		}
@@ -436,20 +436,21 @@ public class StreamlineBasketPO extends PageObject {
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					20);
 			WC.verifyText("Results for “hudl”", PageTitle);
+			WC.wait(5);
 
 		} else if (WC.MVP() ) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					20);
 			WC.verifyText("Results for “hudl”", PageTitle);
-
+			WC.wait(5);
 		}
 		else if ( WC.SVP()) {
 			WC.presenceOfElementLocated(
 					By.cssSelector(Constants.BasketPage.BasketAttachmentPageTitle),
 					20);
 			WC.verifyText("Results for “hudl”", PageTitle);
-
+			WC.wait(5);
 		}
 
 		return (StreamlineBasketPO) WC.getPageObject(StreamlineBasketPO.class);
