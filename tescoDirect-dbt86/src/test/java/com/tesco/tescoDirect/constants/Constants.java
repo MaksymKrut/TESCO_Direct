@@ -133,8 +133,10 @@ public class Constants {
 		public final static String CardNumber = "#numberoncard";
 		public final static String ExpiryDateMonth = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div:nth-child(3) > a";
 		public final static String ExpiryMonth = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div.customDropdown.open > ul > li:nth-child(4) > a";
+		public final static String ExpiryMonthMobile = "#expiry-month > option:nth-child(4)";
 		public final static String ExpiryDateYear = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div:nth-child(8) > a";
 		public final static String ExpiryYear = "#payment-card > div.field-wrapper.select-field-wrapper.expiry.mandatory > div > div.customDropdown.open > ul > li:nth-child(6) > a";
+		public final static String ExpiryYearMobile = "#expiry-year > option:nth-child(6)";
 		public final static String SecurityCode = "#security-code";
 		public final static String BillingAddressDropDown = "billing-address";
 		public final static String PaymentCardNewAddressLink = "//div[@id='payment-card']//div[@class='address-update']//preceding-sibling::a";

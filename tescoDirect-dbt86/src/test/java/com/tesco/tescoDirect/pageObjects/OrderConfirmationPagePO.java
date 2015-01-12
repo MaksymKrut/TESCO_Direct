@@ -27,6 +27,7 @@ public class OrderConfirmationPagePO extends PageObject {
 
 	public OrderConfirmationPagePO verifyYourOrderHasBeenConfirmedMessage() {
 		WC.wait(10);
+		WC.waitForElement(YourOrderHasBeenConfirmed, 100);
 		WC.verifyText("Your order has been confirmed",
 				YourOrderHasBeenConfirmed);
 		return (OrderConfirmationPagePO) WC
@@ -38,8 +39,6 @@ public class OrderConfirmationPagePO extends PageObject {
 			WC.assertingWebElement(MyAccount);
 			WC.click(MyAccount);
 		} else if (WC.SVP()) {
-			SignInButton.click();
-			WC.implicitwait(60);
 			WC.assertingWebElement(MyAccount);
 			WC.click(MyAccount);
 		} else if (WC.MVP()) {

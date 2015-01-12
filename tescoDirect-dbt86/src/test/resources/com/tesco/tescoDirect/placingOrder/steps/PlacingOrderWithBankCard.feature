@@ -1,7 +1,7 @@
-@testC @testF @testMVP @testSVP
+@testC @testF @testMVP @testSVP 
 Feature: Placing an order using Bank card details
 
-@RegisteredUser @test
+@RegisteredUser
 Scenario: An exisiting tesco direct user logs into the website, searches for an item,adds item to basket ,places an order (Bank Card) and Order cancellation 
 	Given I navigate to TESCO direct "home_page" as a registered user 
 	When user types in "ipad" in the search and browse text 

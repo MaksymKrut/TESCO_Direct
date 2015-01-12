@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -169,11 +170,24 @@ public class SearchResultsPO extends PageObject {
 	private WebElement ProductImage1;
 
 	public SearchResultsPO typetoSearch(String product) {
-		WC.assertingWebElement(SearchBar);
-		SearchBar.sendKeys(product);
-		WC.waitForElementClickable(
-				By.cssSelector(Constants.SearchResultsPage.GoButton), 30);
-		GoButton.click();
+		
+		if (WC.LVP()) {
+			WC.assertingWebElement(SearchBar);
+			SearchBar.sendKeys(product);
+			WC.waitForElementClickable(
+					By.cssSelector(Constants.SearchResultsPage.GoButton), 30);
+			GoButton.click();
+			
+		} else if (WC.SVP()) {
+			WC.assertingWebElement(SearchBar);
+			SearchBar.sendKeys(product);
+			SearchBar.sendKeys(Keys.ENTER);
+			
+		} else if (WC.MVP()) {
+			WC.assertingWebElement(SearchBar);
+			SearchBar.sendKeys(product);
+			SearchBar.sendKeys(Keys.ENTER);
+		}
 		return (SearchResultsPO) WC.getPageObject(SearchResultsPO.class);
 	}
 

@@ -129,12 +129,18 @@ public class CheckOutPagePO extends PageObject {
 	@FindBy(css = Constants.CheckOutPage.ExpiryMonth)
 	@CacheLookup
 	private WebElement expirymonth;
+	@FindBy(css = Constants.CheckOutPage.ExpiryMonthMobile)
+	@CacheLookup
+	private WebElement expirymonthmobile;
 	@FindBy(css = Constants.CheckOutPage.ExpiryDateYear)
 	@CacheLookup
 	private WebElement expirydateyear;
 	@FindBy(css = Constants.CheckOutPage.ExpiryYear)
 	@CacheLookup
 	private WebElement expiryyear;
+	@FindBy(css = Constants.CheckOutPage.ExpiryYearMobile)
+	@CacheLookup
+	private WebElement expiryyearmobile;
 	@FindBy(css = Constants.CheckOutPage.SecurityCode)
 	@CacheLookup
 	private WebElement securitycode;
@@ -1210,30 +1216,44 @@ public class CheckOutPagePO extends PageObject {
 			nameoncard.sendKeys("Automation Tester");
 			WC.waitForElement(cardnumber, 50);
 			cardnumber.sendKeys("5434601534888458");
-			WC.waitForElement(expirydatemonth, 50);
-			WC.selectfromdropdown(expirydatemonth, "12");
-			WC.waitForElement(expirydateyear, 50);
-			WC.selectfromdropdown(expirydateyear, "2018");
+			WC.wait(1);
+			WC.click(expirydatemonth);
+			WC.wait(1);
+			WC.handlePopup();
+			expirymonthmobile.click();;
+			WC.wait(1);
+			WC.click(expirydateyear);
+			WC.wait(1);
+			WC.handlePopup();
+			expiryyearmobile.click();
 			WC.waitForElement(securitycode, 50);
 			securitycode.sendKeys("508");
 			WC.waitForElement(nameoncard, 50);
 			WC.wait(5);
 			WC.click(paynowbutton);
 
+
 		} else if (WC.MVP()) {
 			WC.waitForElement(nameoncard, 50);
 			nameoncard.sendKeys("Automation Tester");
 			WC.waitForElement(cardnumber, 50);
 			cardnumber.sendKeys("5434601534888458");
-			WC.waitForElement(expirydatemonth, 50);
-			WC.selectfromdropdown(expirydatemonth, "12");
-			WC.waitForElement(expirydateyear, 50);
-			WC.selectfromdropdown(expirydateyear, "2018");
+			WC.wait(1);
+			WC.click(expirydatemonth);
+			WC.wait(1);
+			WC.handlePopup();
+			expirymonthmobile.click();;
+			WC.wait(1);
+			WC.click(expirydateyear);
+			WC.wait(1);
+			WC.handlePopup();
+			expiryyearmobile.click();
 			WC.waitForElement(securitycode, 50);
 			securitycode.sendKeys("508");
 			WC.waitForElement(nameoncard, 50);
 			WC.wait(5);
 			WC.click(paynowbutton);
+
 		}
 
 		return (CheckOutPagePO) WC.getPageObject(CheckOutPagePO.class);
